@@ -1,0 +1,85 @@
+{
+  "revision": "R1-gear-engagement-fit-check",
+  "units": "mm",
+  "servo": {
+    "body_length": 40.5,
+    "body_width": 21.0,
+    "body_height": 38.9,
+    "overall_height": 44.6,
+    "axis_from_short_end": 10.5,
+    "ear_total_length": 55.0,
+    "ear_bottom_height": 27.95,
+    "ear_top_height": 30.75,
+    "ear_hole_pitch_length": 48.5,
+    "ear_hole_pitch_width": 10.0,
+    "body_clearance_per_side": 0.3,
+    "mount_slot_length": 5.0,
+    "mount_slot_width": 3.4
+  },
+  "metal_horn_interface": {
+    "required_spline": "25T; verify GDW IPX896HV fit",
+    "max_disc_diameter": 24.0,
+    "reference_disc_thickness": 2.0,
+    "reference_total_height": 7.0,
+    "bolt_slot_inner_radius": 6.0,
+    "bolt_slot_outer_radius": 9.0,
+    "bolt_slot_width": 3.4,
+    "bolt_directions_degrees": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "central_tool_access_diameter": 6.5,
+    "note": "Use matching 25T metal horn, OD up to 24 mm, with at least 2 opposite tapped M3 holes at R9 mm. The wider printed slots do not make all radii usable: R9 and head OD<=5.7 are needed for insertion past the 12 mm drive shaft. Procurement specification; verify actual horn.",
+    "required_bolt_hole_radius": 9.0,
+    "bolt_head_max_diameter": 5.7,
+    "bolt_head_max_height": 1.7
+  },
+  "gripper": {
+    "horn_contact_y": 0.0,
+    "servo_case_top_y": -8.0,
+    "shaft_extension_diameter": 12.0,
+    "shaft_running_clearance_diameter": 12.8,
+    "coupler_flange_diameter": 28.0,
+    "coupler_flange_thickness": 4.0,
+    "carrier_thickness": 4.0,
+    "assembly_offset_x": 2.95,
+    "assembly_offset_y": 42.0,
+    "assembly_offset_z": 110.0,
+    "drive_gear_axial_shift": 1.5,
+    "left_jaw_axial_shift": 1.2,
+    "right_jaw_axial_shift": -0.3
+  },
+  "yaw": {
+    "axis_offset_y": 0.5,
+    "ear_top_z": 39.0,
+    "horn_face_above_shaft_top": 2.0,
+    "coupler_diameter": 44.0,
+    "coupler_thickness": 4.0,
+    "rotor_bolt_x": 16.0,
+    "rotor_bolt_y": 9.0
+  },
+  "unverified_inputs": [
+    "Both actuators assumed to be IPX896HV",
+    "Ear hole pitches, axis offset and flange heights need physical confirmation; drawings may refer to different servo revisions",
+    "Metal horn geometry and shaft retaining screw thread/length not supplied",
+    "Object size, payload, printer and filament not supplied"
+  ],
+  "gear_alignment": {
+    "idler_left_xz": [
+      -10.088371937159756,
+      -0.8884232524184108
+    ],
+    "idler_right_xz": [
+      3.660489603383671,
+      -1.2723915314787873
+    ],
+    "phase_degrees_2d": {
+      "idler_left": -5.754274179660507,
+      "idler_right": -1.1010684621401579,
+      "right_gear": -4.309265771717676
+    },
+    "calibration": "Original tooth geometry retained; two idler pivots relocated and assembly phases aligned. 2D mesh clearance target 0.12 mm; verify in 3D and physically."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "gripper_drive_axis_xz": [
+    -18.596124949185874,
+    -12.881684609158798
+  ],
+  "yaw_ear_top_z": 39.0,
+  "yaw_servo_bottom": 8.25,
+  "yaw_horn_face_z": 54.85,
+  "rotor_bottom_z": 58.85,
+  "rotor_lift": 9.850000476837202,
+  "gripper_ear_front_y": -16.15,
+  "gripper_carrier_front_y": -12.149999999999999,
+  "gripper_rear_assembly_y": 32.08168778568506
+}

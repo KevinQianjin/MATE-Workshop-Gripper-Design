@@ -1,0 +1,133 @@
+{
+  "static_intersections": [],
+  "stl": {
+    "U01_left_claw.stl": {
+      "triangles": 1936,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 2170.725,
+      "z_min_mm": 0.0
+    },
+    "N02_gripper_to_waist_bridge.stl": {
+      "triangles": 10056,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 23231.095,
+      "z_min_mm": -0.0
+    },
+    "M02_drive_gear_horn_adapter.stl": {
+      "triangles": 8778,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 3619.262,
+      "z_min_mm": -0.0
+    },
+    "N01_yaw_horn_coupler.stl": {
+      "triangles": 6918,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 5179.614,
+      "z_min_mm": 0.0
+    },
+    "M03_base_IPX896HV.stl": {
+      "triangles": 5148,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 183358.735,
+      "z_min_mm": 0.0
+    },
+    "U03_linkage_PRINT_2.stl": {
+      "triangles": 1752,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 549.242,
+      "z_min_mm": 0.0
+    },
+    "U05_big_gear_right.stl": {
+      "triangles": 2964,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 921.298,
+      "z_min_mm": 0.0
+    },
+    "M01_palm_IPX896HV.stl": {
+      "triangles": 15140,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 38027.319,
+      "z_min_mm": 0.0
+    },
+    "U04_small_gear_PRINT_2.stl": {
+      "triangles": 2108,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 494.375,
+      "z_min_mm": 0.0
+    },
+    "M04_original_waist_horn_interface.stl": {
+      "triangles": 5500,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 88826.867,
+      "z_min_mm": 0.0
+    },
+    "U06_base_wall.stl": {
+      "triangles": 1456,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 43768.141,
+      "z_min_mm": 0.0
+    },
+    "U02_right_claw.stl": {
+      "triangles": 1936,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 2170.729,
+      "z_min_mm": 0.0
+    },
+    "F01_servo_ear_fit.stl": {
+      "triangles": 2176,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 4346.153,
+      "z_min_mm": -0.0
+    },
+    "F02_horn_slot_fit.stl": {
+      "triangles": 7448,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 2688.787,
+      "z_min_mm": 0.0
+    },
+    "F03_shaft_clearance_ring.stl": {
+      "triangles": 1008,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 741.611,
+      "z_min_mm": 0.0
+    },
+    "F04_shaft_fit_pin.stl": {
+      "triangles": 1256,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 1413.131,
+      "z_min_mm": 0.0
+    }
+  }
+}
