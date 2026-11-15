@@ -1,0 +1,17 @@
+Based on vshreyas121-code/6-dof-robotic-arm
+https://github.com/vshreyas121-code/6-dof-robotic-arm
+Commit: 258d1893ba1b8b49e87baa79da462680fd53681b
+Original copyright (c) 2026 vshreyas121-code. MIT license retained in upstream/LICENSE.
+
+2026-11-15 adaptation: IPX896HV servo carrier and drive interfaces; original
+base/waist interfaces; mounting bridge; assembly alignment; fit coupons;
+reproducible CAD generation, checking scripts and documentation.
+Unchanged upstream printable geometry is identified by U-prefixed file names.
+Those delivery STL files receive rigid transforms only for print orientation.
+M-prefixed files are modified upstream designs; N-prefixed files are new adapters.
+
+Servo and metal-horn reference envelopes are approximate mounting envelopes,
+not manufacturer CAD or a certification of compatibility. R1 requires physical
+fit and load testing before use. No payload rating or print-ready G-code is supplied.
+
+R1: drive gear axial offset corrected by +1.5 mm; jaw axial alignment and spacer instructions corrected. Original tooth profiles retained. Geometric chain backlash remains approximately 8.2-11.6 degrees in the assessed range.

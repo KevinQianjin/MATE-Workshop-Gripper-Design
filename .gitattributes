@@ -1,0 +1,8 @@
+* text=auto
+*.step binary
+*.stl binary
+*.brep binary
+*.pdf binary
+*.png binary
+*.zip binary
+upstream/** -text

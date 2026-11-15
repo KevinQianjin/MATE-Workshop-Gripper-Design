@@ -1,0 +1,97 @@
+{
+  "scope": "Rigid nominal CAD; exact BRep intersections at sampled poses. Fastener threads, cable swept volume, elastic deflection and force are not simulated.",
+  "opening_samples": [
+    {
+      "opening_rotation_deg": 0,
+      "linkage_closure_error_mm": 3.552713678800501e-15,
+      "minimum_jaw_to_jaw_distance_mm": 3.381214974357591,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 3,
+      "linkage_closure_error_mm": 1.7763568394002505e-14,
+      "minimum_jaw_to_jaw_distance_mm": 6.707572900195893,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 6,
+      "linkage_closure_error_mm": 1.7763568394002505e-14,
+      "minimum_jaw_to_jaw_distance_mm": 10.247117423896764,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 9,
+      "linkage_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_jaw_to_jaw_distance_mm": 13.91623573327958,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 12,
+      "linkage_closure_error_mm": 3.552713678800501e-15,
+      "minimum_jaw_to_jaw_distance_mm": 17.66049780049672,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 15,
+      "linkage_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_jaw_to_jaw_distance_mm": 21.443209910790195,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 18,
+      "linkage_closure_error_mm": 3.552713678800501e-15,
+      "minimum_jaw_to_jaw_distance_mm": 25.237129990646707,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 21,
+      "linkage_closure_error_mm": 2.842170943040401e-14,
+      "minimum_jaw_to_jaw_distance_mm": 29.02058510350514,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 24,
+      "linkage_closure_error_mm": 1.0658141036401503e-14,
+      "minimum_jaw_to_jaw_distance_mm": 32.77542406372278,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 27,
+      "linkage_closure_error_mm": 3.552713678800501e-15,
+      "minimum_jaw_to_jaw_distance_mm": 36.4858765337663,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 30,
+      "linkage_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_jaw_to_jaw_distance_mm": 40.13799028583926,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 33,
+      "linkage_closure_error_mm": 3.552713678800501e-15,
+      "minimum_jaw_to_jaw_distance_mm": 43.71906132281477,
+      "intersections": []
+    },
+    {
+      "opening_rotation_deg": 36,
+      "linkage_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_jaw_to_jaw_distance_mm": 47.217363761570425,
+      "intersections": []
+    }
+  ],
+  "yaw_samples": [
+    {
+      "yaw_degrees": -45,
+      "intersections": []
+    },
+    {
+      "yaw_degrees": 0,
+      "intersections": []
+    },
+    {
+      "yaw_degrees": 45,
+      "intersections": []
+    }
+  ]
+}

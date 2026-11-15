@@ -1,0 +1,330 @@
+{
+  "repository": "vshreyas121-code/6-dof-robotic-arm",
+  "commit": "258d1893ba1b8b49e87baa79da462680fd53681b",
+  "sha": "258d1893ba1b8b49e87baa79da462680fd53681b",
+  "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/258d1893ba1b8b49e87baa79da462680fd53681b",
+  "tree": [
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbb856812fb704b925e7999cb82e47a980c74b17",
+      "size": 1073,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/dbb856812fb704b925e7999cb82e47a980c74b17"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3d179f8a217818c6d3feaebee790252a647f5e3",
+      "size": 5890,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/c3d179f8a217818c6d3feaebee790252a647f5e3"
+    },
+    {
+      "path": "cad",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "91c01f147a5369c560f7e54d4596a9e50df00a81",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/91c01f147a5369c560f7e54d4596a9e50df00a81"
+    },
+    {
+      "path": "cad/Onshape-Link.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67c2c4bcda3679a89eb3f889917b9030970a9027",
+      "size": 159,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/67c2c4bcda3679a89eb3f889917b9030970a9027"
+    },
+    {
+      "path": "cad/STL",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b54c3be70165158c01485e61f7e36bbc3ef43b9",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/9b54c3be70165158c01485e61f7e36bbc3ef43b9"
+    },
+    {
+      "path": "cad/STL/base",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "260a2d694387d90d8e2922bc9bda9fe2ff76fa4b",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/260a2d694387d90d8e2922bc9bda9fe2ff76fa4b"
+    },
+    {
+      "path": "cad/STL/base/base-wall.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3db6b3df32db3f0cb7ff49c261657641a9966f9",
+      "size": 72884,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/b3db6b3df32db3f0cb7ff49c261657641a9966f9"
+    },
+    {
+      "path": "cad/STL/base/base.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a286858d8f2155786e4a36351dc85c5e7b4bb40",
+      "size": 192084,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/2a286858d8f2155786e4a36351dc85c5e7b4bb40"
+    },
+    {
+      "path": "cad/STL/elbow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0716a23b21d3a73373bae49d399e4df83327113b",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/0716a23b21d3a73373bae49d399e4df83327113b"
+    },
+    {
+      "path": "cad/STL/elbow/elbow.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c31822981c23d8749692a0446b6d168a51e66d6",
+      "size": 2187484,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/5c31822981c23d8749692a0446b6d168a51e66d6"
+    },
+    {
+      "path": "cad/STL/gripper",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "43d18655801f4a1e19c00bcb39ece02109e1f8a3",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/43d18655801f4a1e19c00bcb39ece02109e1f8a3"
+    },
+    {
+      "path": "cad/STL/gripper/2x-linkage.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9862d57c32a01e9a25ab6f104454d993b06d0653",
+      "size": 87684,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/9862d57c32a01e9a25ab6f104454d993b06d0653"
+    },
+    {
+      "path": "cad/STL/gripper/claw",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0a3dbc4fc2fbefc1ead3b8873e2d8f9feb0283f1",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/0a3dbc4fc2fbefc1ead3b8873e2d8f9feb0283f1"
+    },
+    {
+      "path": "cad/STL/gripper/claw/left-claw.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8378fa11350bcfbebc04e4ceb8fff808e74f5e68",
+      "size": 96884,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/8378fa11350bcfbebc04e4ceb8fff808e74f5e68"
+    },
+    {
+      "path": "cad/STL/gripper/claw/right-claw.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4377fdb23641ac9d93fe55d65a03d74395688b06",
+      "size": 96884,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/4377fdb23641ac9d93fe55d65a03d74395688b06"
+    },
+    {
+      "path": "cad/STL/gripper/gears",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "992fa65de96fec35ae68f8f90d90ee18303a18f8",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/992fa65de96fec35ae68f8f90d90ee18303a18f8"
+    },
+    {
+      "path": "cad/STL/gripper/gears/2x-small-gear.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d28a633af855c039027d9802d3d6d378454dee2",
+      "size": 105484,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/8d28a633af855c039027d9802d3d6d378454dee2"
+    },
+    {
+      "path": "cad/STL/gripper/gears/big-gear-left.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a441ab8e79de5d378dd4b76797666a1a1a93fef",
+      "size": 147684,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/7a441ab8e79de5d378dd4b76797666a1a1a93fef"
+    },
+    {
+      "path": "cad/STL/gripper/gears/big-gear-right.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5be9dd9aa8a003a27378f14b9b4c27119309708b",
+      "size": 148284,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/5be9dd9aa8a003a27378f14b9b4c27119309708b"
+    },
+    {
+      "path": "cad/STL/gripper/palm.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4423593525efdf300f1d87cd1be459bda8348784",
+      "size": 624084,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/4423593525efdf300f1d87cd1be459bda8348784"
+    },
+    {
+      "path": "cad/STL/shoulder",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1256c1bbb1c7695ee390db0e70e662216482efa1",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/1256c1bbb1c7695ee390db0e70e662216482efa1"
+    },
+    {
+      "path": "cad/STL/shoulder/shoulder.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c31822981c23d8749692a0446b6d168a51e66d6",
+      "size": 2187484,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/5c31822981c23d8749692a0446b6d168a51e66d6"
+    },
+    {
+      "path": "cad/STL/waist",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8f3313470a1d2fbb03ab0777f3c5e2c294f706e",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/f8f3313470a1d2fbb03ab0777f3c5e2c294f706e"
+    },
+    {
+      "path": "cad/STL/waist/waist.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4e8671bd7d8ca53cdc2594e280cc9ea695d974c",
+      "size": 206684,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/c4e8671bd7d8ca53cdc2594e280cc9ea695d974c"
+    },
+    {
+      "path": "cad/STL/wrist",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "372666803b03004edcf08d67cd23e16be2f5a564",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/372666803b03004edcf08d67cd23e16be2f5a564"
+    },
+    {
+      "path": "cad/STL/wrist/wrist.stl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59a49202ddd8f9bad90566f50ceb6827df4529ba",
+      "size": 1135384,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/59a49202ddd8f9bad90566f50ceb6827df4529ba"
+    },
+    {
+      "path": "cad/step",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b3c1613b746bd8bb8dbcd2781425bd172bc6ed6",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/9b3c1613b746bd8bb8dbcd2781425bd172bc6ed6"
+    },
+    {
+      "path": "cad/step/6-dof-robotic-arm.step",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7884dd65fcaf218c3a0920924dcf4b378e2a2dc6",
+      "size": 3652889,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/7884dd65fcaf218c3a0920924dcf4b378e2a2dc6"
+    },
+    {
+      "path": "cad/step/assembled-gripper.step",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "142337949908baa32f8b658c7f91799638771eee",
+      "size": 2800713,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/142337949908baa32f8b658c7f91799638771eee"
+    },
+    {
+      "path": "code",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "430e75c13cfe6ed73060806f191fce91c81f7e0d",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/430e75c13cfe6ed73060806f191fce91c81f7e0d"
+    },
+    {
+      "path": "code/6 DOF Robotic Arm.ino",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e18a67b1a6a09f86051291a584564ad806582c3b",
+      "size": 5294,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/e18a67b1a6a09f86051291a584564ad806582c3b"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "18f54951eeed8f7a04115da1a7341df6c2e037a9",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/18f54951eeed8f7a04115da1a7341df6c2e037a9"
+    },
+    {
+      "path": "docs/assembly-guide.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "872de27bafcfe5c36393d0e2ed7a2f6c036e8c76",
+      "size": 78074,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/872de27bafcfe5c36393d0e2ed7a2f6c036e8c76"
+    },
+    {
+      "path": "docs/wiring-diagram.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8653fded165384b6bbe28132a3138f1259999002",
+      "size": 143558,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/8653fded165384b6bbe28132a3138f1259999002"
+    },
+    {
+      "path": "electronics",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4aafdb572102dc92bd877e543e396b0d1d71b2e9",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/4aafdb572102dc92bd877e543e396b0d1d71b2e9"
+    },
+    {
+      "path": "electronics/parts-list.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d170423853ce8a5c8cecd1262e64735aa493aa6f",
+      "size": 47680,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/d170423853ce8a5c8cecd1262e64735aa493aa6f"
+    },
+    {
+      "path": "electronics/wiring-diagram.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8653fded165384b6bbe28132a3138f1259999002",
+      "size": 143558,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/8653fded165384b6bbe28132a3138f1259999002"
+    },
+    {
+      "path": "images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1fc7eebab56b90d9faa67148a29fca0a6212871b",
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/trees/1fc7eebab56b90d9faa67148a29fca0a6212871b"
+    },
+    {
+      "path": "images/Robotic_Arm.mov",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80cbc127fa9c169b4f6ed507523734174312d54f",
+      "size": 6012758,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/80cbc127fa9c169b4f6ed507523734174312d54f"
+    },
+    {
+      "path": "images/finished-arm-cad.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4876333090c5f314531488a7ac210b6fbc2b2f93",
+      "size": 280247,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/4876333090c5f314531488a7ac210b6fbc2b2f93"
+    },
+    {
+      "path": "images/finished-arm.jpeg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cebc66fe77d3828412017f2e212847970b76220d",
+      "size": 3394286,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/cebc66fe77d3828412017f2e212847970b76220d"
+    },
+    {
+      "path": "images/gripper.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5a98ea8ca98bfaf23ae56e2b601146eec91f33f",
+      "size": 313361,
+      "url": "https://api.github.com/repos/vshreyas121-code/6-dof-robotic-arm/git/blobs/f5a98ea8ca98bfaf23ae56e2b601146eec91f33f"
+    }
+  ],
+  "truncated": false
+}

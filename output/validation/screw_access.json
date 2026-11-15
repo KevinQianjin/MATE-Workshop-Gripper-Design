@@ -1,0 +1,30 @@
+{
+  "scope": "Specified M3x6 screw, head OD<=5.7 and height<=1.7, radial hole R9. Sampled side-entry path before installing palm. Threads and physical handling not simulated.",
+  "nominal_head_to_shaft_radial_clearance_mm": 0.15000000000000036,
+  "checks": [
+    {
+      "angle_deg": 0,
+      "sampled_positions": 25,
+      "max_intersection_mm3": 0,
+      "short_tool_leg_intersection_mm3": 0.0
+    },
+    {
+      "angle_deg": 90,
+      "sampled_positions": 25,
+      "max_intersection_mm3": 0,
+      "short_tool_leg_intersection_mm3": 0.0
+    },
+    {
+      "angle_deg": 180,
+      "sampled_positions": 25,
+      "max_intersection_mm3": 0,
+      "short_tool_leg_intersection_mm3": 0.0
+    },
+    {
+      "angle_deg": 270,
+      "sampled_positions": 25,
+      "max_intersection_mm3": 0,
+      "short_tool_leg_intersection_mm3": 0.0
+    }
+  ]
+}
