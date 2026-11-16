@@ -1,21 +1,21 @@
-﻿品項,數量,規格,用途,備註
-舵機,2,GDW IPX896HV,開合與左右轉向,暫按兩顆同型號；需實測
-金屬舵盤,2,匹配 25T；外徑 24 mm；至少兩個相對的 M3 螺紋孔在半徑 9 mm,兩軸傳動,屬採購接口要求；不是已確認的現有舵盤規格
-舵盤中心固定螺絲,2,使用舵機配套牙型及長度,輸出軸,不預設牙型
-M3 低頭圓頭螺絲,8,M3×6；頭徑 ≤5.7 mm；頭高 ≤1.7 mm；DIN 7380 類,金屬舵盤轉接,每盤最多四顆；至少兩顆相對；先測裝入路徑
-M3 螺絲,8,M3×12,開合舵機四耳＋底座轉接盤接旋轉座四孔,依墊片與螺母厚度確認
-M3 螺絲,8,M3×16,底座舵機四耳＋夾指驅動轉軸二孔＋側壁二孔,轉軸優先使用光桿或肩螺絲
-M3 轉軸螺絲,7,M3×20,五個固定齒輪／連桿支點＋兩個被動連桿夾指支點,依疊高確認；不可把活動件夾死
-M3 防鬆螺母,9,M3,活動轉軸,調整端隙
-M3 普通六角螺母,14,M3,舵機耳／轉接盤／側壁,關側壁前確認工具可進入
-M3 平墊片,30,內徑約 3.2；外徑約 6–7 mm,固定及轉軸間隔,備料數量；實際依疊高調整
-轉軸薄墊片組,1,約 0.3 及 1.9 mm 疊高,連桿高度對齊,按乾裝結果調整
-M5 內六角圓柱頭螺絲,4,M5×25,N02 連接原旋轉座,頭部需埋入沉孔；先鎖好才裝掌板
-M5 螺母及平墊組,4,M5,旋轉座內側,確認扳手空間
-M2.5 螺絲螺母平墊組,4,M2.5×14；平墊需覆蓋原十字槽,掌板後端接 N02,下方螺絲尾端不可碰旋轉座壁
-橡膠止滑墊,2,薄膠帶或橡膠片,夾指接觸面,可選；會改變閉合間隙
-平台固定五金,4,M5 或可穿過 5.4 mm 孔的五金,底座固定桌面,長度依平台決定
-舵機電源,1,穩壓 4.8–8.4 V 且具足夠瞬間電流能力,舵機獨立供電,不可直連原專案 12.6 V 電池
-PWM 控制器,1,兩路且時序符合舵機,軟體組整合,與舵機電源共地
-試裝底板軸／螺絲,4,M3×16 或可固定的直徑 3 mm 光滑軸段,F05 四齒輪試裝,測試用額外五金；依軸段實徑配孔
-試裝底板螺母及平墊組,4,M3 防鬆螺母＋上下平墊,F05 四齒輪試裝,不能夾死齒輪；固定輸入後量測輸出空隙
+Item,Quantity,Specification,Purpose,Notes
+Servo,2,GDW IPX896HV,Opening and yaw,Two identical servos assumed; measure actual hardware
+Metal servo horn,2,Matching 25T spline; 24 mm outside diameter; at least two opposed M3 tapped holes at 9 mm radius,Drive both axes,Required interface; existing horn dimensions are unconfirmed
+Horn center retaining screw,2,Correct thread and length supplied with servo,Output shaft retention,Thread is not assumed
+M3 low button-head screw,8,M3 x 6; head diameter <=5.7 mm; head height <=1.7 mm; DIN 7380 type,Metal horn adapters,Up to four per horn; at least two opposed; check insertion path first
+M3 screw,8,M3 x 12,Four opening-servo ears and four base coupler-to-waist holes,Confirm length against washers and nuts
+M3 screw,8,M3 x 16,Four base-servo ears; two driven jaw pivots; two side-wall holes,Prefer smooth shanks or shoulder screws at pivots
+M3 pivot screw,7,M3 x 20,Five fixed gear/link pivots and two passive-link-to-jaw pivots,Confirm stack height; do not clamp moving parts
+M3 locking nut,9,M3,Moving pivots,Adjust axial endplay
+M3 standard hex nut,14,M3,Servo ears; coupler; side wall,Confirm tool access before closing the side wall
+M3 flat washer,30,Approximately 3.2 mm ID; 6-7 mm OD,Fastening and pivot spacing,Stock quantity; adjust to actual stack
+Thin pivot spacer set,1,Approximately 0.3 mm and 1.9 mm stack heights,Linkage axial alignment,Adjust after dry assembly
+M5 socket-head cap screw,4,M5 x 25,N02 to original rotating waist,Recess heads fully; tighten before fitting palm
+M5 nut and washer set,4,M5,Inside rotating waist,Check wrench access
+M2.5 screw/nut/washer set,4,M2.5 x 14; washers must span original cross slots,Rear palm to N02,Lower screw ends must clear waist wall
+Grip pad,2,Thin adhesive rubber or rubber sheet,Jaw contact faces,Optional; changes closed gap
+Platform mounting fastener,4,M5 or hardware fitting 5.4 mm holes,Secure base to platform,Length depends on platform
+Servo power supply,1,Regulated 4.8-8.4 V with adequate transient current,Dedicated servo supply,Do not connect the upstream 12.6 V battery directly
+PWM controller,1,Two channels with servo-compatible timing,Controls integration,Share ground with servo power
+Trial-plate shaft/screw,4,M3 x 16 or retainable 3 mm smooth shaft,F05 four-gear test,Additional trial hardware; fit bores to actual shaft diameter
+Trial-plate nut/washer set,4,M3 locking nut with upper and lower flat washers,F05 four-gear test,Preserve free rotation; hold input while measuring output play

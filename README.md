@@ -1,56 +1,58 @@
 # MATE Workshop Gripper Design
 
-R2 fit-check CAD for a two-degree-of-freedom mini-gripper: **open/close + left/right yaw**, provisionally using two GDW IPX896HV servos. The design adapts [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm), retaining the original jaws, linkage interfaces, gear hubs, and base layout while replacing the working gear teeth with matched involute profiles.
+A 3D-printable, two-degree-of-freedom gripper: **open/close + left/right yaw**. The current design is the **R2 matched-gear fit-check prototype**, provisionally using two GDW IPX896HV servos.
 
-This is a prototype for printing and trial assembly. Servo mounting dimensions, metal horn compatibility, physical operation, and load capacity still require verification.
+[Models and print list](output/README.md) · [Assembly instructions](docs/assembly.md) · [PDF guide](output/assembly_and_print_guide.pdf) · [Hardware BOM](BOM.csv)
 
-## Design files
+![R2 two-axis gripper assembly](output/preview/assembly_open.png)
 
-- [Complete assembly STEP](output/IPX896HV_2DOF_assembly.step)
-- [Printable parts](output/stl/) — 12 part types, 14 printed pieces; print `PRINT_2` files twice
-- [Fit-check coupons](output/fit_checks/) — servo/horn checks plus a four-gear trial plate and three clearance options
-- [Modified and new part STEP files](output/step/)
-- [Traditional Chinese assembly instructions](README_繁體中文.md)
-- [Assembly and trial-print guide (PDF)](output/裝配與試印指南.pdf)
-- [Hardware bill of materials](BOM.csv)
-- [Gear engagement review](output/preview/gear_review_R2.pdf)
-- [Validation reports](output/validation/)
+## Start here
 
-![R2 gripper assembly](output/preview/assembly_open.png)
+| What you need | File or guide |
+|---|---|
+| Inspect the complete mechanism in Fusion or SolidWorks | [Assembly STEP](output/IPX896HV_2DOF_assembly.step) |
+| Check servo, horn, and gear fit | [Fit-check parts](output/fit_checks/) and [trial procedure](docs/assembly.md#interface-fit-checks) |
+| Print the mechanism | [12 part types, 14 printed pieces](output/README.md#main-printed-parts) |
+| Modify the design | [8 modified/new part STEP files](output/step/) and [parameters](parameters.json) |
+| Review the gear improvement and checks | [Gear comparison](output/preview/gear_review_R2.pdf) and [validation index](docs/validation.md) |
+| Rebuild or package the project | [Build and delivery guide](docs/build.md) |
 
-## R2 gear improvement
+1. Download the repository using GitHub **Code → Download ZIP** or `git clone`, then read the [assembly instructions](docs/assembly.md). Using the supplied STEP/STL files does not require Python.
+2. Print the F01–F04 interface coupons, followed by the F05 trial plate and two each of the B12 20T and 19T gears. Check their fit before printing the full mechanism.
+3. Use the [print list](output/README.md) and [BOM](BOM.csv) to prepare the complete assembly, then calibrate its usable endpoints without a payload.
 
-The four working gear rims now use module 0.75, a 20-degree pressure angle, and the original 20/19/19/20 tooth counts. Each idler pivot moves approximately 0.257 mm to give matching center distances. R1's full 2.0 mm axial tooth engagement is retained, as are the hubs, mounting interfaces, link lengths, jaws, and base parts.
+## Current design
 
-The exported CAD profiles give approximately **2.75 degrees of output reversal free play** over the assessed 0–36-degree input range, compared with R1's approximately 8.2–11.6 degrees. This meets the provisional CAD target of at most 3 degrees. It excludes printing error, bearing clearance, elastic deflection, friction, and servo backlash; physical performance remains unverified.
+| Item | R2 specification |
+|---|---|
+| Degrees of freedom | Open/close + left/right yaw, 2 axes |
+| Main printed parts | 12 types, 14 pieces; print `PRINT_2` files twice |
+| Gear configuration | Module 0.75, 20° pressure angle, 20/19/19/20 teeth |
+| Replacement scope from R1 | M01, M02, M05, M06 ×2: 4 types, 5 pieces |
+| Estimated output reversal free play | Approximately 2.75°; R1 approximately 8.2–11.6° |
+| CAD checks | 23 STLs, 20 STEPs, 145 nominal gear-profile positions, and 20 bidirectional contact-limit poses |
 
-Upgrading from R1 replaces **four part types, five printed pieces**: M01, M02, M05 (replacing U05), and M06 ×2 (replacing U04 ×2). Use the R2 palm and gears together. The main assembly still contains 14 printed pieces. The remaining part geometry is retained and checked against the R1 baseline.
+**This is a CAD-checked fit-test prototype.** Servo mounting ears, the metal horn, printed fit, and load capacity still need physical verification. Backlash values come from rigid geometry and exclude printing error and servo backlash. Use the R2 palm and gears together. See the [assembly instructions](docs/assembly.md) and [validation scope](docs/validation.md).
 
-Print F05 and two each of the B12 20T/19T trial gears first. B08, B12, and B16 denote nominal per-mesh tangential backlash of 0.08, 0.12, and 0.16 mm. The main parts use B12. A different choice requires regenerating and validating the main gears; B16 can exceed the current 3-degree CAD target.
+## Repository layout
 
-Recorded checks cover 20 STEP re-imports, 23 closed and consistently oriented STL meshes, 145 nominal gear-profile positions, 20 gripper linkage poses at the opening/closing tooth-contact limits, nominal opening and yaw samples, linkage closure, screw access, and preservation of existing interfaces. These checks do not establish physical fit, load capacity, or continuous operation under load.
-
-## Rebuild and inspect
-
-Install Python dependencies from `requirements.txt`, then run:
-
-```sh
-python scripts/build.py
-python scripts/check_and_render.py
-python scripts/check_gears.py
-python scripts/validate_motion.py
-python scripts/verify_delivery.py
-python scripts/verify_screw_access.py
-python scripts/verify_revision.py
-python scripts/plot_gear_review.py
-python scripts/make_guide.py
-python scripts/package_delivery.py
+```text
+docs/                   Assembly, build, and validation documentation
+output/                 R2 models, fit coupons, PDFs, and validation results
+scripts/                CAD generation, checking, rendering, and packaging
+reference/              R1 comparison baselines
+upstream/               Original GitHub project files and license
+BOM.csv                 Hardware procurement list
+parameters.json         Design dimensions and unverified assumptions
+CHANGELOG.md            Revision history
+source_manifest.json    Pinned upstream revision and file hashes
+DELIVERY_SHA256SUMS.txt  Delivery file checksums
 ```
 
-The PDF and annotated gear-review scripts additionally use Noto Sans CJK fonts at the Linux paths documented in the Chinese instructions. Generated `work/` files, local logs, and Python caches are excluded from version control.
+`dist/` contains generated delivery packages. `work/` contains local working files. Both are excluded from Git. See the [documentation index](docs/README.md) for more detail.
 
-`parameters.json` records nominal dimensions and unverified inputs. `source_manifest.json` pins the upstream source to commit `258d1893ba1b8b49e87baa79da462680fd53681b`. `reference/` retains the R1 comparison data. `DELIVERY_SHA256SUMS.txt` records the R2 packaged source and deliverables; Git metadata is excluded.
+## Source and license
 
-## License and attribution
+Based on [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm), pinned to `258d1893ba1b8b49e87baa79da462680fd53681b`. The original jaws, linkage interfaces, gear hubs, and base layout are retained where possible; R2 replaces the working gear rims.
 
-MIT. See [LICENSE](LICENSE), [NOTICE.txt](NOTICE.txt), and the retained [upstream license](upstream/LICENSE).
+MIT licensed. See [LICENSE](LICENSE), [NOTICE.txt](NOTICE.txt), and the [upstream license](upstream/LICENSE). Revision details are in the [changelog](CHANGELOG.md).
