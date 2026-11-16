@@ -1,0 +1,10 @@
+{
+  "source_commit": "a9ed9fded2ce59b079b9b703d5fd8c7202095e94",
+  "sha256": {
+    "M02_drive_gear_horn_adapter": "336a91f4c7134f8bffe26db72e4107026802552eb92bb25d774cc1e3ae07fdb8",
+    "M03_base_IPX896HV": "ff4b54b873323f4e576b5a023023d60f2efdbc7dca86fccb41d528cd9d0b4742",
+    "M04_original_waist_horn_interface": "679f0c233792ce0ae3c839280cb83eb70c1d77232bfed29950eff6c5b481cb1b",
+    "N01_yaw_horn_coupler": "120993b73bcc1c2ae8b5ae032a8a2e79242686ea4c293c08ccb4ffefcb38e7a7",
+    "N02_gripper_to_waist_bridge": "38d73fee0193e2689e408c08bc8fd5a58d81ad592767b2df10e2c55f00cc58f6"
+  }
+}

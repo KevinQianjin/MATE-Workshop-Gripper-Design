@@ -1,6 +1,6 @@
-"""Measure original tooth profiles, axial engagement and rigid backlash.
+"""Measure exported R2 tooth profiles, axial engagement and rigid backlash.
 
-Tooth sections are sampled from STEP at <=0.03 mm along each edge. This is a
+Tooth sections are sampled from exported BReps at <=0.02 mm along each edge. This is a
 nominal, rigid geometry analysis, not a force/contact-ratio or print test.
 """
 import json, math
@@ -11,23 +11,40 @@ from OCP.BRepAdaptor import BRepAdaptor_Surface
 from OCP.BRepAlgoAPI import BRepAlgoAPI_Section
 from shapely.geometry import LineString,Point,Polygon
 from shapely.ops import polygonize,unary_union,nearest_points
+from gears import AXIS_L,AXIS_R,IDLER_SOURCE
 
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output'
 P=json.loads((ROOT/'parameters.json').read_text())
-gr=cq.importers.importStep(str(ROOT/'upstream/cad/step/assembled-gripper.step')).solids().vals()
-centers={17:np.array([-18.5960823864,-12.8816877857]),16:np.array([11.4856,-13.7218]),7:np.array([-10.808355,-1.9993]),11:np.array([2.9457,-1.9993])}
-coords={};bands={};tips={17:8.15,16:8.15,7:7.5,11:7.5}
+design=P['gear_design'];module=design['module_mm'];counts={17:20,7:19,11:19,16:20}
+files={17:'M02_drive_gear_horn_adapter',16:'M05_right_gear_involute',7:'M06_small_gear_involute_PRINT_2',11:'M06_small_gear_involute_PRINT_2'}
+shapes={i:cq.Shape.importBrep(str(OUT/'brep'/f'{name}.brep')) for i,name in files.items()}
+source_centers={17:AXIS_L,16:AXIS_R,7:IDLER_SOURCE,11:IDLER_SOURCE}
+centers={i:c.copy() for i,c in source_centers.items()}
+coords={};bands={};tips={i:module*(n+2)/2 for i,n in counts.items()}
 for i in [17,7,11,16]:
-    face=cq.Face.makePlane(300,300,cq.Vector(0,18.8,0),cq.Vector(0,1,0))
-    op=BRepAlgoAPI_Section(gr[i].wrapped,face.wrapped);op.Build();lines=[]
+    face=cq.Face.makePlane(300,300,cq.Vector(0,19.8,0),cq.Vector(0,1,0))
+    op=BRepAlgoAPI_Section(shapes[i].wrapped,face.wrapped);op.Build();samples=[]
     for edge in cq.Shape.cast(op.Shape()).Edges():
-        pts,_=edge.sample(max(2,math.ceil(edge.Length()/.03)))
-        lines.append(LineString(np.round([[p.x,p.z] for p in pts],7)))
+        pts,_=edge.sample(max(2,math.ceil(edge.Length()/.02)))
+        points=np.array([[p.x,p.z] for p in pts])
+        if edge.IsClosed():points=np.vstack([points,points[0]])
+        samples.append(points)
+    # Section curves can meet within OCC tolerance but differ in their last
+    # floating-point digits. Snap only endpoints within 0.00002 mm, and explicitly
+    # close periodic edges (CadQuery sampling omits their repeated end point).
+    nodes=[];lines=[]
+    for points in samples:
+        for k in [0,-1]:
+            match=next((q for q in nodes if np.linalg.norm(q-points[k])<2e-5),None)
+            if match is None:nodes.append(points[k].copy())
+            else:points[k]=match
+        lines.append(LineString(points))
     poly=max(polygonize(unary_union(lines)),key=lambda p:p.area)
+    assert poly.area>80,f'Incomplete tooth section: {i}'
     poly=poly.intersection(Point(centers[i]).buffer(tips[i]+.01,quad_segs=256))
     coords[i]=np.asarray(poly.exterior.coords)-centers[i]
     intervals=[]
-    for f in gr[i].Faces():
+    for f in shapes[i].Faces():
         if f.geomType()=='CYLINDER' and abs(BRepAdaptor_Surface(f.wrapped).Cylinder().Radius()-tips[i])<1e-5:
             b=f.BoundingBox();intervals.append((b.ymin,b.ymax))
     bands[i]=[min(v[0] for v in intervals),max(v[1] for v in intervals)]
@@ -60,14 +77,9 @@ def free_band(a,i,beta,search=True):
     return out
 
 def main():
-    report={'scope':__doc__,'tooth_bands_source_y_mm':bands,'samples':[],'pairs':{}}
-    actual=cq.Shape.importBrep(str(OUT/'brep/M02_drive_gear_horn_adapter.brep'))
-    tooth_faces=[f for f in actual.Faces() if f.geomType()=='CYLINDER' and abs(BRepAdaptor_Surface(f.wrapped).Cylinder().Radius()-8.15)<1e-5]
-    actual_band=[min(f.BoundingBox().ymin for f in tooth_faces),max(f.BoundingBox().ymax for f in tooth_faces)]
-    assert np.allclose(actual_band,np.array(bands[17])+P['gripper'].get('drive_gear_axial_shift',0),atol=1e-5)
-    report['exported_drive_tooth_band_y_mm']=actual_band
+    report={'scope':__doc__,'revision':P['revision'],'tooth_bands_y_mm':bands,'design':design,'samples':[],'pairs':{}}
     all_rows={(17,7):[],(7,11):[],(11,16):[]}
-    for t in np.arange(0,36.001,.5):
+    for t in np.arange(0,36.001,.25):
         angles=nominal(float(t));polys={i:polygon(i,a) for i,a in angles.items()}
         row={'opening_deg':float(t),'pairs':{}}
         for a,b in all_rows:
@@ -77,27 +89,37 @@ def main():
         report['samples'].append(row)
     for (a,b),rows in all_rows.items():
         ba=bands[a].copy();bb=bands[b].copy()
-        original=max(0,min(ba[1],bb[1])-max(ba[0],bb[0]))
-        if a==17:ba=[v+P['gripper'].get('drive_gear_axial_shift',0) for v in ba]
         overlap=max(0,min(ba[1],bb[1])-max(ba[0],bb[0]))
+        alpha=math.radians(design['pressure_angle_deg']);ra=tips[a];rb=tips[b]
+        base_a=module*counts[a]/2*math.cos(alpha);base_b=module*counts[b]/2*math.cos(alpha)
+        distance=float(np.linalg.norm(centers[a]-centers[b]))
+        contact_ratio=(math.sqrt(ra*ra-base_a*base_a)+math.sqrt(rb*rb-base_b*base_b)-distance*math.sin(alpha))/(math.pi*module*math.cos(alpha))
         report['pairs'][f'{a}-{b}']={'center_distance_mm':float(np.linalg.norm(centers[a]-centers[b])),
             'radial_tip_circle_overlap_mm':float(tips[a]+tips[b]-np.linalg.norm(centers[a]-centers[b])),
-            'original_axial_tooth_overlap_mm':original,'corrected_axial_tooth_overlap_mm':overlap,
+            'axial_tooth_overlap_mm':overlap,'theoretical_transverse_contact_ratio':contact_ratio,
             'surface_gap_range_mm':[min(r['surface_gap_mm'] for r in rows),max(r['surface_gap_mm'] for r in rows)],
             'driven_free_angle_range_deg':[min(r['driven_free_angle_deg'] for r in rows),max(r['driven_free_angle_deg'] for r in rows)]}
     # Serial rigid contact limits: lower/upper on successive external meshes.
     chain=[]
-    for t in np.arange(0,36.001,1):
-        nom=nominal(float(t));ends=[]
+    for t in np.arange(0,36.001,.5):
+        nom=nominal(float(t));ends=[];contact_poses=[]
         for side in [-1,1]:
             angles={17:nom[17]}
             for n,(a,b) in enumerate([(17,7),(7,11),(11,16)]):
                 lower,upper=free_band(polygon(a,angles[a]),b,nom[b])
                 angles[b]=lower if side*(-1)**n<0 else upper
             ends.append(angles[16])
-        chain.append({'input_opening_deg':float(t),'right_gear_contact_angle_limits_deg':ends,'right_gear_free_angle_deg':abs(ends[1]-ends[0])})
+            contact_poses.append({'direction':'opening' if side<0 else 'closing','gear_angles_2d':angles})
+        chain.append({'input_opening_deg':float(t),'right_gear_contact_angle_limits_deg':ends,'right_gear_free_angle_deg':abs(ends[1]-ends[0]),'contact_poses':contact_poses})
     report['chain_samples']=chain
     report['chain_free_angle_range_deg']=[min(x['right_gear_free_angle_deg'] for x in chain),max(x['right_gear_free_angle_deg'] for x in chain)]
+    baseline=json.loads((ROOT/'reference/R1_gear_engagement.json').read_text())
+    report['baseline_R1_chain_free_angle_range_deg']=baseline['chain_free_angle_range_deg']
+    report['target_passed']=bool(report['chain_free_angle_range_deg'][1]<=design['output_backlash_target_deg'])
+    assert report['target_passed'],report['chain_free_angle_range_deg']
+    assert all(v['axial_tooth_overlap_mm']>=design['minimum_axial_overlap_mm']-1e-5 for v in report['pairs'].values())
+    assert all(v['theoretical_transverse_contact_ratio']>1.2 for v in report['pairs'].values())
+    assert all(v['overlap_mm2']<1e-7 for row in report['samples'] for v in row['pairs'].values())
     (OUT/'validation').mkdir(parents=True,exist_ok=True)
     (OUT/'validation/gear_engagement.json').write_text(json.dumps(report,indent=2))
     (OUT/'validation/tooth_profiles.json').write_text(json.dumps({str(i):v.tolist() for i,v in coords.items()}))

@@ -11,7 +11,14 @@ Those delivery STL files receive rigid transforms only for print orientation.
 M-prefixed files are modified upstream designs; N-prefixed files are new adapters.
 
 Servo and metal-horn reference envelopes are approximate mounting envelopes,
-not manufacturer CAD or a certification of compatibility. R1 requires physical
+not manufacturer CAD or a certification of compatibility. This design requires physical
 fit and load testing before use. No payload rating or print-ready G-code is supplied.
 
 R1: drive gear axial offset corrected by +1.5 mm; jaw axial alignment and spacer instructions corrected. Original tooth profiles retained. Geometric chain backlash remains approximately 8.2-11.6 degrees in the assessed range.
+
+R2 (2026-11-16): working gear rims replaced by matched module 0.75, 20-degree
+involute profiles; idler pivots and palm relief adjusted for the matching center
+distances. Original hubs, central interfaces, linkage arms and end holes retained.
+M05/M06 replace the former U05/U04 gears. Trial gears and a four-axis hand-test
+plate added. Nominal rigid CAD chain backlash is approximately 2.75 degrees;
+this is not a physical measurement or a guarantee of load performance.

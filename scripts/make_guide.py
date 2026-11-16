@@ -11,6 +11,8 @@ from check_and_render import render
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output'
 P=json.loads((ROOT/'parameters.json').read_text());G=P['gripper'];Y=P['yaw']
 parts={p.stem.removeprefix('assembly_'):cq.Shape.importBrep(str(p)) for p in (OUT/'brep').glob('assembly_*.brep')}
+render(parts,'assembly_front.png',45)
+render(parts,'assembly_rear.png',225)
 gr=cq.importers.importStep(str(ROOT/'upstream/cad/step/assembled-gripper.step')).solids().vals()
 drive=cq.Shape.importBrep(str(OUT/'brep/M02_drive_gear_horn_adapter.brep'))
 def gf(s):return s.rotate((0,0,0),(1,0,0),90).translate((G['assembly_offset_x'],G['assembly_offset_y']+Y['axis_offset_y'],G['assembly_offset_z']))
@@ -31,11 +33,23 @@ for name,path,direction in [('servo_fit','fit_checks/F01_servo_ear_fit.step',(0,
     svg=cq.exporters.getSVG(s,opts={'width':600,'height':350,'projectionDir':direction,'showAxes':False,'showHidden':False,'strokeWidth':1})
     a=fitz.open(stream=svg.encode(),filetype='svg');b=fitz.open(stream=a.convert_to_pdf(),filetype='pdf');b[0].get_pixmap().save(str(OUT/'preview'/f'{name}.png'))
 
+from gears import layout
+centers,phases=layout();trial=[cq.importers.importStep(str(OUT/'fit_checks/F05_four_gear_trial_plate.step')).val()]
+for n,c,phase in zip([20,19,19,20],centers,phases):
+    s=cq.importers.importStep(str(OUT/f'fit_checks/F_mesh_{n}T_B12_PRINT_2.step')).val()
+    trial.append(s.rotate((0,0,0),(0,1,0),-phase).translate((c[0],4.5,c[1])))
+svg=cq.exporters.getSVG(cq.Compound.makeCompound(trial),opts={'width':900,'height':480,'projectionDir':(0,1,0),'showAxes':False,'showHidden':False,'strokeWidth':.7})
+(OUT/'preview/gear_trial_plate.svg').write_text('\n'.join(line.rstrip() for line in svg.splitlines())+'\n')
+a=fitz.open(stream=svg.encode(),filetype='svg');b=fitz.open(stream=a.convert_to_pdf(),filetype='pdf');b[0].get_pixmap().save(str(OUT/'preview/gear_trial_plate.png'))
+
 report=json.loads((OUT/'validation/static_and_mesh.json').read_text())
 motion=json.loads((OUT/'validation/motion.json').read_text())
+gears=json.loads((OUT/'validation/gear_engagement.json').read_text())
+assert gears['revision']==P['revision'] and gears['target_passed']
 assert not report['static_intersections'],'Resolve static clashes before generating the guide'
 assert all(not x['intersections'] for x in motion['opening_samples']),'Resolve sampled-motion clashes'
 assert all(not x['intersections'] for x in motion['yaw_samples'])
+assert len(motion['contact_limit_samples'])==20 and all(not x['intersections'] for x in motion['contact_limit_samples'])
 assert all(v['boundary_edges']==0 and v['nonmanifold_edges']==0 and v['signed_volume_mm3']>0 for v in report['stl'].values())
 
 # Extract the Traditional Chinese face from the collection before embedding.
@@ -52,7 +66,7 @@ FONT=str(fontdir/'NotoSansCJKtc-Regular.otf')
 BOLD=str(fontdir/'NotoSansCJKtc-Bold.otf')
 f=fitz.Font(fontfile=FONT);fb=fitz.Font(fontfile=BOLD)
 doc=fitz.open();blue=(.09,.21,.29);gray=(.30,.37,.42);orange=(.92,.52,.08)
-def page(title,subtitle='R1 試裝版  ·  2026-11-15'):
+def page(title,subtitle='R2 匹配齒輪試裝版  ·  2026-11-16'):
     p=doc.new_page(width=595,height=842)
     p.insert_font(fontname='F',fontfile=FONT);p.insert_font(fontname='B',fontfile=BOLD)
     p.draw_rect(fitz.Rect(0,0,595,8),color=blue,fill=blue)
@@ -86,13 +100,13 @@ def table(p,rows,widths,y,header=True,rowheight=31):
 
 p=page('IPX896HV 雙自由度夾爪','開合＋左右轉向  /  完整 STEP、分件 STL、試片及五金表')
 p.insert_image(fitz.Rect(25,96,570,583),filename=str(OUT/'preview/assembly_open.png'),keep_proportion=True)
-y=text(p,'保留原機構，修改必要接口',36,608,size=16,bold=True)
-y=text(p,'6 種原件保留幾何；4 種原件局部修改；新增 2 種轉接件。主要列印件共 14 件。所用原始 CAD 與 MIT 授權已保留。',36,y+10)
+y=text(p,'保留原機構，改善齒輪傳動',36,608,size=16,bold=True)
+y=text(p,'4 種原件保留幾何；6 種原件局部修改；2 種轉接件。主要列印件共 14 件。R2 齒圈改為匹配漸開線，原輪轂與連桿接口保留。',36,y+10)
 y=text(p,'重要：這是可供列印試裝的 CAD 原型，沒有完成實物配合或承載驗證。兩顆舵機均暫按 IPX896HV，舵盤及固定耳尺寸仍需核對。',36,y+10,bold=True,color=orange)
 text(p,'先開 output/IPX896HV_2DOF_assembly.step；先印 output/fit_checks。完整步驟見 README_繁體中文.md。',36,y+10,size=10)
 
 p=page('列印清單與設定')
-rows=[('編號','零件','數量','處理'),('U01 / U02','左右夾指','各 1','原幾何'),('U03','被動連桿','2','原幾何'),('U04','小齒輪','2','原幾何'),('U05','右齒輪連桿','1','原幾何'),('U06','底座側壁','1','原幾何'),('M01','掌板／舵機座','1','接口＋支點校正'),('M02','驅動齒輪連桿','1','只改後端接口'),('M03','固定底座','1','孔位／局部腔體'),('M04','原旋轉座','1','底部接口'),('N01','舵盤轉接盤','1','新增'),('N02','夾爪轉接支架','1','新增')]
+rows=[('編號','零件','數量','處理'),('U01 / U02','左右夾指','各 1','原幾何'),('U03','被動連桿','2','原幾何'),('U06','底座側壁','1','原幾何'),('M01','掌板／舵機座','1','R2 支點／避讓'),('M02','驅動齒輪連桿','1','R2 齒圈＋原接口'),('M03','固定底座','1','沿用 R1'),('M04','原旋轉座','1','沿用 R1'),('M05','右齒輪連桿','1','R2 齒圈；取代 U05'),('M06','小齒輪','2','R2 齒圈；取代 U04'),('N01','舵盤轉接盤','1','沿用 R1'),('N02','夾爪轉接支架','1','沿用 R1')]
 y=table(p,rows,[92,185,55,191],103,rowheight=32)
 y=text(p,'建議：0.4 噴嘴、0.2 層高、4–6 道外壁。支架約 40% 填充；延長軸、舵盤盤面和齒輪根部局部實心。',36,y+31)
 y=text(p,'先用 PLA 試配合；改 PETG 後再確認孔徑。檔案已置底，但 M01/M02 的懸空部位及原夾指槽仍可能需要支撐，請檢查切片每層。',36,y+12)
@@ -113,26 +127,36 @@ steps=[
 ('2  底座傳動','先把 N01 鎖到金屬舵盤，確認螺絲頭沉入；再以四個 M3×12 螺絲及普通螺母將 M04 接到 N01。'),
 ('3  轉接支架','先鎖 N02 的四個 M5 螺絲。沉孔避免上排螺絲頭頂住掌板；裝掌板後工具較難進入。'),
 ('4  開合舵機','將舵機裝到 M01 外置座；M02 連接金屬舵盤，延長軸穿過掌板。中心孔可供鎖舵盤固定螺絲的工具通過。'),
-('5  齒輪與連桿','依 STEP 的位置與相位裝 U04×2、U05、U03×2 和兩個夾指。原零件的支點已重新對齊；活動螺絲不可夾死。'),
+('5  齒輪與連桿','依 R2 STEP 的位置與齒相裝 M06×2、M05、U03×2 和兩個夾指。R2 掌板與齒輪應成套使用；活動螺絲不可夾死。'),
 ('6  墊片與掌板','兩側夾指已對齊。固定支點留約 0.3；被動連桿到夾指均暫需約 1.9 墊高；齒輪連桿到夾指均約留 0.3。再將掌板鎖到 N02。'),
 ('7  乾裝後再通電','檢查螺絲尾端、舵盤和線材，手動確認自由運動。先小角度空載測試，實測可用端點後再設定軟限位。')]
 y=111
 for title,body in steps:
     y=text(p,title,36,y,size=12,bold=True)
     y=text(p,body,36,y+3,size=10.5);y+=17
-text(p,'詳細螺絲尺寸及順序見 BOM.csv 和 README。原轉軸孔可能需按所用 M3 螺絲鉸至約 3.1–3.2，應逐孔確認，不能全數一律擴孔。',36,y+4,size=10,color=gray)
+text(p,'詳細螺絲尺寸及順序見 BOM.csv 和 README。活動孔按實際光滑軸段逐孔鉸配，以自由轉動且無明顯晃動為準；直徑間隙可先以約 0.05–0.10 試配。',36,y+4,size=10,color=gray)
 
 p=page('已檢查與仍需實測')
 last=motion['opening_samples'][-1]
 first=motion['opening_samples'][0]
-rows=[('檢查','結果'),('修改／新增 CAD 零件','六個均為有效單一實體'),('STL 網格','16 個列印／試片檔均封閉、正體積'),('名義裝配','未檢出 >0.01 mm³ 的實體穿透'),('開合抽樣','0–36°，每 3° 檢查一次'),('轉向抽樣','−45° / 0° / +45°'),('連桿閉合','重新對齊，數值誤差近零')]
+rows=[('檢查','結果'),('修改／新增 CAD 零件','八個均為有效單一實體'),('STL 網格',f'{len(report["stl"])} 個列印／試片檔均封閉、正體積'),('名義裝配','未檢出 >0.01 mm³ 的實體穿透'),('開合抽樣','0–36°，每 3° 檢查一次'),('正反向接觸邊界','20 個整體姿態；未檢出 >0.02 mm³ 穿透'),('轉向抽樣','−45° / 0° / +45°'),('連桿閉合','重新對齊，數值誤差近零')]
 y=table(p,rows,[164,359],108,rowheight=34)
-y=text(p,'R1 已將驅動齒寬重疊由 0.5 改為 2.0。但原齒形的三對間隙累積，剛體模型估算輸出端約有 8.2–11.6° 回程空隙，仍需實物檢查。詳見齒輪檢查圖。',36,y+28,bold=True)
+y=text(p,f'R2 剛體齒輪鏈回程約 {max(gears["chain_free_angle_range_deg"]):.2f}°，達到暫定 ≤3° 模型目標；R1 約 8.2–11.6°。未計入打印誤差、軸孔鬆動及舵機回程，實際結果須試裝確認。',36,y+28,bold=True)
 y=text(p,f'上述開合範圍內，兩夾指最小幾何距離約 {first["minimum_jaw_to_jaw_distance_mm"]:.1f}–{last["minimum_jaw_to_jaw_distance_mm"]:.1f}，未含膠墊；不代表任意形狀物品的可夾尺寸。沒有給出已驗證的載重額定值。',36,y+12)
 y=text(p,'供電與軟體接口',36,y+22,size=14,bold=True)
 y=text(p,'附件電壓 4.8–8.4 V；不得直接接原專案的 12.6 V 電池。7.4 V 下單顆堵轉電流 5.4 A，兩顆可能約 10.8 A 峰值，供電與線路需相應選擇並共地。',36,y+7)
 y=text(p,'兩路 PWM。附件脈寬 500–2500 μs、中位 1500 μs、工作頻率 333 Hz；由軟體組確認驅動器設定。完整脈寬範圍不可直接當作機構允許行程。',36,y+10)
 text(p,'GitHub 來源：vshreyas121-code/6-dof-robotic-arm\n固定版本：258d1893ba1b8b49e87baa79da462680fd53681b\n原 MIT 授權、來源雜湊與修改說明均已保留。',36,y+19,size=9,color=gray)
+
+p=page('先用齒輪試裝板選配')
+p.insert_image(fitz.Rect(36,107,559,365),filename=str(OUT/'preview/gear_trial_plate.png'),keep_proportion=True)
+y=text(p,'F05 底板＋20T 齒輪兩件＋19T 齒輪兩件',36,391,size=14,bold=True)
+y=text(p,'20T 裝在相距約 30.09 的兩個外側軸；19T 裝在相距 14.25 的兩個較近軸。螺絲及墊片在圖中省略，組裝時需保留端隙。此底板用於手動試裝。',36,y+10)
+rows=[('檔名代號','每對設計切向齒隙','使用方式'),('B08','0.08','較緊，先確認不卡點'),('B12','0.12','本版主零件採用'),('B16','0.16','較鬆，回程量可能增加')]
+y=table(p,rows,[105,185,233],y+12,rowheight=30)
+y=text(p,'同一組測試請使用相同代號，各齒數均印兩件。先檢查象腳、毛邊、孔徑和軸段，再手動往返轉動；固定輸入後量測輸出自由擺角。',36,y+27)
+y=text(p,'選擇其他齒隙時，需同步改參數、重出 M02／M05／M06 並重新驗證。試裝板通過後，再乾裝包含夾指與連桿的開合模組。',36,y+9)
+text(p,'B08/B12/B16 是 CAD 設計值，不是實測間隙。較大齒隙可能超過本版 ≤3° 的模型目標。',36,y+9,size=10,color=gray)
 
 doc.save(OUT/'裝配與試印指南.pdf',garbage=4,deflate=True)
 print('GUIDE_WRITTEN',len(doc),flush=True)

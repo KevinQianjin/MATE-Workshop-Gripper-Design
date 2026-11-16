@@ -2,7 +2,10 @@
 Only rigid transforms are applied here. Coordinates are the pinned source STEP's XZ plane.
 """
 import math
+from pathlib import Path
+from functools import lru_cache
 import numpy as np
+import cadquery as cq
 
 AXIS_L=np.array([-18.5960823864,-12.8816877857])
 AXIS_R=np.array([11.4856,-13.7218])
@@ -34,14 +37,22 @@ def solve_side(gr,side,drive_degrees_2d):
     err=abs(np.linalg.norm(B-base)-link_len)+abs(np.linalg.norm(B-A)-jaw_len)
     return link,jaw,float(err)
 
-def posed(gr,drive,p,opening_degrees=0):
+@lru_cache(maxsize=1)
+def exported_gears():
+    root=Path(__file__).resolve().parents[1]/'output/brep'
+    return {'right':cq.Shape.importBrep(str(root/'M05_right_gear_involute.brep')),
+            'idler':cq.Shape.importBrep(str(root/'M06_small_gear_involute_PRINT_2.brep'))}
+
+def posed(gr,drive,p,opening_degrees=0,gear_parts=None,gear_angles=None):
     fit=p['gear_alignment'];ph=fit['phase_degrees_2d']
     Lnew=np.array(fit['idler_left_xz']);Rnew=np.array(fit['idler_right_xz'])
-    smallL=turn(gr[7],IDLER_L,ph['idler_left']+opening_degrees*20/19).translate((Lnew[0]-IDLER_L[0],0,Lnew[1]-IDLER_L[1]))
-    smallR=turn(gr[11],IDLER_R,ph['idler_right']-opening_degrees*20/19).translate((Rnew[0]-IDLER_R[0],0,Rnew[1]-IDLER_R[1]))
-    linkL,jawL,eL=solve_side(gr,'left',-opening_degrees)
-    right_angle=ph['right_gear']+opening_degrees
+    gears=gear_parts or exported_gears()
+    angles=gear_angles or {'drive':-opening_degrees,'left':ph['idler_left']+opening_degrees*20/19,'right':ph['idler_right']-opening_degrees*20/19,'output':ph['right_gear']+opening_degrees}
+    smallL=turn(gears['idler'],IDLER_L,angles['left']).translate((Lnew[0]-IDLER_L[0],0,Lnew[1]-IDLER_L[1]))
+    smallR=turn(gears['idler'],IDLER_L,angles['right']).translate((Rnew[0]-IDLER_L[0],0,Rnew[1]-IDLER_L[1]))
+    linkL,jawL,eL=solve_side(gr,'left',angles['drive'])
+    right_angle=angles['output']
     linkR,jawR,eR=solve_side(gr,'right',right_angle)
     jawL=jawL.translate((0,p['gripper'].get('left_jaw_axial_shift',0),0))
     jawR=jawR.translate((0,p['gripper'].get('right_jaw_axial_shift',0),0))
-    return {'drive_gear':turn(drive,AXIS_L,-opening_degrees),'right_gear':turn(gr[16],AXIS_R,right_angle),'idler_left':smallL,'idler_right':smallR,'link_left':linkL,'link_right':linkR,'claw_left':jawL,'claw_right':jawR},max(eL,eR)
+    return {'drive_gear':turn(drive,AXIS_L,angles['drive']),'right_gear':turn(gears['right'],AXIS_R,right_angle),'idler_left':smallL,'idler_right':smallR,'link_left':linkL,'link_right':linkR,'claw_left':jawL,'claw_right':jawR},max(eL,eR)
