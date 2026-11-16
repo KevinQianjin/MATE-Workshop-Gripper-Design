@@ -18,12 +18,20 @@
       "z_min_mm": -0.0
     },
     "M02_drive_gear_horn_adapter.stl": {
-      "triangles": 8778,
+      "triangles": 36026,
       "finite": true,
       "boundary_edges": 0,
       "nonmanifold_edges": 0,
-      "signed_volume_mm3": 3619.262,
+      "signed_volume_mm3": 3604.519,
       "z_min_mm": -0.0
+    },
+    "M06_small_gear_involute_PRINT_2.stl": {
+      "triangles": 25156,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 537.738,
+      "z_min_mm": 0.0
     },
     "N01_yaw_horn_coupler.stl": {
       "triangles": 6918,
@@ -49,28 +57,12 @@
       "signed_volume_mm3": 549.242,
       "z_min_mm": 0.0
     },
-    "U05_big_gear_right.stl": {
-      "triangles": 2964,
-      "finite": true,
-      "boundary_edges": 0,
-      "nonmanifold_edges": 0,
-      "signed_volume_mm3": 921.298,
-      "z_min_mm": 0.0
-    },
     "M01_palm_IPX896HV.stl": {
-      "triangles": 15140,
+      "triangles": 15182,
       "finite": true,
       "boundary_edges": 0,
       "nonmanifold_edges": 0,
-      "signed_volume_mm3": 38027.319,
-      "z_min_mm": 0.0
-    },
-    "U04_small_gear_PRINT_2.stl": {
-      "triangles": 2108,
-      "finite": true,
-      "boundary_edges": 0,
-      "nonmanifold_edges": 0,
-      "signed_volume_mm3": 494.375,
+      "signed_volume_mm3": 37989.887,
       "z_min_mm": 0.0
     },
     "M04_original_waist_horn_interface.stl": {
@@ -87,6 +79,14 @@
       "boundary_edges": 0,
       "nonmanifold_edges": 0,
       "signed_volume_mm3": 43768.141,
+      "z_min_mm": 0.0
+    },
+    "M05_right_gear_involute.stl": {
+      "triangles": 25768,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 905.324,
       "z_min_mm": 0.0
     },
     "U02_right_claw.stl": {
@@ -113,6 +113,14 @@
       "signed_volume_mm3": 2688.787,
       "z_min_mm": 0.0
     },
+    "F_mesh_19T_B12_PRINT_2.stl": {
+      "triangles": 23480,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 434.366,
+      "z_min_mm": 0.0
+    },
     "F03_shaft_clearance_ring.stl": {
       "triangles": 1008,
       "finite": true,
@@ -121,12 +129,60 @@
       "signed_volume_mm3": 741.611,
       "z_min_mm": 0.0
     },
+    "F_mesh_19T_B16_PRINT_2.stl": {
+      "triangles": 23480,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 432.467,
+      "z_min_mm": 0.0
+    },
+    "F_mesh_20T_B08_PRINT_2.stl": {
+      "triangles": 24740,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 487.308,
+      "z_min_mm": 0.0
+    },
     "F04_shaft_fit_pin.stl": {
       "triangles": 1256,
       "finite": true,
       "boundary_edges": 0,
       "nonmanifold_edges": 0,
       "signed_volume_mm3": 1413.131,
+      "z_min_mm": 0.0
+    },
+    "F_mesh_19T_B08_PRINT_2.stl": {
+      "triangles": 23480,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 436.265,
+      "z_min_mm": 0.0
+    },
+    "F_mesh_20T_B16_PRINT_2.stl": {
+      "triangles": 24740,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 483.308,
+      "z_min_mm": 0.0
+    },
+    "F05_four_gear_trial_plate.stl": {
+      "triangles": 6748,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 7890.101,
+      "z_min_mm": 0.0
+    },
+    "F_mesh_20T_B12_PRINT_2.stl": {
+      "triangles": 24740,
+      "finite": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 485.308,
       "z_min_mm": 0.0
     }
   }

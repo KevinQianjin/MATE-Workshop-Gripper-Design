@@ -1,9 +1,10 @@
 {
-  "scope": "Measure original tooth profiles, axial engagement and rigid backlash.\n\nTooth sections are sampled from STEP at <=0.03 mm along each edge. This is a\nnominal, rigid geometry analysis, not a force/contact-ratio or print test.\n",
-  "tooth_bands_source_y_mm": {
+  "scope": "Measure exported R2 tooth profiles, axial engagement and rigid backlash.\n\nTooth sections are sampled from exported BReps at <=0.02 mm along each edge. This is a\nnominal, rigid geometry analysis, not a force/contact-ratio or print test.\n",
+  "revision": "R2-matched-gears-fit-check",
+  "tooth_bands_y_mm": {
     "17": [
-      17.0269450694323,
-      19.0269450694323
+      18.5269450694323,
+      20.5269450694323
     ],
     "7": [
       18.5269450694323,
@@ -18,24 +19,63 @@
       20.5269450694323
     ]
   },
+  "design": {
+    "module_mm": 0.75,
+    "pressure_angle_deg": 20.0,
+    "big_teeth": 20,
+    "small_teeth": 19,
+    "tooth_thickness_reduction_mm": 0.06,
+    "nominal_pair_tangential_backlash_mm": 0.12,
+    "root_fillet_mm": 0.1,
+    "drive_profile_phase_deg": 0.0,
+    "minimum_axial_overlap_mm": 2.0,
+    "output_backlash_target_deg": 3.0,
+    "trial_pair_backlash_mm": [
+      0.08,
+      0.12,
+      0.16
+    ],
+    "note": "Matched involute working flanks; radial relief below base circle and 0.10 mm root fillets. Retain original hubs, bores and big-gear arm junctions. Nominal backlash is a CAD value, not a printed tolerance guarantee.",
+    "right_profile_phase_deg": 10.109818675599476
+  },
   "samples": [
     {
       "opening_deg": 0.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.2061403713880386,
+          "surface_gap_mm": 0.056385071076839134,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.51797836705258
+          "driven_free_angle_deg": 0.9655256773296157
         },
         "7-11": {
-          "surface_gap_mm": 0.12942211771600215,
+          "surface_gap_mm": 0.05639877623306029,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.379533667313425
+          "driven_free_angle_deg": 0.9654461710076578
         },
         "11-16": {
-          "surface_gap_mm": 0.12738912912919773,
+          "surface_gap_mm": 0.05640253118838657,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.566572761535644
+          "driven_free_angle_deg": 0.9170107841491699
+        }
+      }
+    },
+    {
+      "opening_deg": 0.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.0563646354682131,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653603403191819
+        },
+        "7-11": {
+          "surface_gap_mm": 0.0563964500393403,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651787406519836
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639443811503751,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170210838317869
         }
       }
     },
@@ -43,19 +83,39 @@
       "opening_deg": 0.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.21919550654806616,
+          "surface_gap_mm": 0.056375136797361516,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.509196532400029
+          "driven_free_angle_deg": 0.9654750823974609
         },
         "7-11": {
-          "surface_gap_mm": 0.13355673293046755,
+          "surface_gap_mm": 0.05638546409225918,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.341459173905222
+          "driven_free_angle_deg": 0.9653413672196236
         },
         "11-16": {
-          "surface_gap_mm": 0.12746080295630485,
+          "surface_gap_mm": 0.0563905775527819,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.527899169921876
+          "driven_free_angle_deg": 0.9170004844665529
+        }
+      }
+    },
+    {
+      "opening_deg": 0.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056365634407195955,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965354919433594
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056406628117909974,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654931520160877
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638232232828519,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169841766357423
         }
       }
     },
@@ -63,19 +123,39 @@
       "opening_deg": 1.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.23341953788450262,
+          "surface_gap_mm": 0.056373705108560844,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.504255395186575
+          "driven_free_angle_deg": 0.9653052279823704
         },
         "7-11": {
-          "surface_gap_mm": 0.13877592682612352,
+          "surface_gap_mm": 0.056408916360546145,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.323322697689658
+          "driven_free_angle_deg": 0.9652573434930094
         },
         "11-16": {
-          "surface_gap_mm": 0.128396008190056,
+          "surface_gap_mm": 0.056395545318032494,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.504137802124024
+          "driven_free_angle_deg": 0.9170348167419431
+        }
+      }
+    },
+    {
+      "opening_deg": 1.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056372859367421195,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965301614058645
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056387916366881695,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653431741814869
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640996339557344,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169713020324703
         }
       }
     },
@@ -83,19 +163,39 @@
       "opening_deg": 1.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.24414690078823129,
+          "surface_gap_mm": 0.05637643630887395,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.503130561427066
+          "driven_free_angle_deg": 0.9655374225817228
         },
         "7-11": {
-          "surface_gap_mm": 0.14510459949019683,
+          "surface_gap_mm": 0.05639816254996655,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3055250268233456
+          "driven_free_angle_deg": 0.9652193972938932
         },
         "11-16": {
-          "surface_gap_mm": 0.13016909523733972,
+          "surface_gap_mm": 0.0563948277609138,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.4953350067138675
+          "driven_free_angle_deg": 0.9171524047851562
+        }
+      }
+    },
+    {
+      "opening_deg": 1.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637569708003753,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653838308233964
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056401043035195705,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652799305162931
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639408402247734,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170107841491699
         }
       }
     },
@@ -103,19 +203,39 @@
       "opening_deg": 2.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.22838143010130124,
+          "surface_gap_mm": 0.056383882248191484,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.505813899793123
+          "driven_free_angle_deg": 0.9654226805034436
         },
         "7-11": {
-          "surface_gap_mm": 0.15256728350751997,
+          "surface_gap_mm": 0.05639257221293043,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2964188425164473
+          "driven_free_angle_deg": 0.965353112471731
         },
         "11-16": {
-          "surface_gap_mm": 0.1313519919856656,
+          "surface_gap_mm": 0.056403995911860495,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.501505374908447
+          "driven_free_angle_deg": 0.9170210838317872
+        }
+      }
+    },
+    {
+      "opening_deg": 2.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637810359512055,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655780792236328
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638394052912617,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652275286222753
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638287005937958,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.917139530181885
         }
       }
     },
@@ -123,19 +243,39 @@
       "opening_deg": 2.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.21381008042916513,
+          "surface_gap_mm": 0.05638246690780475,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.512310831170334
+          "driven_free_angle_deg": 0.9655798861854956
         },
         "7-11": {
-          "surface_gap_mm": 0.14564240332913947,
+          "surface_gap_mm": 0.056408113338275286,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.300017407065944
+          "driven_free_angle_deg": 0.9653070349442334
         },
         "11-16": {
-          "surface_gap_mm": 0.13029295934609916,
+          "surface_gap_mm": 0.056388260241772896,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5226386070251468
+          "driven_free_angle_deg": 0.917055416107178
+        }
+      }
+    },
+    {
+      "opening_deg": 2.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637285256399223,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652889653256067
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639352489123382,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654696615118734
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056398906985725306,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169180870056155
         }
       }
     },
@@ -143,19 +283,39 @@
       "opening_deg": 3.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.20041504982016256,
+          "surface_gap_mm": 0.056375507297694805,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.522642135620116
+          "driven_free_angle_deg": 0.9654064178466797
         },
         "7-11": {
-          "surface_gap_mm": 0.13877778701459684,
+          "surface_gap_mm": 0.056400581440288304,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.316313492624383
+          "driven_free_angle_deg": 0.9653856377852597
         },
         "11-16": {
-          "surface_gap_mm": 0.13009979855045445,
+          "surface_gap_mm": 0.056397748731314916,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5586926460266115
+          "driven_free_angle_deg": 0.9170760154724122
+        }
+      }
+    },
+    {
+      "opening_deg": 3.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637164834773453,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654552058169719
+        },
+        "7-11": {
+          "surface_gap_mm": 0.0563890074069109,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652474052027653
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056392004995573966,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.917039966583252
         }
       }
     },
@@ -163,19 +323,39 @@
       "opening_deg": 3.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1881778028550482,
+          "surface_gap_mm": 0.05637212879242905,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.378434833727384
+          "driven_free_angle_deg": 0.9652980001349203
         },
         "7-11": {
-          "surface_gap_mm": 0.13303428987021745,
+          "surface_gap_mm": 0.05640625182670465,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.331062818828382
+          "driven_free_angle_deg": 0.9653892517089844
         },
         "11-16": {
-          "surface_gap_mm": 0.13079762091414224,
+          "surface_gap_mm": 0.056386368491969124,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6095988273620603
+          "driven_free_angle_deg": 0.9169549942016603
+        }
+      }
+    },
+    {
+      "opening_deg": 3.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637334413637417,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965429004869963
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638587232441858,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653305254484481
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639052607266522,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171841621398926
         }
       }
     },
@@ -183,19 +363,39 @@
       "opening_deg": 4.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.17707930624965715,
+          "surface_gap_mm": 0.056374890618624114,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.103893179642528
+          "driven_free_angle_deg": 0.96557627226177
         },
         "7-11": {
-          "surface_gap_mm": 0.12838708840578777,
+          "surface_gap_mm": 0.05639998427852138,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3606843446430403
+          "driven_free_angle_deg": 0.9652347564697257
         },
         "11-16": {
-          "surface_gap_mm": 0.1324110985091004,
+          "surface_gap_mm": 0.05639629980602452,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6752601623535153
+          "driven_free_angle_deg": 0.9172133445739746
+        }
+      }
+    },
+    {
+      "opening_deg": 4.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637482337288022,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653494985480053
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640097477790181,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652564400120784
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639196929570405,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169721603393556
         }
       }
     },
@@ -203,19 +403,39 @@
       "opening_deg": 4.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.16710009887040478,
+          "surface_gap_mm": 0.05638539787458962,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.857328716077302
+          "driven_free_angle_deg": 0.965443460564865
         },
         "7-11": {
-          "surface_gap_mm": 0.12481096914543224,
+          "surface_gap_mm": 0.05639540358106575,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4093657041850847
+          "driven_free_angle_deg": 0.9653287184865844
         },
         "11-16": {
-          "surface_gap_mm": 0.1349644431669856,
+          "surface_gap_mm": 0.05640590552438332,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.755552196502686
+          "driven_free_angle_deg": 0.9170022010803224
+        }
+      }
+    },
+    {
+      "opening_deg": 4.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637094475441071,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653901551899162
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639373406278521,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651977137515413
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056394882032601484,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170863151550294
         }
       }
     },
@@ -223,19 +443,39 @@
       "opening_deg": 5.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1582200501871006,
+          "surface_gap_mm": 0.05638093243795423,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.6366146489193563
+          "driven_free_angle_deg": 0.9653007105777132
         },
         "7-11": {
-          "surface_gap_mm": 0.12228025994923308,
+          "surface_gap_mm": 0.05640117531712807,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4756405479029606
+          "driven_free_angle_deg": 0.9654660475881478
         },
         "11-16": {
-          "surface_gap_mm": 0.13848139536802798,
+          "surface_gap_mm": 0.05639126476568526,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.850322151184083
+          "driven_free_angle_deg": 0.9168562889099121
+        }
+      }
+    },
+    {
+      "opening_deg": 5.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635648283480725,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653314289293791
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638376674917838,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651073656584082
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056394844261199596,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.91690092086792
         }
       }
     },
@@ -243,19 +483,39 @@
       "opening_deg": 5.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15041845343264787,
+          "surface_gap_mm": 0.05637139443284067,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.439956665039062
+          "driven_free_angle_deg": 0.9653576298763875
         },
         "7-11": {
-          "surface_gap_mm": 0.12076866356330528,
+          "surface_gap_mm": 0.05640881405165561,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.555746781198601
+          "driven_free_angle_deg": 0.9655310982152034
         },
         "11-16": {
-          "surface_gap_mm": 0.14298519813221017,
+          "surface_gap_mm": 0.05639367215106277,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9593923568725584
+          "driven_free_angle_deg": 0.9170116424560548
+        }
+      }
+    },
+    {
+      "opening_deg": 5.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056367031386796766,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.96539286563271
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638416485173739,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654181630987875
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639347753944357,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170631408691409
         }
       }
     },
@@ -263,19 +523,39 @@
       "opening_deg": 6.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.143674195528953,
+          "surface_gap_mm": 0.056373848840051116,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2658369164717826
+          "driven_free_angle_deg": 0.9655789827045638
         },
         "7-11": {
-          "surface_gap_mm": 0.12024933084675639,
+          "surface_gap_mm": 0.056397366704062236,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4370077032791944
+          "driven_free_angle_deg": 0.9651769336901204
         },
         "11-16": {
-          "surface_gap_mm": 0.14849862465377023,
+          "surface_gap_mm": 0.056397981056751804,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0825585365295414
+          "driven_free_angle_deg": 0.9172227859497069
+        }
+      }
+    },
+    {
+      "opening_deg": 6.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636887957773407,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652681852641862
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056403127580537026,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651651884380144
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056390120299774124,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169335365295412
         }
       }
     },
@@ -283,19 +563,39 @@
       "opening_deg": 6.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13796563355755856,
+          "surface_gap_mm": 0.0563811945117088,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.1129733637759562
+          "driven_free_angle_deg": 0.9655220634058903
         },
         "7-11": {
-          "surface_gap_mm": 0.12069505168252286,
+          "surface_gap_mm": 0.05638876440500905,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3309417523835823
+          "driven_free_angle_deg": 0.9652031346371306
         },
         "11-16": {
-          "surface_gap_mm": 0.15504397225479305,
+          "surface_gap_mm": 0.05641721538334409,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.219593238830567
+          "driven_free_angle_deg": 0.9170725822448731
+        }
+      }
+    },
+    {
+      "opening_deg": 6.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635171148242018,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652600539358032
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056397622892138045,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652392738743831
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638349697324139,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170451164245608
         }
       }
     },
@@ -303,19 +603,39 @@
       "opening_deg": 7.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1332705369187974,
+          "surface_gap_mm": 0.0563734044653159,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9802881542005037
+          "driven_free_angle_deg": 0.9653540159526619
         },
         "7-11": {
-          "surface_gap_mm": 0.12033761132250961,
+          "surface_gap_mm": 0.05638774179437972,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2370484000758113
+          "driven_free_angle_deg": 0.9652826409590887
         },
         "11-16": {
-          "surface_gap_mm": 0.16264300387596295,
+          "surface_gap_mm": 0.056387191494403674,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.370248413085938
+          "driven_free_angle_deg": 0.9170270919799806
+        }
+      }
+    },
+    {
+      "opening_deg": 7.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635931607627638,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654154526559937
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639428083362095,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.96553561561986
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056393820210835804,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169790267944338
         }
       }
     },
@@ -323,19 +643,39 @@
       "opening_deg": 7.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12956618215918458,
+          "surface_gap_mm": 0.05636085804224959,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.866871482447574
+          "driven_free_angle_deg": 0.965322394120065
         },
         "7-11": {
-          "surface_gap_mm": 0.12041087337116317,
+          "surface_gap_mm": 0.0563849313287981,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.148621107402601
+          "driven_free_angle_deg": 0.9652175903320312
         },
         "11-16": {
-          "surface_gap_mm": 0.17131694903013947,
+          "surface_gap_mm": 0.05639744806654602,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.5342485427856447
+          "driven_free_angle_deg": 0.9169223785400389
+        }
+      }
+    },
+    {
+      "opening_deg": 7.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636968882051382,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653919621517772
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639128080841507,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9650396045885596
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056393924519370614,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170459747314452
         }
       }
     },
@@ -343,19 +683,39 @@
       "opening_deg": 8.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1268294161355469,
+          "surface_gap_mm": 0.05636391580734373,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7719752663060238
+          "driven_free_angle_deg": 0.9652338529887956
         },
         "7-11": {
-          "surface_gap_mm": 0.12146394631970966,
+          "surface_gap_mm": 0.056396517867735675,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0691455037970297
+          "driven_free_angle_deg": 0.9654497849313834
         },
         "11-16": {
-          "surface_gap_mm": 0.18108652681714105,
+          "surface_gap_mm": 0.0563857041556461,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.7112992286682127
+          "driven_free_angle_deg": 0.9170348167419435
+        }
+      }
+    },
+    {
+      "opening_deg": 8.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637696544010191,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654127422132
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639131042551931,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652383703934522
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640838372183016,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170365333557129
         }
       }
     },
@@ -363,19 +723,39 @@
       "opening_deg": 8.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12503657245643826,
+          "surface_gap_mm": 0.05636020174885257,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6949842352616162
+          "driven_free_angle_deg": 0.96525011564556
         },
         "7-11": {
-          "surface_gap_mm": 0.1235238324828054,
+          "surface_gap_mm": 0.05640382514811956,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0022201538085938
+          "driven_free_angle_deg": 0.9654533988551091
         },
         "11-16": {
-          "surface_gap_mm": 0.19197188984434466,
+          "surface_gap_mm": 0.056391961527988754,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.9010906219482417
+          "driven_free_angle_deg": 0.9169095039367674
+        }
+      }
+    },
+    {
+      "opening_deg": 8.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636514174901954,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9656738482023552
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639130122348507,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652031346371288
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056400418505522576,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170794486999516
         }
       }
     },
@@ -383,19 +763,39 @@
       "opening_deg": 9.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12416351238814403,
+          "surface_gap_mm": 0.0563784713390352,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6354087026495687
+          "driven_free_angle_deg": 0.9654832137258431
         },
         "7-11": {
-          "surface_gap_mm": 0.1266169661537079,
+          "surface_gap_mm": 0.05639919567680683,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9482561412610515
+          "driven_free_angle_deg": 0.9652455982409016
         },
         "11-16": {
-          "surface_gap_mm": 0.20399271628359641,
+          "surface_gap_mm": 0.05638755889397618,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.103290557861328
+          "driven_free_angle_deg": 0.9171781539916992
+        }
+      }
+    },
+    {
+      "opening_deg": 9.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636197932908735,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965312455829821
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639683268072978,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652492121646272
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639146443911985,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169549942016602
         }
       }
     },
@@ -403,19 +803,39 @@
       "opening_deg": 9.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12418563776842335,
+          "surface_gap_mm": 0.056373846214479086,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5928755308452405
+          "driven_free_angle_deg": 0.965322394120065
         },
         "7-11": {
-          "surface_gap_mm": 0.13076946028118322,
+          "surface_gap_mm": 0.05638530432726769,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9076591290925666
+          "driven_free_angle_deg": 0.9652338529887956
         },
         "11-16": {
-          "surface_gap_mm": 0.21716812407533162,
+          "surface_gap_mm": 0.056402888139223076,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.3175514221191404
+          "driven_free_angle_deg": 0.9169961929321291
+        }
+      }
+    },
+    {
+      "opening_deg": 9.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05634962388816843,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652519226074219
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640649698858317,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653133593107519
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638997269873164,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9168485641479496
         }
       }
     },
@@ -423,19 +843,39 @@
       "opening_deg": 10.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1250779070234062,
+          "surface_gap_mm": 0.056362567332235484,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5671199999357524
+          "driven_free_angle_deg": 0.9653540159526628
         },
         "7-11": {
-          "surface_gap_mm": 0.1360067904999307,
+          "surface_gap_mm": 0.056408608568106915,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8808329732794515
+          "driven_free_angle_deg": 0.9653648577238378
         },
         "11-16": {
-          "surface_gap_mm": 0.23151661790018727,
+          "surface_gap_mm": 0.056395044671921996,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.457301807403565
+          "driven_free_angle_deg": 0.9170700073242193
+        }
+      }
+    },
+    {
+      "opening_deg": 10.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637717445818608,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653666646857015
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638781432907414,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652970966539893
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640105675901516,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170064926147461
         }
       }
     },
@@ -443,19 +883,39 @@
       "opening_deg": 10.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1268148231511026,
+          "surface_gap_mm": 0.05636200040820217,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5579776763916016
+          "driven_free_angle_deg": 0.9653079384251644
         },
         "7-11": {
-          "surface_gap_mm": 0.14235388415294228,
+          "surface_gap_mm": 0.056398205794336145,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.868177915874279
+          "driven_free_angle_deg": 0.9654217770225131
         },
         "11-16": {
-          "surface_gap_mm": 0.24594459756203157,
+          "surface_gap_mm": 0.05639514549887205,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.447778034210205
+          "driven_free_angle_deg": 0.9169472694396967
+        }
+      }
+    },
+    {
+      "opening_deg": 10.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636099745024455,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655898244757406
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056400893662243545,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652916757684
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639713020339582,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171240806579588
         }
       }
     },
@@ -463,19 +923,39 @@
       "opening_deg": 11.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12937043443433505,
+          "surface_gap_mm": 0.0563708588669172,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5653862200285253
+          "driven_free_angle_deg": 0.9654660475881478
         },
         "7-11": {
-          "surface_gap_mm": 0.14983511454734333,
+          "surface_gap_mm": 0.05639261513745847,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8612536380165494
+          "driven_free_angle_deg": 0.9652266251413444
         },
         "11-16": {
-          "surface_gap_mm": 0.2303069127542471,
+          "surface_gap_mm": 0.05639151637265231,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.457143020629883
+          "driven_free_angle_deg": 0.9172090530395511
+        }
+      }
+    },
+    {
+      "opening_deg": 11.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056349724993026054,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653034210205078
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056383888812012575,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653865412661915
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638404167360946,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169884681701657
         }
       }
     },
@@ -483,19 +963,39 @@
       "opening_deg": 11.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13271838546622955,
+          "surface_gap_mm": 0.05635498399353289,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5893790596409847
+          "driven_free_angle_deg": 0.9653856377852588
         },
         "7-11": {
-          "surface_gap_mm": 0.14838912707120885,
+          "surface_gap_mm": 0.05640815447530177,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8668949729517887
+          "driven_free_angle_deg": 0.9652772200734994
         },
         "11-16": {
-          "surface_gap_mm": 0.21585943225395346,
+          "surface_gap_mm": 0.05639782753555327,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.3566412925720215
+          "driven_free_angle_deg": 0.9170828819274899
+        }
+      }
+    },
+    {
+      "opening_deg": 11.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636537933468979,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654317153127572
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056393512594363586,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965199520713405
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056396271009125996,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171807289123528
         }
       }
     },
@@ -503,19 +1003,39 @@
       "opening_deg": 12.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1332765929789635,
+          "surface_gap_mm": 0.05636415775769724,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.630093524330541
+          "driven_free_angle_deg": 0.9652636678595297
         },
         "7-11": {
-          "surface_gap_mm": 0.14154026573028777,
+          "surface_gap_mm": 0.056400661162577095,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.873584345767373
+          "driven_free_angle_deg": 0.9654678545500079
         },
         "11-16": {
-          "surface_gap_mm": 0.2025840953620565,
+          "surface_gap_mm": 0.056402009822193795,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.140262126922608
+          "driven_free_angle_deg": 0.9170090675353997
+        }
+      }
+    },
+    {
+      "opening_deg": 12.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056358270140214425,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654452675267287
+        },
+        "7-11": {
+          "surface_gap_mm": 0.0563890033176348,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653377532958984
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056386078782318216,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170125007629402
         }
       }
     },
@@ -523,19 +1043,39 @@
       "opening_deg": 12.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13391803669123195,
+          "surface_gap_mm": 0.056352725103096836,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.687762712177478
+          "driven_free_angle_deg": 0.9655094146728516
         },
         "7-11": {
-          "surface_gap_mm": 0.1358123016079593,
+          "surface_gap_mm": 0.05640625402844174,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8943120052939975
+          "driven_free_angle_deg": 0.9652916757684018
         },
         "11-16": {
-          "surface_gap_mm": 0.19046223711457141,
+          "surface_gap_mm": 0.0563864851864875,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.935884666442872
+          "driven_free_angle_deg": 0.9171232223510746
+        }
+      }
+    },
+    {
+      "opening_deg": 12.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056356763156909094,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653955760755029
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638597263335588,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652510191264909
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640327871824031,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170064926147452
         }
       }
     },
@@ -543,19 +1083,39 @@
       "opening_deg": 13.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13546884897679337,
+          "surface_gap_mm": 0.05636221025821072,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7627308494166325
+          "driven_free_angle_deg": 0.9653269115247216
         },
         "7-11": {
-          "surface_gap_mm": 0.13118039998577355,
+          "surface_gap_mm": 0.05639992956210258,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9289839895148013
+          "driven_free_angle_deg": 0.9653476915861461
         },
         "11-16": {
-          "surface_gap_mm": 0.1794746481800441,
+          "surface_gap_mm": 0.05639578933236167,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.7438582420349125
+          "driven_free_angle_deg": 0.9169507026672363
+        }
+      }
+    },
+    {
+      "opening_deg": 13.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635784717694171,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655789827045655
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056400832576615025,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652428877981087
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639202298789472,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171137809753418
         }
       }
     },
@@ -563,19 +1123,39 @@
       "opening_deg": 13.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13795337160255286,
+          "surface_gap_mm": 0.056377647300568656,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8554523869564665
+          "driven_free_angle_deg": 0.9652437912790397
         },
         "7-11": {
-          "surface_gap_mm": 0.12761936552049943,
+          "surface_gap_mm": 0.05639562063473627,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9771991528962793
+          "driven_free_angle_deg": 0.9653666646857033
         },
         "11-16": {
-          "surface_gap_mm": 0.16960159391662102,
+          "surface_gap_mm": 0.056409866134877674,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.564518451690674
+          "driven_free_angle_deg": 0.9170064926147461
+        }
+      }
+    },
+    {
+      "opening_deg": 13.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056360607701574986,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652961931730584
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639358859260086,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651615745142905
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056397004523125044,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.917130088806152
         }
       }
     },
@@ -583,19 +1163,39 @@
       "opening_deg": 14.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.14139553627007773,
+          "surface_gap_mm": 0.056356865440072186,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.966501938669305
+          "driven_free_angle_deg": 0.9653449811433497
         },
         "7-11": {
-          "surface_gap_mm": 0.12510343709004365,
+          "surface_gap_mm": 0.056401065867349116,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0385509290193244
+          "driven_free_angle_deg": 0.9654895380923634
         },
         "11-16": {
-          "surface_gap_mm": 0.16082278525643162,
+          "surface_gap_mm": 0.05638749319345893,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.398179435729981
+          "driven_free_angle_deg": 0.9170408248901367
+        }
+      }
+    },
+    {
+      "opening_deg": 14.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056376941231332085,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653007105777132
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638415957820659,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653766029759439
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056386901233879676,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169069290161129
         }
       }
     },
@@ -603,19 +1203,39 @@
       "opening_deg": 14.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.14581879639981943,
+          "surface_gap_mm": 0.05636225477355731,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0965914475290397
+          "driven_free_angle_deg": 0.9653485950670753
         },
         "7-11": {
-          "surface_gap_mm": 0.12360635523715552,
+          "surface_gap_mm": 0.05640812832735908,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.112631847983913
+          "driven_free_angle_deg": 0.9652853514018815
         },
         "11-16": {
-          "surface_gap_mm": 0.15311740077758731,
+          "surface_gap_mm": 0.05639509437570158,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.245138168334961
+          "driven_free_angle_deg": 0.9170562744140618
+        }
+      }
+    },
+    {
+      "opening_deg": 14.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635847609151079,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654009969610922
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056384221668114076,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652067485608562
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639753076059902,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169687271118168
         }
       }
     },
@@ -623,19 +1243,39 @@
       "opening_deg": 15.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15124609185660778,
+          "surface_gap_mm": 0.056362924674135235,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2465774134585725
+          "driven_free_angle_deg": 0.9652727026688428
         },
         "7-11": {
-          "surface_gap_mm": 0.12310136628944397,
+          "surface_gap_mm": 0.05639707073971608,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.1990290190044206
+          "driven_free_angle_deg": 0.9653504020289354
         },
         "11-16": {
-          "surface_gap_mm": 0.14646409605564673,
+          "surface_gap_mm": 0.05639941870385814,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.105673599243163
+          "driven_free_angle_deg": 0.9169524192810066
+        }
+      }
+    },
+    {
+      "opening_deg": 15.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056355311258670736,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655825966282912
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640293126943787,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652573434930112
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638665448849354,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170185089111325
         }
       }
     },
@@ -643,19 +1283,39 @@
       "opening_deg": 15.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15769982886244688,
+          "surface_gap_mm": 0.056382509356237405,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4174861907958984
+          "driven_free_angle_deg": 0.9653747960140819
         },
         "7-11": {
-          "surface_gap_mm": 0.12356117541068135,
+          "surface_gap_mm": 0.056388905908264696,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.288748289409437
+          "driven_free_angle_deg": 0.9653657612047688
         },
         "11-16": {
-          "surface_gap_mm": 0.14084102437000579,
+          "surface_gap_mm": 0.056408438732161226,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.980036354064943
+          "driven_free_angle_deg": 0.9171704292297367
+        }
+      }
+    },
+    {
+      "opening_deg": 15.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637059728551828,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653793134187403
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056397624223442175,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651678988808072
+        },
+        "11-16": {
+          "surface_gap_mm": 0.0563829777314637,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170974731445316
         }
       }
     },
@@ -663,19 +1323,39 @@
       "opening_deg": 16.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.16520194459934567,
+          "surface_gap_mm": 0.05635182671396034,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.6105392857601757
+          "driven_free_angle_deg": 0.9652284321032063
         },
         "7-11": {
-          "surface_gap_mm": 0.12319403730580394,
+          "surface_gap_mm": 0.05638763684196483,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.389477378443667
+          "driven_free_angle_deg": 0.9652094590036491
         },
         "11-16": {
-          "surface_gap_mm": 0.136225803335212,
+          "surface_gap_mm": 0.0563919725658883,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8684607505798336
+          "driven_free_angle_deg": 0.917057991027832
+        }
+      }
+    },
+    {
+      "opening_deg": 16.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635816850324991,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653422707005532
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639432927921683,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965223011217617
+        },
+        "11-16": {
+          "surface_gap_mm": 0.0563906915938883,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170133590698253
         }
       }
     },
@@ -683,19 +1363,39 @@
       "opening_deg": 16.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.17377391873981274,
+          "surface_gap_mm": 0.05636253245006423,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.8271750399940903
+          "driven_free_angle_deg": 0.9653937691136392
         },
         "7-11": {
-          "surface_gap_mm": 0.12325052861325571,
+          "surface_gap_mm": 0.05638480084816639,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.502653724268864
+          "driven_free_angle_deg": 0.9654398466411394
         },
         "11-16": {
-          "surface_gap_mm": 0.13259555548955296,
+          "surface_gap_mm": 0.05639204625698212,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7711536407470714
+          "driven_free_angle_deg": 0.9169644355773929
+        }
+      }
+    },
+    {
+      "opening_deg": 16.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.0563713432634425,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651561536287012
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056391456647442995,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654046108848178
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640092706585339,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170047760009776
         }
       }
     },
@@ -703,19 +1403,39 @@
       "opening_deg": 17.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.18343664618398095,
+          "surface_gap_mm": 0.056349910914739794,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.06910012897692
+          "driven_free_angle_deg": 0.9653811203806022
         },
         "7-11": {
-          "surface_gap_mm": 0.12428661141987833,
+          "surface_gap_mm": 0.05639661756738331,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.5096069135163965
+          "driven_free_angle_deg": 0.9653431741814877
         },
         "11-16": {
-          "surface_gap_mm": 0.12992694194627058,
+          "surface_gap_mm": 0.05638278998095972,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6882961273193366
+          "driven_free_angle_deg": 0.9170047760009759
+        }
+      }
+    },
+    {
+      "opening_deg": 17.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637236669852028,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653332358912401
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639129799071455,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652157833701693
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056408769575844724,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171180725097656
         }
       }
     },
@@ -723,19 +1443,39 @@
       "opening_deg": 17.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1942104346022058,
+          "surface_gap_mm": 0.056371611772522,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.338333832590203
+          "driven_free_angle_deg": 0.965512125115648
         },
         "7-11": {
-          "surface_gap_mm": 0.12632923336472215,
+          "surface_gap_mm": 0.056403869410385936,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.436134940699528
+          "driven_free_angle_deg": 0.9652022311561979
         },
         "11-16": {
-          "surface_gap_mm": 0.1281961129083833,
+          "surface_gap_mm": 0.05639199593484227,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6200461387634277
+          "driven_free_angle_deg": 0.9170545578002933
+        }
+      }
+    },
+    {
+      "opening_deg": 17.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05637059149164146,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965299807096784
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056390924015411056,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652483086836945
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639719632128371,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169884681701657
         }
       }
     },
@@ -743,19 +1483,39 @@
       "opening_deg": 18.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.20611517135967514,
+          "surface_gap_mm": 0.056376293689565794,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.5177768908048925
+          "driven_free_angle_deg": 0.9654533988551073
         },
         "7-11": {
-          "surface_gap_mm": 0.12940497090614742,
+          "surface_gap_mm": 0.05639877623306385,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3796493128726333
+          "driven_free_angle_deg": 0.9654461710076596
         },
         "11-16": {
-          "surface_gap_mm": 0.12737877329884595,
+          "surface_gap_mm": 0.0564025311883891,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5665332794189446
+          "driven_free_angle_deg": 0.9170107841491699
+        }
+      }
+    },
+    {
+      "opening_deg": 18.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056355863484495256,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652871583637435
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639645003934157,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651787406519823
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639443811504182,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170210838317878
         }
       }
     },
@@ -763,19 +1523,39 @@
       "opening_deg": 18.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.21917017582988169,
+          "surface_gap_mm": 0.0563664553391383,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.508994152671411
+          "driven_free_angle_deg": 0.9654019004420249
         },
         "7-11": {
-          "surface_gap_mm": 0.13353979167671134,
+          "surface_gap_mm": 0.05638546409225771,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3415739159835027
+          "driven_free_angle_deg": 0.9653413672196223
         },
         "11-16": {
-          "surface_gap_mm": 0.1274501797841474,
+          "surface_gap_mm": 0.05639057755278207,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5278579711914073
+          "driven_free_angle_deg": 0.9170004844665538
+        }
+      }
+    },
+    {
+      "opening_deg": 18.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056357000122895115,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652826409590887
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640662811791179,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654931520160872
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056382322328280894,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169841766357418
         }
       }
     },
@@ -783,19 +1563,39 @@
       "opening_deg": 19.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.2333940961210304,
+          "surface_gap_mm": 0.05636511048889887,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.504053015457957
+          "driven_free_angle_deg": 0.9652329495078646
         },
         "7-11": {
-          "surface_gap_mm": 0.13875922350883277,
+          "surface_gap_mm": 0.056408916360547214,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3234383432488706
+          "driven_free_angle_deg": 0.9652573434930112
         },
         "11-16": {
-          "surface_gap_mm": 0.12838513709308946,
+          "surface_gap_mm": 0.05639554531803863,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5040940284729007
+          "driven_free_angle_deg": 0.9170348167419444
+        }
+      }
+    },
+    {
+      "opening_deg": 19.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636429938249049,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652284321032063
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638791636688358,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653431741814877
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640996339557557,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169713020324721
         }
       }
     },
@@ -803,19 +1603,39 @@
       "opening_deg": 19.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.24413518401455322,
+          "surface_gap_mm": 0.05636793169134046,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.502927278217516
+          "driven_free_angle_deg": 0.9654633371453549
         },
         "7-11": {
-          "surface_gap_mm": 0.14508823736485635,
+          "surface_gap_mm": 0.0563981625499653,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.305619892321136
+          "driven_free_angle_deg": 0.9652193972938967
         },
         "11-16": {
-          "surface_gap_mm": 0.13015799087786806,
+          "surface_gap_mm": 0.05639482776091517,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.4952877998352037
+          "driven_free_angle_deg": 0.9171524047851562
+        }
+      }
+    },
+    {
+      "opening_deg": 19.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056367213116453305,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653097453870281
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640104303519441,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652799305162922
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639408402248099,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170107841491699
         }
       }
     },
@@ -823,19 +1643,39 @@
       "opening_deg": 20.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.2283699871980768,
+          "surface_gap_mm": 0.056375470845017206,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.505610616583571
+          "driven_free_angle_deg": 0.9653476915861425
         },
         "7-11": {
-          "surface_gap_mm": 0.1525511279865199,
+          "surface_gap_mm": 0.05639257221293039,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2965109975714455
+          "driven_free_angle_deg": 0.9653531124717318
         },
         "11-16": {
-          "surface_gap_mm": 0.13135814940046345,
+          "surface_gap_mm": 0.0564039959118633,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.50145559310913
+          "driven_free_angle_deg": 0.9170210838317878
+        }
+      }
+    },
+    {
+      "opening_deg": 20.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636969769885676,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655039937872658
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638394052912692,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652275286222753
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056382870059380114,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.917139530181883
         }
       }
     },
@@ -843,19 +1683,39 @@
       "opening_deg": 20.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.21379892021035368,
+          "surface_gap_mm": 0.05637414125355357,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.512106644479852
+          "driven_free_angle_deg": 0.9655067042300551
         },
         "7-11": {
-          "surface_gap_mm": 0.14567125393004404,
+          "surface_gap_mm": 0.05640811333827591,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3001068516781444
+          "driven_free_angle_deg": 0.9653070349442316
         },
         "11-16": {
-          "surface_gap_mm": 0.13029907355551582,
+          "surface_gap_mm": 0.05638826024177364,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.522585391998291
+          "driven_free_angle_deg": 0.9170554161071784
+        }
+      }
+    },
+    {
+      "opening_deg": 20.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056364543044204185,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652139764083039
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056393524891234705,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654696615118752
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639890698572561,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169180870056142
         }
       }
     },
@@ -863,19 +1723,39 @@
       "opening_deg": 21.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.20040413265226917,
+          "surface_gap_mm": 0.056367263976723835,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.522438852410566
+          "driven_free_angle_deg": 0.9653323324103091
         },
         "7-11": {
-          "surface_gap_mm": 0.1388066170664291,
+          "surface_gap_mm": 0.05640058144028876,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.316400226793789
+          "driven_free_angle_deg": 0.965385637785257
         },
         "11-16": {
-          "surface_gap_mm": 0.13010583163630038,
+          "surface_gap_mm": 0.0563977487313132,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5586368560791026
+          "driven_free_angle_deg": 0.9170760154724142
+        }
+      }
+    },
+    {
+      "opening_deg": 21.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056363440163565814,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653811203806022
+        },
+        "7-11": {
+          "surface_gap_mm": 0.0563890074069119,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652474052027635
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639200499557211,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170399665832534
         }
       }
     },
@@ -883,19 +1763,39 @@
       "opening_deg": 21.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.18816712235398267,
+          "surface_gap_mm": 0.05636397026943228,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.378103256225584
+          "driven_free_angle_deg": 0.9652230112176206
         },
         "7-11": {
-          "surface_gap_mm": 0.13306309633051505,
+          "surface_gap_mm": 0.05640625182670715,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.331168526097347
+          "driven_free_angle_deg": 0.9653892517089844
         },
         "11-16": {
-          "surface_gap_mm": 0.13080356298742177,
+          "surface_gap_mm": 0.05638636849197098,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6095404624938965
+          "driven_free_angle_deg": 0.9169549942016602
+        }
+      }
+    },
+    {
+      "opening_deg": 21.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636524005779492,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653549194335938
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056385872324420806,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653305254484472
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056390526072661346,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171841621398933
         }
       }
     },
@@ -903,19 +1803,39 @@
       "opening_deg": 22.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.17706885717443535,
+          "surface_gap_mm": 0.05636681969032801,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.103567023026317
+          "driven_free_angle_deg": 0.9655021868254003
         },
         "7-11": {
-          "surface_gap_mm": 0.1284159178123031,
+          "surface_gap_mm": 0.05639998427851986,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3607837275454884
+          "driven_free_angle_deg": 0.9652347564697266
         },
         "11-16": {
-          "surface_gap_mm": 0.1324169426742928,
+          "surface_gap_mm": 0.0563962998060236,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6751992225646966
+          "driven_free_angle_deg": 0.9172133445739732
+        }
+      }
+    },
+    {
+      "opening_deg": 22.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636682584392165,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652745096307065
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640097477790129,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652564400120802
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639196929570379,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169721603393555
         }
       }
     },
@@ -923,19 +1843,39 @@
       "opening_deg": 22.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.16708987148855703,
+          "surface_gap_mm": 0.056377416762781754,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.8570079803466797
+          "driven_free_angle_deg": 0.9653684716475652
         },
         "7-11": {
-          "surface_gap_mm": 0.12483986317748443,
+          "surface_gap_mm": 0.056395403581062986,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.409457859240078
+          "driven_free_angle_deg": 0.9653287184865853
         },
         "11-16": {
-          "surface_gap_mm": 0.13497023725662294,
+          "surface_gap_mm": 0.05640590552438159,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7554878234863267
+          "driven_free_angle_deg": 0.9170022010803223
+        }
+      }
+    },
+    {
+      "opening_deg": 22.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056363056457852674,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653160697535448
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639373406278874,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651977137515431
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639488203260232,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170863151550286
         }
       }
     },
@@ -943,19 +1883,39 @@
       "opening_deg": 23.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15821004209330886,
+          "surface_gap_mm": 0.056373058847233426,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.6362966236315266
+          "driven_free_angle_deg": 0.9652266251413444
         },
         "7-11": {
-          "surface_gap_mm": 0.12230912590659837,
+          "surface_gap_mm": 0.056401175317133005,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.475725475110508
+          "driven_free_angle_deg": 0.9654660475881478
         },
         "11-16": {
-          "surface_gap_mm": 0.13848713773385812,
+          "surface_gap_mm": 0.0563912647656869,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.850255203247073
+          "driven_free_angle_deg": 0.9168562889099121
+        }
+      }
+    },
+    {
+      "opening_deg": 23.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05634869117922761,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652564400120802
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638376674917847,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651073656584082
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056394844261198555,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169009208679206
         }
       }
     },
@@ -963,19 +1923,39 @@
       "opening_deg": 23.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1504087416794259,
+          "surface_gap_mm": 0.05636360277726036,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4396422536749576
+          "driven_free_angle_deg": 0.9652817374781542
         },
         "7-11": {
-          "surface_gap_mm": 0.12079744167261122,
+          "surface_gap_mm": 0.05640881405165357,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.5558642337196744
+          "driven_free_angle_deg": 0.9655310982152052
         },
         "11-16": {
-          "surface_gap_mm": 0.14299086475486517,
+          "surface_gap_mm": 0.056393672151062134,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.959321975708008
+          "driven_free_angle_deg": 0.9170116424560533
+        }
+      }
+    },
+    {
+      "opening_deg": 23.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056359289041216475,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653178767154103
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638416485174259,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654181630987857
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639347753944468,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170631408691392
         }
       }
     },
@@ -983,19 +1963,39 @@
       "opening_deg": 24.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.14366478168489805,
+          "surface_gap_mm": 0.05636615666044997,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2655252155504755
+          "driven_free_angle_deg": 0.9655030903063313
         },
         "7-11": {
-          "surface_gap_mm": 0.12027806519998466,
+          "surface_gap_mm": 0.056397366704060196,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.437121541876543
+          "driven_free_angle_deg": 0.9651769336901239
         },
         "11-16": {
-          "surface_gap_mm": 0.1485041961347779,
+          "surface_gap_mm": 0.05639798105675399,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0824855804443345
+          "driven_free_angle_deg": 0.9172227859497077
+        }
+      }
+    },
+    {
+      "opening_deg": 24.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636125430498828,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651931963468883
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05640312758053484,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651651884380144
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639012029977344,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.916933536529541
         }
       }
     },
@@ -1003,19 +2003,39 @@
       "opening_deg": 24.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13795645692292277,
+          "surface_gap_mm": 0.0563736053866464,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.1126652767783725
+          "driven_free_angle_deg": 0.9654452675267287
         },
         "7-11": {
-          "surface_gap_mm": 0.12072380908559296,
+          "surface_gap_mm": 0.05638876440500763,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.331051977057207
+          "driven_free_angle_deg": 0.9652031346371288
         },
         "11-16": {
-          "surface_gap_mm": 0.15504944345502736,
+          "surface_gap_mm": 0.056417215383344606,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.219518566131594
+          "driven_free_angle_deg": 0.9170725822448738
+        }
+      }
+    },
+    {
+      "opening_deg": 24.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05634420549506419,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651850650185025
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056397622892131294,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652392738743814
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638349697324139,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170451164245605
         }
       }
     },
@@ -1023,19 +2043,39 @@
       "opening_deg": 25.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13326159980862207,
+          "surface_gap_mm": 0.05636592440519772,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9799818741647783
+          "driven_free_angle_deg": 0.9652772200734994
         },
         "7-11": {
-          "surface_gap_mm": 0.12036625893394512,
+          "surface_gap_mm": 0.05638774179437324,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.237155914306644
+          "driven_free_angle_deg": 0.9652826409590887
         },
         "11-16": {
-          "surface_gap_mm": 0.16264836972999777,
+          "surface_gap_mm": 0.05638719149440189,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.370170307159423
+          "driven_free_angle_deg": 0.9170270919799783
+        }
+      }
+    },
+    {
+      "opening_deg": 25.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.0563518885076252,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653404637386913
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056394280833621045,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.96553561561986
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639382021084162,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169790267944364
         }
       }
     },
@@ -1043,19 +2083,39 @@
       "opening_deg": 25.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12955751812277747,
+          "surface_gap_mm": 0.05635343047359761,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.866567912854645
+          "driven_free_angle_deg": 0.9652465017218326
         },
         "7-11": {
-          "surface_gap_mm": 0.12043937353575221,
+          "surface_gap_mm": 0.05638493132879664,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.148728621633431
+          "driven_free_angle_deg": 0.9652175903320312
         },
         "11-16": {
-          "surface_gap_mm": 0.17132221129915817,
+          "surface_gap_mm": 0.05639744806654258,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.5341661453247077
+          "driven_free_angle_deg": 0.9169223785400398
+        }
+      }
+    },
+    {
+      "opening_deg": 25.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056362352730040685,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653151662726138
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639128080841588,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9650396045885579
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639392451937073,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170459747314474
         }
       }
     },
@@ -1063,19 +2123,39 @@
       "opening_deg": 26.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12682102806442802,
+          "surface_gap_mm": 0.05635660561577743,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7716716967130957
+          "driven_free_angle_deg": 0.9651579605905631
         },
         "7-11": {
-          "surface_gap_mm": 0.12149232352137473,
+          "surface_gap_mm": 0.05639651786772939,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.069251211065996
+          "driven_free_angle_deg": 0.9654497849313834
         },
         "11-16": {
-          "surface_gap_mm": 0.18109168520132676,
+          "surface_gap_mm": 0.05638570415564416,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.711216831207274
+          "driven_free_angle_deg": 0.9170348167419426
+        }
+      }
+    },
+    {
+      "opening_deg": 26.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056369712771687175,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653359463340365
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056391310425515165,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965238370393454
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640838372182814,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170365333557129
         }
       }
     },
@@ -1083,19 +2163,39 @@
       "opening_deg": 26.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1250284567076626,
+          "surface_gap_mm": 0.05635299059534271,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.694680665668688
+          "driven_free_angle_deg": 0.9651733197663965
         },
         "7-11": {
-          "surface_gap_mm": 0.12355213117403441,
+          "surface_gap_mm": 0.0564038251481204,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0023240541156966
+          "driven_free_angle_deg": 0.9654533988551073
         },
         "11-16": {
-          "surface_gap_mm": 0.19197696236427467,
+          "surface_gap_mm": 0.056391961527987394,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.9010047912597656
+          "driven_free_angle_deg": 0.9169095039367683
+        }
+      }
+    },
+    {
+      "opening_deg": 26.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635798636426507,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.96559705232319
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639130122348623,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652031346371288
+        },
+        "11-16": {
+          "surface_gap_mm": 0.0564004185055223,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170794486999512
         }
       }
     },
@@ -1103,19 +2203,39 @@
       "opening_deg": 27.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1241556653460919,
+          "surface_gap_mm": 0.05637134607094762,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6351060365375716
+          "driven_free_angle_deg": 0.9654073213276106
         },
         "7-11": {
-          "surface_gap_mm": 0.12664517138933312,
+          "surface_gap_mm": 0.05639919567680869,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.94835913808722
+          "driven_free_angle_deg": 0.9652455982409016
         },
         "11-16": {
-          "surface_gap_mm": 0.2039976935595816,
+          "surface_gap_mm": 0.056387558893973046,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.103201293945311
+          "driven_free_angle_deg": 0.9171781539916992
+        }
+      }
+    },
+    {
+      "opening_deg": 27.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635495549581852,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652356599506611
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639683268073026,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965249212164629
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639146443911944,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169549942016602
         }
       }
     },
@@ -1123,19 +2243,39 @@
       "opening_deg": 27.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12417805969030037,
+          "surface_gap_mm": 0.05636686251929479,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5925737682141765
+          "driven_free_angle_deg": 0.9652465017218326
         },
         "7-11": {
-          "surface_gap_mm": 0.13079757709274228,
+          "surface_gap_mm": 0.05638530432726406,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9077612224378093
+          "driven_free_angle_deg": 0.9652338529887956
         },
         "11-16": {
-          "surface_gap_mm": 0.21717297238827812,
+          "surface_gap_mm": 0.05640288813922433,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.317459583282467
+          "driven_free_angle_deg": 0.9169961929321282
+        }
+      }
+    },
+    {
+      "opening_deg": 27.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05634269888592249,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651751267282584
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056406496988583264,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653133593107484
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638997269873338,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9168485641479478
         }
       }
     },
@@ -1143,19 +2283,39 @@
       "opening_deg": 28.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12507058888355324,
+          "surface_gap_mm": 0.056355702710029744,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5668182373046875
+          "driven_free_angle_deg": 0.9652781235544303
         },
         "7-11": {
-          "surface_gap_mm": 0.13603476614996593,
+          "surface_gap_mm": 0.05640860856810682,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8809323561819014
+          "driven_free_angle_deg": 0.9653648577238414
         },
         "11-16": {
-          "surface_gap_mm": 0.2315213049619782,
+          "surface_gap_mm": 0.05639504467192296,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.457217693328857
+          "driven_free_angle_deg": 0.9170700073242166
+        }
+      }
+    },
+    {
+      "opening_deg": 28.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056370309835979904,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652898688065363
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638781432907814,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965297096653984
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640105675901711,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170064926147461
         }
       }
     },
@@ -1163,19 +2323,39 @@
       "opening_deg": 28.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12680775452024126,
+          "surface_gap_mm": 0.05635520673284597,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.557675913760537
+          "driven_free_angle_deg": 0.9652311425460027
         },
         "7-11": {
-          "surface_gap_mm": 0.14238165713093695,
+          "surface_gap_mm": 0.05639820579433577,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.868276395295794
+          "driven_free_angle_deg": 0.9654217770225131
         },
         "11-16": {
-          "surface_gap_mm": 0.2459303796817702,
+          "surface_gap_mm": 0.05639514549887218,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.447690486907959
+          "driven_free_angle_deg": 0.9169472694396994
+        }
+      }
+    },
+    {
+      "opening_deg": 28.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635425241980652,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965512125115648
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056400893662243615,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652916757684054
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639713020339658,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171240806579597
         }
       }
     },
@@ -1183,19 +2363,39 @@
       "opening_deg": 29.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.12936361782959344,
+          "surface_gap_mm": 0.05636411598756337,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.565082650435599
+          "driven_free_angle_deg": 0.9653892517089844
         },
         "7-11": {
-          "surface_gap_mm": 0.14986272571763468,
+          "surface_gap_mm": 0.05639261513745695,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8613692835757583
+          "driven_free_angle_deg": 0.9652266251413408
         },
         "11-16": {
-          "surface_gap_mm": 0.23029246402450093,
+          "surface_gap_mm": 0.05639151637265229,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.457051181793215
+          "driven_free_angle_deg": 0.9172090530395494
+        }
+      }
+    },
+    {
+      "opening_deg": 29.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056343036998750824,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652257216604134
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638388881201295,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653865412661915
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056384041673609636,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169884681701674
         }
       }
     },
@@ -1203,19 +2403,39 @@
       "opening_deg": 29.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13271182336081017,
+          "surface_gap_mm": 0.05634836297570172,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5890754900480566
+          "driven_free_angle_deg": 0.9653097453870245
         },
         "7-11": {
-          "surface_gap_mm": 0.14837362073324276,
+          "surface_gap_mm": 0.056408154475301654,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8670051976254136
+          "driven_free_angle_deg": 0.9652772200734958
         },
         "11-16": {
-          "surface_gap_mm": 0.21584471904879196,
+          "surface_gap_mm": 0.0563978275355551,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.356586360931399
+          "driven_free_angle_deg": 0.9170828819274917
+        }
+      }
+    },
+    {
+      "opening_deg": 29.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.0563588215388431,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653549194335973
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639351259435624,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965199520713405
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639627100912852,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171807289123564
         }
       }
     },
@@ -1223,19 +2443,39 @@
       "opening_deg": 30.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1332529670074254,
+          "surface_gap_mm": 0.056357648359495555,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6297881477757485
+          "driven_free_angle_deg": 0.965185968499437
         },
         "7-11": {
-          "surface_gap_mm": 0.14152462086656056,
+          "surface_gap_mm": 0.056400661162573994,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8736783077842354
+          "driven_free_angle_deg": 0.9654678545500133
         },
         "11-16": {
-          "surface_gap_mm": 0.20256918237587815,
+          "surface_gap_mm": 0.05640200982219262,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.1402037620544405
+          "driven_free_angle_deg": 0.9170090675353997
+        }
+      }
+    },
+    {
+      "opening_deg": 30.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635186542862486,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653684716475617
+        },
+        "7-11": {
+          "surface_gap_mm": 0.0563890033176319,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653377532958984
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638607878231652,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170125007629366
         }
       }
     },
@@ -1243,19 +2483,39 @@
       "opening_deg": 30.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1338943035272854,
+          "surface_gap_mm": 0.05634629654865817,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.687455528660827
+          "driven_free_angle_deg": 0.9654326187936917
         },
         "7-11": {
-          "surface_gap_mm": 0.13579644206216612,
+          "surface_gap_mm": 0.0564062540284321,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8944005464252633
+          "driven_free_angle_deg": 0.9652916757683982
         },
         "11-16": {
-          "surface_gap_mm": 0.19044711408157222,
+          "surface_gap_mm": 0.05638648518648729,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.9358237266540534
+          "driven_free_angle_deg": 0.9171232223510764
+        }
+      }
+    },
+    {
+      "opening_deg": 30.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635037205511707,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653187801963412
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638597263334511,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652510191264909
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640327871823995,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170064926147461
         }
       }
     },
@@ -1263,19 +2523,39 @@
       "opening_deg": 31.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1354450121654308,
+          "surface_gap_mm": 0.05635592442276897,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7624209554571877
+          "driven_free_angle_deg": 0.965248308683698
         },
         "7-11": {
-          "surface_gap_mm": 0.13116447208618962,
+          "surface_gap_mm": 0.056399929562099584,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9290680132414124
+          "driven_free_angle_deg": 0.965347691586139
         },
         "11-16": {
-          "surface_gap_mm": 0.17945927183899155,
+          "surface_gap_mm": 0.056395789332361126,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.743795585632327
+          "driven_free_angle_deg": 0.9169507026672363
+        }
+      }
+    },
+    {
+      "opening_deg": 31.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635161937975618,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655021868253968
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056400832576616336,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652428877981123
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056392022987890866,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171137809753418
         }
       }
     },
@@ -1283,19 +2563,39 @@
       "opening_deg": 31.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.13792943942482488,
+          "surface_gap_mm": 0.05637143403015105,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.8551397825542253
+          "driven_free_angle_deg": 0.9651669953998763
         },
         "7-11": {
-          "surface_gap_mm": 0.1276032749624859,
+          "surface_gap_mm": 0.0563956206347322,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.9772768522563737
+          "driven_free_angle_deg": 0.9653666646856962
         },
         "11-16": {
-          "surface_gap_mm": 0.16958600058465023,
+          "surface_gap_mm": 0.056409866134877015,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.564452362060546
+          "driven_free_angle_deg": 0.9170064926147461
+        }
+      }
+    },
+    {
+      "opening_deg": 31.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635444724327068,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652193972938932
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639358859259533,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651615745142905
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639700452312481,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171300888061502
         }
       }
     },
@@ -1303,19 +2603,39 @@
       "opening_deg": 32.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1413715131674866,
+          "surface_gap_mm": 0.05635081133877151,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.966186623824271
+          "driven_free_angle_deg": 0.9652672817832553
         },
         "7-11": {
-          "surface_gap_mm": 0.1250872007533555,
+          "surface_gap_mm": 0.05640106586734382,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.0386250144556897
+          "driven_free_angle_deg": 0.9654895380923634
         },
         "11-16": {
-          "surface_gap_mm": 0.1608069922166434,
+          "surface_gap_mm": 0.05638749319345746,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3981107711792014
+          "driven_free_angle_deg": 0.9170408248901367
+        }
+      }
+    },
+    {
+      "opening_deg": 32.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056370893934580384,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965223011217617
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638415957820717,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965376602975951
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638690123387897,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169069290161147
         }
       }
     },
@@ -1323,19 +2643,39 @@
       "opening_deg": 32.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.14579468145038818,
+          "surface_gap_mm": 0.05635630886746225,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.096271615279349
+          "driven_free_angle_deg": 0.9652708957069791
         },
         "7-11": {
-          "surface_gap_mm": 0.12358996425225073,
+          "surface_gap_mm": 0.05640812832735334,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.112702319496556
+          "driven_free_angle_deg": 0.9652853514018815
         },
         "11-16": {
-          "surface_gap_mm": 0.15310136917167952,
+          "surface_gap_mm": 0.05639509437570158,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.245066928863526
+          "driven_free_angle_deg": 0.9170562744140653
+        }
+      }
+    },
+    {
+      "opening_deg": 32.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05635255396778352,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965323297600996
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05638422166810951,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652067485608526
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639753076059855,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169687271118185
         }
       }
     },
@@ -1343,19 +2683,39 @@
       "opening_deg": 33.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15122188463526873,
+          "surface_gap_mm": 0.05635704763142912,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.2462539672851562
+          "driven_free_angle_deg": 0.9651940998278192
         },
         "7-11": {
-          "surface_gap_mm": 0.12308477045156845,
+          "surface_gap_mm": 0.05639707073971442,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.19909587659334
+          "driven_free_angle_deg": 0.965350402028939
         },
         "11-16": {
-          "surface_gap_mm": 0.14644782900888476,
+          "surface_gap_mm": 0.05639941870386234,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.1055989265441895
+          "driven_free_angle_deg": 0.9169524192810066
+        }
+      }
+    },
+    {
+      "opening_deg": 33.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056349513384515305,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9655048972681968
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056402931269438336,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652573434930076
+        },
+        "11-16": {
+          "surface_gap_mm": 0.0563866544884966,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170185089111307
         }
       }
     },
@@ -1363,19 +2723,39 @@
       "opening_deg": 33.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.15767555626620403,
+          "surface_gap_mm": 0.05637671148208127,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.4171600341796875
+          "driven_free_angle_deg": 0.9652961931730601
         },
         "7-11": {
-          "surface_gap_mm": 0.12354440587701511,
+          "surface_gap_mm": 0.056388905908266236,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.288814243517429
+          "driven_free_angle_deg": 0.9653657612047724
         },
         "11-16": {
-          "surface_gap_mm": 0.14082454888999957,
+          "surface_gap_mm": 0.05640843873216412,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.979958248138427
+          "driven_free_angle_deg": 0.9171704292297349
+        }
+      }
+    },
+    {
+      "opening_deg": 33.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636487510609823,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9653007105777149
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056397624223446664,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9651678988808072
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05638297773146565,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170974731445298
         }
       }
     },
@@ -1383,19 +2763,39 @@
       "opening_deg": 34.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.16517763728055776,
+          "surface_gap_mm": 0.056346181535409844,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.610206804777448
+          "driven_free_angle_deg": 0.965149829262181
         },
         "7-11": {
-          "surface_gap_mm": 0.12317756140562945,
+          "surface_gap_mm": 0.056387636841970304,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3895424290707226
+          "driven_free_angle_deg": 0.9652094590036526
         },
         "11-16": {
-          "surface_gap_mm": 0.1362091226311327,
+          "surface_gap_mm": 0.05639197256588637,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.868379211425779
+          "driven_free_angle_deg": 0.917057991027832
+        }
+      }
+    },
+    {
+      "opening_deg": 34.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.056352587602639545,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652645713404624
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056394329279209746,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965223011217617
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639069159389703,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170133590698235
         }
       }
     },
@@ -1403,19 +2803,39 @@
       "opening_deg": 34.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.17374955029062936,
+          "surface_gap_mm": 0.05635696587941918,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.826837138125768
+          "driven_free_angle_deg": 0.9653169732344793
         },
         "7-11": {
-          "surface_gap_mm": 0.12323428150734679,
+          "surface_gap_mm": 0.05638480084816551,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.502716064453118
+          "driven_free_angle_deg": 0.9654398466411394
         },
         "11-16": {
-          "surface_gap_mm": 0.13257867728063327,
+          "surface_gap_mm": 0.05639204625698916,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.7710695266723633
+          "driven_free_angle_deg": 0.9169644355773947
+        }
+      }
+    },
+    {
+      "opening_deg": 34.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.0563658219397899,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9650775507876759
+        },
+        "7-11": {
+          "surface_gap_mm": 0.056391456647445146,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9654046108848178
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05640092706585405,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9170047760009759
         }
       }
     },
@@ -1423,19 +2843,39 @@
       "opening_deg": 35.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.18341220026311375,
+          "surface_gap_mm": 0.056344424069347226,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.068756806223014
+          "driven_free_angle_deg": 0.9653025175395769
         },
         "7-11": {
-          "surface_gap_mm": 0.1242705910303151,
+          "surface_gap_mm": 0.05639661756738832,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.5097171381900196
+          "driven_free_angle_deg": 0.9653431741814842
         },
         "11-16": {
-          "surface_gap_mm": 0.12990986946842617,
+          "surface_gap_mm": 0.05638278998096005,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.68820858001709
+          "driven_free_angle_deg": 0.9170047760009794
+        }
+      }
+    },
+    {
+      "opening_deg": 35.25,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636696111251199,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652555365311457
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639129799071999,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9652157833701622
+        },
+        "11-16": {
+          "surface_gap_mm": 0.056408769575844515,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9171180725097656
         }
       }
     },
@@ -1443,19 +2883,39 @@
       "opening_deg": 35.5,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.1941859655437339,
+          "surface_gap_mm": 0.056366289376447,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.337980571546055
+          "driven_free_angle_deg": 0.9654344257555536
         },
         "7-11": {
-          "surface_gap_mm": 0.12631354832007252,
+          "surface_gap_mm": 0.05640386941038148,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.436246068854082
+          "driven_free_angle_deg": 0.9652022311561979
         },
         "11-16": {
-          "surface_gap_mm": 0.12817887269964595,
+          "surface_gap_mm": 0.0563919959348492,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.6199560165405273
+          "driven_free_angle_deg": 0.9170545578002915
+        }
+      }
+    },
+    {
+      "opening_deg": 35.75,
+      "pairs": {
+        "17-7": {
+          "surface_gap_mm": 0.05636526909556679,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965222107736686
+        },
+        "7-11": {
+          "surface_gap_mm": 0.05639092401540712,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.965248308683698
+        },
+        "11-16": {
+          "surface_gap_mm": 0.05639719632129291,
+          "overlap_mm2": 0.0,
+          "driven_free_angle_deg": 0.9169884681701674
         }
       }
     },
@@ -1463,371 +2923,2120 @@
       "opening_deg": 36.0,
       "pairs": {
         "17-7": {
-          "surface_gap_mm": 0.20609066434460319,
+          "surface_gap_mm": 0.05637105572579996,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 4.517584449366524
+          "driven_free_angle_deg": 0.9653747960140819
         },
         "7-11": {
-          "surface_gap_mm": 0.1293895332384336,
+          "surface_gap_mm": 0.056398776233064676,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 3.3797577305844015
+          "driven_free_angle_deg": 0.9654461710076632
         },
         "11-16": {
-          "surface_gap_mm": 0.1273613853718148,
+          "surface_gap_mm": 0.056402531188388,
           "overlap_mm2": 0.0,
-          "driven_free_angle_deg": 2.5664388656616204
+          "driven_free_angle_deg": 0.9170107841491699
         }
       }
     }
   ],
   "pairs": {
     "17-7": {
-      "center_distance_mm": 14.704405164894691,
-      "radial_tip_circle_overlap_mm": 0.9455948351053092,
-      "original_axial_tooth_overlap_mm": 0.5,
-      "corrected_axial_tooth_overlap_mm": 2.0,
+      "center_distance_mm": 14.625000000000002,
+      "radial_tip_circle_overlap_mm": 1.4999999999999982,
+      "axial_tooth_overlap_mm": 2.0,
+      "theoretical_transverse_contact_ratio": 1.5502917604281616,
       "surface_gap_range_mm": [
-        0.1241556653460919,
-        0.24414690078823129
+        0.05634269888592249,
+        0.05638539787458962
       ],
       "driven_free_angle_range_deg": [
-        2.557675913760537,
-        4.522642135620116
+        0.9650775507876759,
+        0.9656738482023552
       ]
     },
     "7-11": {
-      "center_distance_mm": 13.75422208997509,
-      "radial_tip_circle_overlap_mm": 1.2457779100249091,
-      "original_axial_tooth_overlap_mm": 3.0,
-      "corrected_axial_tooth_overlap_mm": 3.0,
+      "center_distance_mm": 14.250000000000002,
+      "radial_tip_circle_overlap_mm": 1.4999999999999982,
+      "axial_tooth_overlap_mm": 3.0,
+      "theoretical_transverse_contact_ratio": 1.5437452174811646,
       "surface_gap_range_mm": [
-        0.12024933084675639,
-        0.15256728350751997
+        0.05638376674917838,
+        0.056408916360547214
       ],
       "driven_free_angle_range_deg": [
-        2.8612536380165494,
-        3.5558642337196744
+        0.9650396045885579,
+        0.96553561561986
       ]
     },
     "11-16": {
-      "center_distance_mm": 14.704425318091172,
-      "radial_tip_circle_overlap_mm": 0.9455746819088287,
-      "original_axial_tooth_overlap_mm": 2.0,
-      "corrected_axial_tooth_overlap_mm": 2.0,
+      "center_distance_mm": 14.625000000000002,
+      "radial_tip_circle_overlap_mm": 1.4999999999999982,
+      "axial_tooth_overlap_mm": 2.0,
+      "theoretical_transverse_contact_ratio": 1.5502917604281616,
       "surface_gap_range_mm": [
-        0.1273613853718148,
-        0.24594459756203157
+        0.056382322328280894,
+        0.056417215383344606
       ],
       "driven_free_angle_range_deg": [
-        2.4952877998352037,
-        4.457301807403565
+        0.9168485641479478,
+        0.9172227859497077
       ]
     }
   },
-  "exported_drive_tooth_band_y_mm": [
-    18.5269450694323,
-    20.5269450694323
-  ],
   "chain_samples": [
     {
       "input_opening_deg": 0.0,
       "right_gear_contact_angle_limits_deg": [
-        -10.190044084400782,
-        1.1849253980210932
+        -5.685139146656641,
+        -2.933688512653956
       ],
-      "right_gear_free_angle_deg": 11.374969482421875
+      "right_gear_free_angle_deg": 2.751450634002685,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -0.0,
+            "7": -0.0328134563417557,
+            "11": -2.684095617283355,
+            "16": -5.685139146656641
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -0.0,
+            "7": 0.93271222098786,
+            "11": -4.614832861738793,
+            "16": -2.933688512653956
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 0.5,
+      "right_gear_contact_angle_limits_deg": [
+        -5.185226693958887,
+        -2.433794084400782
+      ],
+      "right_gear_free_angle_deg": 2.7514326095581048,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -0.5,
+            "7": 0.49344541383325463,
+            "11": -3.2100852501408275,
+            "16": -5.185226693958887
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -0.5,
+            "7": 1.4589204962307156,
+            "11": -5.1410631216843115,
+            "16": -2.433794084400782
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 1.0,
       "right_gear_contact_angle_limits_deg": [
-        -9.258889165730128,
-        2.286108621745458
+        -4.684989801258691,
+        -1.933844724506983
       ],
-      "right_gear_free_angle_deg": 11.544997787475586
+      "right_gear_free_angle_deg": 2.7511450767517083,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -1.0,
+            "7": 1.0198741384233554,
+            "11": -3.736680215222292,
+            "16": -4.684989801258691
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -1.0,
+            "7": 1.9851793664057258,
+            "11": -5.6672876595839305,
+            "16": -1.933844724506983
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 1.5,
+      "right_gear_contact_angle_limits_deg": [
+        -4.185057607502588,
+        -1.4338035257765145
+      ],
+      "right_gear_free_angle_deg": 2.7512540817260738,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -1.5,
+            "7": 1.5459613472214127,
+            "11": -4.262823439838092,
+            "16": -4.185057607502588
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -1.5,
+            "7": 2.5114987698031355,
+            "11": -6.193573634186881,
+            "16": -1.4338035257765145
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 2.0,
       "right_gear_contact_angle_limits_deg": [
-        -8.087792268604883,
-        3.433584913401952
+        -3.685087648243555,
+        -0.9337846430250495
       ],
-      "right_gear_free_angle_deg": 11.521377182006834
+      "right_gear_free_angle_deg": 2.7513030052185057,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -2.0,
+            "7": 2.0724497015529812,
+            "11": -4.789347933406916,
+            "16": -3.685087648243555
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -2.0,
+            "7": 3.037872382056425,
+            "11": -6.719982482196492,
+            "16": -0.9337846430250495
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 2.5,
+      "right_gear_contact_angle_limits_deg": [
+        -3.1852541597791997,
+        -0.43375116905654365
+      ],
+      "right_gear_free_angle_deg": 2.7515029907226562,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -2.5,
+            "7": 2.5985992505353,
+            "11": -5.315372802020711,
+            "16": -3.1852541597791997
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -2.5,
+            "7": 3.564179136720796,
+            "11": -7.246366032740027,
+            "16": -0.43375116905654365
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 3.0,
       "right_gear_contact_angle_limits_deg": [
-        -6.961337915272365,
-        4.6266681996873515
+        -2.685026708454737,
+        0.06625312247788029
       ],
-      "right_gear_free_angle_deg": 11.588006114959716
+      "right_gear_free_angle_deg": 2.751279830932617,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -3.0,
+            "7": 3.1250243612016755,
+            "11": -5.8418981990704655,
+            "16": -2.685026708454737
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -3.0,
+            "7": 4.090430779048355,
+            "11": -7.772660138671359,
+            "16": 0.06625312247788029
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 3.5,
+      "right_gear_contact_angle_limits_deg": [
+        -2.184923711628565,
+        0.5662436811021478
+      ],
+      "right_gear_free_angle_deg": 2.7511673927307125,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -3.5,
+            "7": 3.6514304987684927,
+            "11": -6.368300722713554,
+            "16": -2.184923711628565
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -3.5,
+            "7": 4.616728498903413,
+            "11": -8.298871124357008,
+            "16": 0.5662436811021478
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 4.0,
       "right_gear_contact_angle_limits_deg": [
-        -5.334997049183497,
-        5.715156492381445
+        -1.685476461262354,
+        1.0662110654405266
       ],
-      "right_gear_free_angle_deg": 11.050153541564942
+      "right_gear_free_angle_deg": 2.751687526702881,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -4.0,
+            "7": 4.177518611047481,
+            "11": -6.894288548609166,
+            "16": -1.685476461262354
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -4.0,
+            "7": 5.143094883309251,
+            "11": -8.825212211296769,
+            "16": 1.0662110654405266
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 4.5,
+      "right_gear_contact_angle_limits_deg": [
+        -1.184915986866602,
+        1.5662522641709955
+      ],
+      "right_gear_free_angle_deg": 2.7511682510375977,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -4.5,
+            "7": 4.704032262845127,
+            "11": -7.420916039004161,
+            "16": -1.184915986866602
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -4.5,
+            "7": 5.669475723409992,
+            "11": -9.351625576711038,
+            "16": 1.5662522641709955
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 5.0,
       "right_gear_contact_angle_limits_deg": [
-        -3.735623613209376,
-        6.565542444377293
+        -0.6849855097242679,
+        2.0662496892503412
       ],
-      "right_gear_free_angle_deg": 10.30116605758667
+      "right_gear_free_angle_deg": 2.751235198974609,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -5.0,
+            "7": 5.230376963708615,
+            "11": -7.947259836386717,
+            "16": -0.6849855097242679
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -5.0,
+            "7": 6.195677674286328,
+            "11": -9.87791245479492,
+            "16": 2.0662496892503412
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 5.5,
+      "right_gear_contact_angle_limits_deg": [
+        -0.18513056358779334,
+        2.566175874858251
+      ],
+      "right_gear_free_angle_deg": 2.7513064384460444,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -5.5,
+            "7": 5.756617764264998,
+            "11": -8.473432875873248,
+            "16": -0.18513056358779334
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -5.5,
+            "7": 6.721975394141386,
+            "11": -10.404093625609836,
+            "16": 2.566175874858251
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 6.0,
       "right_gear_contact_angle_limits_deg": [
-        -2.314331403584131,
-        7.444288572459571
+        0.3146110860398922,
+        3.0661063520005856
       ],
-      "right_gear_free_angle_deg": 9.758619976043702
+      "right_gear_free_angle_deg": 2.7514952659606933,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -6.0,
+            "7": 6.282783575904081,
+            "11": -8.999416184364202,
+            "16": 0.3146110860398922
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -6.0,
+            "7": 7.248362558608645,
+            "11": -10.930337136609012,
+            "16": 3.0661063520005856
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 6.5,
+      "right_gear_contact_angle_limits_deg": [
+        0.8151003209642086,
+        3.5661630002549796
+      ],
+      "right_gear_free_angle_deg": 2.751062679290771,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -6.5,
+            "7": 6.80926560586913,
+            "11": -9.526150285509095,
+            "16": 0.8151003209642086
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -6.5,
+            "7": 7.77478766927502,
+            "11": -11.456862533658766,
+            "16": 3.5661630002549796
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 7.0,
       "right_gear_contact_angle_limits_deg": [
-        -1.0945499094435074,
-        8.176356920390475
+        1.3148625699571286,
+        4.065912374644628
       ],
-      "right_gear_free_angle_deg": 9.270906829833983
+      "right_gear_free_angle_deg": 2.7510498046875,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -7.0,
+            "7": 7.335496468135269,
+            "11": -10.052327842400285,
+            "16": 1.3148625699571286
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -7.0,
+            "7": 8.300850484087931,
+            "11": -11.98290547189119,
+            "16": 4.065912374644628
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 7.5,
+      "right_gear_contact_angle_limits_deg": [
+        1.814792188792578,
+        4.56586602607285
+      ],
+      "right_gear_free_angle_deg": 2.7510738372802725,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -7.5,
+            "7": 7.861859238617383,
+            "11": -10.578645438835833,
+            "16": 1.814792188792578
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -7.5,
+            "7": 8.827181632737448,
+            "11": -12.509265531930508,
+            "16": 4.56586602607285
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 8.0,
       "right_gear_contact_angle_limits_deg": [
-        -0.03154560646499105,
-        8.74582847037827
+        2.3149466840318356,
+        5.066191324382177
       ],
-      "right_gear_free_angle_deg": 8.77737407684326
+      "right_gear_free_angle_deg": 2.7512446403503414,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -8.0,
+            "7": 8.388202132519007,
+            "11": -11.105047058997991,
+            "16": 2.3149466840318356
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -8.0,
+            "7": 9.353435985507803,
+            "11": -13.035637337221933,
+            "16": 5.066191324382177
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 8.5,
+      "right_gear_contact_angle_limits_deg": [
+        2.81485742011582,
+        5.5657999364427235
+      ],
+      "right_gear_free_angle_deg": 2.7509425163269037,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -8.5,
+            "7": 8.914504369778722,
+            "11": -11.631228229812908,
+            "16": 2.81485742011582
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -8.5,
+            "7": 9.879754485424282,
+            "11": -13.561769720066557,
+            "16": 5.5657999364427235
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 9.0,
       "right_gear_contact_angle_limits_deg": [
-        0.9161797849229485,
-        9.362758669047704
+        3.314820512919775,
+        6.065860017924657
       ],
-      "right_gear_free_angle_deg": 8.446578884124754
+      "right_gear_free_angle_deg": 2.751039505004882,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -9.0,
+            "7": 9.440727100716478,
+            "11": -12.157471740812086,
+            "16": 3.314820512919775
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -9.0,
+            "7": 10.40621031444232,
+            "11": -14.088173147190583,
+            "16": 6.065860017924657
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 9.5,
+      "right_gear_contact_angle_limits_deg": [
+        3.8148119298509275,
+        6.565796503215185
+      ],
+      "right_gear_free_angle_deg": 2.7509845733642573,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -9.5,
+            "7": 9.9671016164507,
+            "11": -12.68382818692768,
+            "16": 3.8148119298509275
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -9.5,
+            "7": 10.932424010570765,
+            "11": -14.614466349640983,
+            "16": 6.565796503215185
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 10.0,
       "right_gear_contact_angle_limits_deg": [
-        1.7637905446580553,
-        10.023064836650242
+        4.31471150794541,
+        7.066253980784765
       ],
-      "right_gear_free_angle_deg": 8.259274291992186
+      "right_gear_free_angle_deg": 2.751542472839355,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -10.0,
+            "7": 10.49346167649002,
+            "11": -13.210088864064554,
+            "16": 4.31471150794541
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -10.0,
+            "7": 11.458815692442682,
+            "11": -15.141017044156815,
+            "16": 7.066253980784765
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 10.5,
+      "right_gear_contact_angle_limits_deg": [
+        4.814804205088965,
+        7.565803369670263
+      ],
+      "right_gear_free_angle_deg": 2.750999164581298,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -10.5,
+            "7": 11.019698863122677,
+            "11": -13.736424530118725,
+            "16": 4.814804205088965
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -10.5,
+            "7": 11.985006801547842,
+            "11": -15.667025650113843,
+            "16": 7.565803369670263
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 11.0,
       "right_gear_contact_angle_limits_deg": [
-        2.5187754003099108,
-        10.74875996985947
+        5.314790472178808,
+        8.065996488719335
       ],
-      "right_gear_free_angle_deg": 8.22998456954956
+      "right_gear_free_angle_deg": 2.751206016540527,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -11.0,
+            "7": 11.545975802916315,
+            "11": -14.262749354401723,
+            "16": 5.314790472178808
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -11.0,
+            "7": 12.511441850504463,
+            "11": -16.193526653178452,
+            "16": 8.065996488719335
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 11.5,
+      "right_gear_contact_angle_limits_deg": [
+        5.814717516093603,
+        8.566060003428808
+      ],
+      "right_gear_free_angle_deg": 2.7513424873352044,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -11.5,
+            "7": 12.072325021184458,
+            "11": -14.789071468241927,
+            "16": 5.814717516093603
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -11.5,
+            "7": 13.037710658969717,
+            "11": -16.719799075567433,
+            "16": 8.566060003428808
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 12.0,
       "right_gear_contact_angle_limits_deg": [
-        3.193521722941748,
-        11.563012632518163
+        6.314663442759863,
+        9.065734705119482
       ],
-      "right_gear_free_angle_deg": 8.369490909576415
+      "right_gear_free_angle_deg": 2.751071262359619,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -12.0,
+            "7": 12.598665204643288,
+            "11": -15.315322207088556,
+            "16": 6.314663442759863
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -12.0,
+            "7": 13.563928872502817,
+            "11": -17.245945914106958,
+            "16": 9.065734705119482
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 12.5,
+      "right_gear_contact_angle_limits_deg": [
+        6.814705499797216,
+        9.56602824607407
+      ],
+      "right_gear_free_angle_deg": 2.7513227462768546,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -12.5,
+            "7": 13.124960214055552,
+            "11": -15.841654259219002,
+            "16": 6.814705499797216
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -12.5,
+            "7": 14.090469628728403,
+            "11": -17.772550817478667,
+            "16": 9.56602824607407
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 13.0,
       "right_gear_contact_angle_limits_deg": [
-        3.803741678386084,
-        12.480012354045265
+        7.314753564982763,
+        10.065894350200049
       ],
-      "right_gear_free_angle_deg": 8.67627067565918
+      "right_gear_free_angle_deg": 2.7511407852172853,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -13.0,
+            "7": 13.651241671253846,
+            "11": -16.368008898372736,
+            "16": 7.314753564982763
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -13.0,
+            "7": 14.616568582778568,
+            "11": -18.29869584905633,
+            "16": 10.065894350200049
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 13.5,
+      "right_gear_contact_angle_limits_deg": [
+        7.814755281596533,
+        10.56599734702622
+      ],
+      "right_gear_free_angle_deg": 2.751242065429688,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -13.5,
+            "7": 14.177589082560127,
+            "11": -16.894362634045535,
+            "16": 7.814755281596533
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -13.5,
+            "7": 15.142832873839167,
+            "11": -18.824915869551294,
+            "16": 10.56599734702622
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 14.0,
       "right_gear_contact_angle_limits_deg": [
-        4.377000936656346,
-        13.509725507884374
+        8.314714941172948,
+        11.065805086284033
       ],
-      "right_gear_free_angle_deg": 9.132724571228028
+      "right_gear_free_angle_deg": 2.7510901451110854,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -14.0,
+            "7": 14.70395185304224,
+            "11": -17.420654029534074,
+            "16": 8.314714941172948
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -14.0,
+            "7": 15.66929683418559,
+            "11": -19.351284060918996,
+            "16": 11.065805086284033
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 14.5,
+      "right_gear_contact_angle_limits_deg": [
+        8.814812788157813,
+        11.56602824607407
+      ],
+      "right_gear_free_angle_deg": 2.751215457916258,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -14.5,
+            "7": 15.230371542823027,
+            "11": -17.947041194001333,
+            "16": 8.814812788157813
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -14.5,
+            "7": 16.195720137890103,
+            "11": -19.877758863036593,
+            "16": 11.56602824607407
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 15.0,
       "right_gear_contact_angle_limits_deg": [
-        5.223014673381202,
-        14.668251642375342
+        9.314847978740087,
+        12.065937265544287
       ],
-      "right_gear_free_angle_deg": 9.44523696899414
+      "right_gear_free_angle_deg": 2.7510892868042003,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -15.0,
+            "7": 15.7565716867375,
+            "11": -18.473333492970802,
+            "16": 9.314847978740087
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -15.0,
+            "7": 16.721844389406343,
+            "11": -20.404018636692534,
+            "16": 12.065937265544287
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 15.5,
+      "right_gear_contact_angle_limits_deg": [
+        9.814863428264013,
+        12.565827402263036
+      ],
+      "right_gear_free_angle_deg": 2.7509639739990224,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -15.5,
+            "7": 16.28283236387437,
+            "11": -18.999580617893706,
+            "16": 9.814863428264013
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -15.5,
+            "7": 17.24820715988845,
+            "11": -20.930265761615438,
+            "16": 12.565827402263036
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 16.0,
       "right_gear_contact_angle_limits_deg": [
-        6.115535768657079,
-        16.004299387126316
+        10.314754423289648,
+        13.065948423533788
       ],
-      "right_gear_free_angle_deg": 9.888763618469238
+      "right_gear_free_angle_deg": 2.7511940002441406,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -16.0,
+            "7": 16.809216817898836,
+            "11": -19.52590995958136,
+            "16": 10.314754423289648
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -16.0,
+            "7": 17.774445250002042,
+            "11": -21.456588778936574,
+            "16": 13.065948423533788
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 16.5,
+      "right_gear_contact_angle_limits_deg": [
+        10.81483939567124,
+        13.566124376445165
+      ],
+      "right_gear_free_angle_deg": 2.7512849807739244,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -16.5,
+            "7": 17.335493757692475,
+            "11": -20.052331456324012,
+            "16": 10.81483939567124
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -16.5,
+            "7": 18.300887526806115,
+            "11": -21.983059063649517,
+            "16": 13.566124376445165
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 17.0,
       "right_gear_contact_angle_limits_deg": [
-        6.9765961972764625,
-        17.568944296031347
+        11.314918359904638,
+        14.066049703746192
       ],
-      "right_gear_free_angle_deg": 10.592348098754885
+      "right_gear_free_angle_deg": 2.7511313438415534,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -17.0,
+            "7": 17.861800512356847,
+            "11": -20.578592133460884,
+            "16": 11.314918359904638
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -17.0,
+            "7": 18.82718163273745,
+            "11": -22.50922668225046,
+            "16": 14.066049703746192
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 17.5,
+      "right_gear_contact_angle_limits_deg": [
+        11.814722665934912,
+        14.566158708720556
+      ],
+      "right_gear_free_angle_deg": 2.7514360427856435,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -17.5,
+            "7": 18.388070224303032,
+            "11": -21.104892563758735,
+            "16": 11.814722665934912
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -17.5,
+            "7": 19.35358234941868,
+            "11": -23.03563191633635,
+            "16": 14.566158708720556
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 18.0,
       "right_gear_contact_angle_limits_deg": [
-        7.8096615163377425,
-        19.18439324775254
+        12.314858278422705,
+        15.066241106181494
       ],
-      "right_gear_free_angle_deg": 11.374731731414796
+      "right_gear_free_angle_deg": 2.751382827758789,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -18.0,
+            "7": 18.91455225426808,
+            "11": -21.63146132789319,
+            "16": 12.314858278422705
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -18.0,
+            "7": 19.880005653123188,
+            "11": -23.562126595034435,
+            "16": 15.066241106181494
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 18.5,
+      "right_gear_contact_angle_limits_deg": [
+        12.814771589427343,
+        15.566134676127783
+      ],
+      "right_gear_free_angle_deg": 2.75136308670044,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -18.5,
+            "7": 19.44081202792402,
+            "11": -22.157451864231597,
+            "16": 12.814771589427343
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -18.5,
+            "7": 20.406213928366046,
+            "11": -24.088356553819644,
+            "16": 15.566134676127783
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 19.0,
       "right_gear_contact_angle_limits_deg": [
-        8.740769228129734,
-        20.285549863963478
+        13.315009340434424,
+        16.066085752635352
       ],
-      "right_gear_free_angle_deg": 11.544780635833744
+      "right_gear_free_angle_deg": 2.751076412200929,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -19.0,
+            "7": 19.967241655995053,
+            "11": -22.684047732793996,
+            "16": 13.315009340434424
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -19.0,
+            "7": 20.932474605502918,
+            "11": -24.614582898681125,
+            "16": 16.066085752635352
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 19.5,
+      "right_gear_contact_angle_limits_deg": [
+        13.814943250804296,
+        16.56612695136582
+      ],
+      "right_gear_free_angle_deg": 2.7511837005615245,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -19.5,
+            "7": 20.493330671754975,
+            "11": -23.21019276437166,
+            "16": 13.814943250804296
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -19.5,
+            "7": 21.45879400890033,
+            "11": -25.140868873284077,
+            "16": 16.56612695136582
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 20.0,
       "right_gear_contact_angle_limits_deg": [
-        9.911866983561865,
-        21.43300298133408
+        14.3149149266771,
+        17.06614669242417
       ],
-      "right_gear_free_angle_deg": 11.521135997772216
+      "right_gear_free_angle_deg": 2.75123176574707,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -20.0,
+            "7": 21.019820833048406,
+            "11": -23.736719064902342,
+            "16": 14.3149149266771
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -20.0,
+            "7": 21.98516852463455,
+            "11": -25.66727862477462,
+            "16": 17.06614669242417
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 20.5,
+      "right_gear_contact_angle_limits_deg": [
+        14.81474755683457,
+        17.56618102469956
+      ],
+      "right_gear_free_angle_deg": 2.75143346786499,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -20.5,
+            "7": 21.545969478549793,
+            "11": -24.262743030035203,
+            "16": 14.81474755683457
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -20.5,
+            "7": 22.511476182779848,
+            "11": -26.193663078799084,
+            "16": 17.56618102469956
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 21.0,
       "right_gear_contact_angle_limits_deg": [
-        11.038321336894384,
-        22.626062235026705
+        15.314976724772801,
+        18.06618617454087
       ],
-      "right_gear_free_angle_deg": 11.58774089813232
+      "right_gear_free_angle_deg": 2.7512094497680692,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -21.0,
+            "7": 22.072396396178032,
+            "11": -24.78927023404682,
+            "16": 15.314976724772801
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -21.0,
+            "7": 23.03772872858834,
+            "11": -26.719958088211346,
+            "16": 18.06618617454087
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 21.5,
+      "right_gear_contact_angle_limits_deg": [
+        15.815080579905857,
+        18.566176733165136
+      ],
+      "right_gear_free_angle_deg": 2.7510961532592795,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -21.5,
+            "7": 22.59880343722578,
+            "11": -25.315673661170845,
+            "16": 15.815080579905857
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -21.5,
+            "7": 23.5640264484434,
+            "11": -27.246169073896997,
+            "16": 18.566176733165136
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 22.0,
       "right_gear_contact_angle_limits_deg": [
-        12.664813264994969,
-        23.71466039100205
+        16.314528688578953,
+        19.06614669242417
       ],
-      "right_gear_free_angle_deg": 11.04984712600708
+      "right_gear_free_angle_deg": 2.7516180038452163,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -22.0,
+            "7": 23.1248924529857,
+            "11": -25.841662390547388,
+            "16": 16.314528688578953
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -22.0,
+            "7": 24.0903946398111,
+            "11": -27.77251196779862,
+            "16": 19.06614669242417
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 22.5,
+      "right_gear_contact_angle_limits_deg": [
+        16.81509002128159,
+        19.566187032847754
+      ],
+      "right_gear_free_angle_deg": 2.751097011566163,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -22.5,
+            "7": 23.65140700826428,
+            "11": -26.368290784423312,
+            "16": 16.81509002128159
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -22.5,
+            "7": 24.616775479911844,
+            "11": -28.298925333212892,
+            "16": 19.566187032847754
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 23.0,
       "right_gear_contact_angle_limits_deg": [
-        14.264154943614356,
-        24.56503604331528
+        17.31502135673081,
+        20.06618617454087
       ],
-      "right_gear_free_angle_deg": 10.300881099700925
+      "right_gear_free_angle_deg": 2.7511648178100607,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -23.0,
+            "7": 24.177752612608696,
+            "11": -26.8946354852868,
+            "16": 17.31502135673081
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -23.0,
+            "7": 25.14297923775004,
+            "11": -28.82521401825863,
+            "16": 20.06618617454087
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 23.5,
+      "right_gear_contact_angle_limits_deg": [
+        17.814878019481053,
+        20.56611236014878
+      ],
+      "right_gear_free_angle_deg": 2.7512343406677253,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -23.5,
+            "7": 24.70399522012694,
+            "11": -27.420810331735193,
+            "16": 17.814878019481053
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -23.5,
+            "7": 25.669276957605096,
+            "11": -29.35139518907355,
+            "16": 20.56611236014878
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 24.0,
       "right_gear_contact_angle_limits_deg": [
-        15.685449728160254,
-        25.443771013408057
+        18.314620527415624,
+        21.066043695597997
       ],
-      "right_gear_free_angle_deg": 9.758321285247803
+      "right_gear_free_angle_deg": 2.7514231681823738,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -24.0,
+            "7": 25.230161935246958,
+            "11": -27.94679454370708,
+            "16": 18.314620527415624
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -24.0,
+            "7": 26.19566502555329,
+            "11": -29.877639603553657,
+            "16": 21.066043695597997
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 24.5,
+      "right_gear_contact_angle_limits_deg": [
+        18.81511147895371,
+        21.566101202159278
+      ],
+      "right_gear_free_angle_deg": 2.750989723205567,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -24.5,
+            "7": 25.75664577217387,
+            "11": -28.473530451813836,
+            "16": 18.81511147895371
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -24.5,
+            "7": 26.722091039700597,
+            "11": -30.404165904084344,
+            "16": 21.566101202159278
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 25.0,
       "right_gear_contact_angle_limits_deg": [
-        16.905233797221534,
-        26.17599814811264
+        19.314874586253513,
+        22.065851434855812
       ],
-      "right_gear_free_angle_deg": 9.270764350891106
+      "right_gear_free_angle_deg": 2.750976848602299,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -25.0,
+            "7": 26.282877537920935,
+            "11": -28.999708912185955,
+            "16": 19.314874586253513
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -25.0,
+            "7": 27.248154757994435,
+            "11": -30.930209745797693,
+            "16": 22.065851434855812
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 25.5,
+      "right_gear_contact_angle_limits_deg": [
+        19.81480420508896,
+        22.56580594459092
+      ],
+      "right_gear_free_angle_deg": 2.751001739501959,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -25.5,
+            "7": 26.80924030840305,
+            "11": -29.526026508621502,
+            "16": 19.81480420508896
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -25.5,
+            "7": 27.774486810124884,
+            "11": -31.456570709317948,
+            "16": 22.56580594459092
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 26.0,
       "right_gear_contact_angle_limits_deg": [
-        17.968241533427587,
-        26.745451673655857
+        20.314959558635106,
+        23.066132959514015
       ],
-      "right_gear_free_angle_deg": 8.77721014022827
+      "right_gear_free_angle_deg": 2.7511734008789084,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -26.0,
+            "7": 27.335584105785607,
+            "11": -30.052429032264595,
+            "16": 20.314959558635106
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -26.0,
+            "7": 28.30074206637617,
+            "11": -31.982943418090304,
+            "16": 23.066132959514015
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 26.5,
+      "right_gear_contact_angle_limits_deg": [
+        20.814871153025976,
+        23.565740713267676
+      ],
+      "right_gear_free_angle_deg": 2.7508695602417,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -26.5,
+            "7": 27.861887246526255,
+            "11": -30.57861110656044,
+            "16": 20.814871153025976
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -26.5,
+            "7": 28.82706056629265,
+            "11": -32.50907580093493,
+            "16": 23.565740713267676
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 27.0,
       "right_gear_contact_angle_limits_deg": [
-        18.91597121634995,
-        27.362361272960058
+        21.314835104136815,
+        24.06580251136338
       ],
-      "right_gear_free_angle_deg": 8.44639005661011
+      "right_gear_free_angle_deg": 2.7509674072265646,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -27.0,
+            "7": 28.388110880944943,
+            "11": -31.10485552104055,
+            "16": 21.314835104136815
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -27.0,
+            "7": 29.353518202272554,
+            "11": -33.035481035020815,
+            "16": 24.06580251136338
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 27.5,
+      "right_gear_contact_angle_limits_deg": [
+        21.81482737937485,
+        24.565739854960793
+      ],
+      "right_gear_free_angle_deg": 2.7509124755859418,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -27.5,
+            "7": 28.914486300160092,
+            "11": -31.631212870637068,
+            "16": 21.81482737937485
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -27.5,
+            "7": 29.879732801881925,
+            "11": -33.56177514095214,
+            "16": 24.565739854960793
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 28.0,
       "right_gear_contact_angle_limits_deg": [
-        19.763585409312594,
-        28.022663149028173
+        22.31472781577622,
+        25.066199049144142
       ],
-      "right_gear_free_angle_deg": 8.259077739715579
+      "right_gear_free_angle_deg": 2.7514712333679228,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -28.0,
+            "7": 29.440847263680343,
+            "11": -32.15747445125487,
+            "16": 22.31472781577622
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -28.0,
+            "7": 30.406125387234773,
+            "11": -34.08832673894891,
+            "16": 25.066199049144142
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 28.5,
+      "right_gear_contact_angle_limits_deg": [
+        22.814821371226657,
+        25.565747579722753
+      ],
+      "right_gear_free_angle_deg": 2.7509262084960966,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -28.5,
+            "7": 29.967085353793934,
+            "11": -32.68381102078998,
+            "16": 22.814821371226657
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -28.5,
+            "7": 30.932316496339936,
+            "11": -34.61433534490594,
+            "16": 25.565747579722753
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 29.0,
       "right_gear_contact_angle_limits_deg": [
-        20.51857541480576,
-        28.74832566657578
+        23.314809354930272,
+        26.065942415385596
       ],
-      "right_gear_free_angle_deg": 8.229750251770021
+      "right_gear_free_angle_deg": 2.7511330604553237,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -29.0,
+            "7": 30.493364100549435,
+            "11": -33.21013765203484,
+            "16": 23.314809354930272
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -29.0,
+            "7": 31.45875335225842,
+            "11": -35.14083815493241,
+            "16": 26.065942415385596
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 29.5,
+      "right_gear_contact_angle_limits_deg": [
+        23.814736398845067,
+        26.566006788401953
+      ],
+      "right_gear_free_angle_deg": 2.751270389556886,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -29.5,
+            "7": 31.01971331881758,
+            "11": -33.73645976587505,
+            "16": 23.814736398845067
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -29.5,
+            "7": 31.985023064204604,
+            "11": -35.66711148080232,
+            "16": 26.566006788401953
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 30.0,
       "right_gear_contact_angle_limits_deg": [
-        21.193326887278907,
-        29.562543996959082
+        24.31468318381821,
+        27.06568149009263
       ],
-      "right_gear_free_angle_deg": 8.369217109680175
+      "right_gear_free_angle_deg": 2.7509983062744183,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -30.0,
+            "7": 31.546055309238273,
+            "11": -34.262711408202605,
+            "16": 24.31468318381821
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -30.0,
+            "7": 32.51124127773771,
+            "11": -36.193258319341844,
+            "16": 27.06568149009263
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 30.5,
+      "right_gear_contact_angle_limits_deg": [
+        24.814726957469333,
+        27.565976747660986
+      ],
+      "right_gear_free_angle_deg": 2.751249790191654,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -30.5,
+            "7": 32.072351222131466,
+            "11": -34.78904526729492,
+            "16": 24.814726957469333
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -30.5,
+            "7": 33.03778384092516,
+            "11": -36.71986502967542,
+            "16": 27.565976747660986
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 31.0,
       "right_gear_contact_angle_limits_deg": [
-        21.80356143394028,
-        30.479505094676366
+        25.314776739268652,
+        28.065842851786964
       ],
-      "right_gear_free_angle_deg": 8.675943660736085
+      "right_gear_free_angle_deg": 2.7510661125183127,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -31.0,
+            "7": 32.598634486291616,
+            "11": -35.31540171341051,
+            "16": 25.314776739268652
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -31.0,
+            "7": 33.563882794975314,
+            "11": -37.246010061253074,
+            "16": 28.065842851786964
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 31.5,
+      "right_gear_contact_angle_limits_deg": [
+        25.81477845588242,
+        28.565947565226907
+      ],
+      "right_gear_free_angle_deg": 2.751169109344488,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -31.5,
+            "7": 33.1249818975979,
+            "11": -35.84175544908331,
+            "16": 25.81477845588242
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -31.5,
+            "7": 34.090148892997775,
+            "11": -37.772231888709904,
+            "16": 28.565947565226907
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 32.0,
       "right_gear_contact_angle_limits_deg": [
-        22.376828416972508,
-        31.509183916240087
+        26.31473897376572,
+        29.065755304484718
       ],
-      "right_gear_free_angle_deg": 9.132355499267579
+      "right_gear_free_angle_deg": 2.751016330718997,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -32.0,
+            "7": 33.651345571560945,
+            "11": -36.36804774805278,
+            "16": 26.31473897376572
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -32.0,
+            "7": 34.6166128533442,
+            "11": -38.298600080077605,
+            "16": 29.065755304484718
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 32.5,
+      "right_gear_contact_angle_limits_deg": [
+        26.81483767905747,
+        29.56597932258164
+      ],
+      "right_gear_free_angle_deg": 2.7511416435241713,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -32.5,
+            "7": 34.177766164822664,
+            "11": -36.89443581600097,
+            "16": 26.81483767905747
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -32.5,
+            "7": 35.14303706052964,
+            "11": -38.825075785676134,
+            "16": 29.56597932258164
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 33.0,
       "right_gear_contact_angle_limits_deg": [
-        23.222710832743992,
-        32.66766541877305
+        27.314874586253513,
+        30.06588920035874
       ],
-      "right_gear_free_angle_deg": 9.444954586029056
+      "right_gear_free_angle_deg": 2.7510146141052267,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -33.0,
+            "7": 34.703968115699,
+            "11": -37.420729921932306,
+            "16": 27.314874586253513
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -33.0,
+            "7": 35.66916221552682,
+            "11": -39.35133646281301,
+            "16": 30.06588920035874
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 33.5,
+      "right_gear_contact_angle_limits_deg": [
+        27.814890894084325,
+        30.565780195384377
+      ],
+      "right_gear_free_angle_deg": 2.7508893013000524,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -33.5,
+            "7": 35.230229696316805,
+            "11": -37.94697795033614,
+            "16": 27.814890894084325
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -33.5,
+            "7": 36.195525889489865,
+            "11": -39.877584491216844,
+            "16": 30.565780195384377
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 34.0,
       "right_gear_contact_angle_limits_deg": [
-        24.11523364463364,
-        34.0036582318834
+        28.314782747416842,
+        31.06590207496201
       ],
-      "right_gear_free_angle_deg": 9.888424587249759
+      "right_gear_free_angle_deg": 2.751119327545169,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -34.0,
+            "7": 35.7566150538222,
+            "11": -38.47330819550473,
+            "16": 28.314782747416842
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -34.0,
+            "7": 36.72176488308438,
+            "11": -40.40390841201891,
+            "16": 31.06590207496201
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 34.5,
+      "right_gear_contact_angle_limits_deg": [
+        28.814867719798436,
+        31.56607974448716
+      ],
+      "right_gear_free_angle_deg": 2.751212024688723,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -34.5,
+            "7": 36.28289199361584,
+            "11": -38.99972969224738,
+            "16": 28.814867719798436
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -34.5,
+            "7": 37.24820896685032,
+            "11": -40.93038050369372,
+            "16": 31.56607974448716
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 35.0,
       "right_gear_contact_angle_limits_deg": [
-        24.976294073253026,
-        35.56823447623764
+        29.314948400645605,
+        32.06600507178818
       ],
-      "right_gear_free_angle_deg": 10.591940402984616
+      "right_gear_free_angle_deg": 2.751056671142578,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -35.0,
+            "7": 36.80920055524208,
+            "11": -39.525992176346115,
+            "16": 29.314948400645605
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -35.0,
+            "7": 37.774503072781656,
+            "11": -41.45654812229466,
+            "16": 32.06600507178818
+          }
+        }
+      ]
+    },
+    {
+      "input_opening_deg": 35.5,
+      "right_gear_contact_angle_limits_deg": [
+        29.814752706675876,
+        32.566114935069436
+      ],
+      "right_gear_free_angle_deg": 2.7513622283935604,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -35.5,
+            "7": 37.33547026718826,
+            "11": -40.05229260664397,
+            "16": 29.814752706675876
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -35.5,
+            "7": 38.30090469294382,
+            "11": -41.98295425986148,
+            "16": 32.566114935069436
+          }
+        }
+      ]
     },
     {
       "input_opening_deg": 36.0,
       "right_gear_contact_angle_limits_deg": [
-        25.809362825541847,
-        37.18382848182237
+        30.314890035777438,
+        33.066198190837255
       ],
-      "right_gear_free_angle_deg": 11.37446565628052
+      "right_gear_free_angle_deg": 2.7513081550598173,
+      "contact_poses": [
+        {
+          "direction": "opening",
+          "gear_angles_2d": {
+            "17": -36.0,
+            "7": 37.86195410411517,
+            "11": -40.578863177740274,
+            "16": 30.314890035777438
+          }
+        },
+        {
+          "direction": "closing",
+          "gear_angles_2d": {
+            "17": -36.0,
+            "7": 38.82732890012925,
+            "11": -42.509449842040496,
+            "16": 33.066198190837255
+          }
+        }
+      ]
     }
   ],
   "chain_free_angle_range_deg": [
+    2.7508695602417,
+    2.751687526702881
+  ],
+  "baseline_R1_chain_free_angle_range_deg": [
     8.229750251770021,
     11.588006114959716
-  ]
+  ],
+  "target_passed": true
 }

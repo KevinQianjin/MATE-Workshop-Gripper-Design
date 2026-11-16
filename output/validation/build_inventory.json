@@ -2,22 +2,24 @@
   "M01_palm_IPX896HV": {
     "valid": true,
     "solids": 1,
-    "volume_mm3": 38026.41726103031,
+    "volume_mm3": 37988.95033876819,
     "bounds_mm": [
       67.14558238642832,
       57.17694506943228,
       53.92073199152954
-    ]
+    ],
+    "quantity": 1
   },
   "M02_drive_gear_horn_adapter": {
     "valid": true,
     "solids": 1,
-    "volume_mm3": 3620.497017891382,
+    "volume_mm3": 3605.0556496198665,
     "bounds_mm": [
       28.000000000000004,
       20.6,
-      55.539180844793066
-    ]
+      55.53918094479307
+    ],
+    "quantity": 1
   },
   "M03_base_IPX896HV": {
     "valid": true,
@@ -27,7 +29,8 @@
       160.0,
       96.00000000000001,
       47.500000000000014
-    ]
+    ],
+    "quantity": 1
   },
   "M04_original_waist_horn_interface": {
     "valid": true,
@@ -37,7 +40,30 @@
       65.00000000000001,
       44.6053532376895,
       74.50000000000003
-    ]
+    ],
+    "quantity": 1
+  },
+  "M05_right_gear_involute": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 905.4434800687623,
+    "bounds_mm": [
+      16.400050741348206,
+      4.30000020000001,
+      49.7520563027798
+    ],
+    "quantity": 1
+  },
+  "M06_small_gear_involute_PRINT_2": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 537.9107982558303,
+    "bounds_mm": [
+      15.676461453969809,
+      5.30000020000001,
+      15.726961366040968
+    ],
+    "quantity": 2
   },
   "N01_yaw_horn_coupler": {
     "valid": true,
@@ -47,7 +73,8 @@
       44.0,
       44.0,
       4.0
-    ]
+    ],
+    "quantity": 1
   },
   "N02_gripper_to_waist_bridge": {
     "valid": true,
@@ -57,7 +84,8 @@
       50.0,
       11.581687885685064,
       84.0
-    ]
+    ],
+    "quantity": 1
   },
   "U01_left_claw": {
     "triangles": 1936,
@@ -79,20 +107,6 @@
     "original_sha256": "1b0bb6f6669c92a31c0240ff340202820913fbf7b040812972edf770d8c4af6f",
     "quantity": 2,
     "source": "gripper/2x-linkage.stl"
-  },
-  "U04_small_gear_PRINT_2": {
-    "triangles": 2108,
-    "rigid_transform_only": true,
-    "original_sha256": "6b89513a29802f735f9a61d9566acc89e0a982e77e87dd5f6ee4c4ed7ea62534",
-    "quantity": 2,
-    "source": "gripper/gears/2x-small-gear.stl"
-  },
-  "U05_big_gear_right": {
-    "triangles": 2964,
-    "rigid_transform_only": true,
-    "original_sha256": "61f4021fc4afc4dcfb7d10957878fe56b73fcc509dd898f18b6d1aef76e49b67",
-    "quantity": 1,
-    "source": "gripper/gears/big-gear-right.stl"
   },
   "U06_base_wall": {
     "triangles": 1456,

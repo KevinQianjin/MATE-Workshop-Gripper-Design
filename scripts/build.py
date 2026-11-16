@@ -1,13 +1,14 @@
 """Minimal-interface IPX896HV adaptation of pinned upstream CAD. Units: mm.
 
 CadQuery 2.x. Run: python scripts/build.py
-R1 is a fit-check prototype, not a physically validated production assembly.
+R2 is a fit-check prototype, not a physically validated production assembly.
 """
 import json, math, shutil, struct, hashlib
 from pathlib import Path
 import cadquery as cq
 import numpy as np
 from OCP.BRepAdaptor import BRepAdaptor_Surface
+from gears import replace_rim, gear_solid
 
 ROOT=Path(__file__).resolve().parents[1]
 P=json.loads((ROOT/'parameters.json').read_text())
@@ -81,7 +82,7 @@ original_rotor_bottom=original_rotor.BoundingBox().zmin
 palm=gr[6].fuse(box(-30,3,6.527,16.027,sz-7.62,sz+7.62))
 palm=palm.cut(cyl(G['shaft_running_clearance_diameter']/2,80,(sx,-30,sz),(0,1,0)))
 palm=palm.cut(cyl(7.3,2.2,(sx,14.3,sz),(0,1,0)))
-# Relocate only the two idler bosses. The upstream gear shapes are untouched.
+# Relocate the two idler bosses for the matched R2 gear pitch circles.
 for source_i,key in [(7,'idler_left_xz'),(11,'idler_right_xz')]:
     old=cylinder_origin(gr[source_i],7.5)
     nx,nz=P['gear_alignment'][key]
@@ -92,7 +93,7 @@ for source_i,key in [(7,'idler_left_xz'),(11,'idler_right_xz')]:
     palm=palm.cut(cyl(3.5,1.65,(nx,6.477,nz),(0,1,0)))
     # The relocated teeth approach the original rear mounting flange.
     # Relieve its front edge, preserving the center boss and the rear screw seats.
-    relief=cyl(7.85,7,(nx,16.2,nz),(0,1,0)).cut(cyl(6.0,7.2,(nx,16.1,nz),(0,1,0)))
+    relief=cyl(8.15,7,(nx,16.2,nz),(0,1,0)).cut(cyl(6.0,7.2,(nx,16.1,nz),(0,1,0)))
     palm=palm.cut(relief)
 body_front=G['servo_case_top_y'];body_back=body_front-S['body_height']
 ear_front=body_back+S['ear_top_height'];carrier_front=ear_front+G['carrier_thickness']
@@ -110,10 +111,14 @@ for x0,x1 in [(-35.95,-29.95),(15.5,21.5)]:
         carrier=carrier.fuse(box(x0,x1,carrier_front-.1,7.0,z0,z1))
 palm=palm.fuse(carrier).clean()
 
-# 02: Original driving gear tooth profile and connecting arm are retained.
-# Replace only its horn recess with a through-tool-access shaft and slotted flange.
+# 02: Retain the original hub/arm; replace working teeth with matched involutes.
+# R1's +1.5 mm axial correction and metal-horn interface remain.
 lift=G['drive_gear_axial_shift']
 drive=gr[17].translate((0,lift,0))
+gear=P['gear_design'];tooth_y=18.5269450694323
+drive=replace_rim(drive,(sx,sz),tooth_y,2,8.15,20,gear,gear['drive_profile_phase_deg'],(-17.1922,-50.4052))
+right_gear=replace_rim(gr[16],(11.4856,-13.7218),tooth_y,2,8.15,20,gear,gear['right_profile_phase_deg'],(11.0595,-51.2696))
+small_gear=replace_rim(gr[7],(-10.808355,-1.9993),tooth_y,3,7.5,19,gear)
 drive=drive.fuse(cyl(4.08,4.5,(sx,14.6+lift,sz),(0,1,0)))
 drive=drive.fuse(cyl(G['shaft_extension_diameter']/2,15.0+lift,(sx,0,sz),(0,1,0)))
 drive=drive.fuse(cyl(G['coupler_flange_diameter']/2,G['coupler_flange_thickness'],(sx,0,sz),(0,1,0)))
@@ -212,6 +217,8 @@ parts={
  'M02_drive_gear_horn_adapter':(drive,'y',True),
  'M03_base_IPX896HV':(base,'z',False),
  'M04_original_waist_horn_interface':(rotor,'z',False),
+ 'M05_right_gear_involute':(right_gear,'y',True),
+ 'M06_small_gear_involute_PRINT_2':(small_gear,'y',True),
  'N01_yaw_horn_coupler':(yaw_adapter,'z',False),
  'N02_gripper_to_waist_bridge':(bridge,'y',True),
 }
@@ -223,16 +230,15 @@ for name,(s,axis,flip) in parts.items():
         print('SPLIT',name,[(a.Volume(),a.Center().toTuple()) for a in s.Solids()],flush=True)
     assert len(s.Solids())==1,f'Disconnected part: {name}: {len(s.Solids())}'
     cq.exporters.export(s,str(OUT/'step'/f'{name}.step'))
-    cq.exporters.export(bed(s,axis,flip),str(OUT/'stl'/f'{name}.stl'),tolerance=.04,angularTolerance=.1)
+    precision='gear' in name
+    cq.exporters.export(bed(s,axis,flip),str(OUT/'stl'/f'{name}.stl'),tolerance=.01 if precision else .04,angularTolerance=.06 if precision else .1)
     s.exportBrep(str(OUT/'brep'/f'{name}.brep'))
-    b=s.BoundingBox();result[name]={'valid':True,'solids':1,'volume_mm3':s.Volume(),'bounds_mm':[b.xlen,b.ylen,b.zlen]}
+    b=s.BoundingBox();result[name]={'valid':True,'solids':1,'volume_mm3':s.Volume(),'bounds_mm':[b.xlen,b.ylen,b.zlen],'quantity':2 if name.endswith('PRINT_2') else 1}
 
 reuse={
  'U01_left_claw':('gripper/claw/left-claw.stl',1,False),
  'U02_right_claw':('gripper/claw/right-claw.stl',1,False),
  'U03_linkage_PRINT_2':('gripper/2x-linkage.stl',2,False),
- 'U04_small_gear_PRINT_2':('gripper/gears/2x-small-gear.stl',2,True),
- 'U05_big_gear_right':('gripper/gears/big-gear-right.stl',1,True),
  'U06_base_wall':('base/base-wall.stl',1,False)
 }
 for name,(path,qty,flip) in reuse.items():
@@ -252,6 +258,26 @@ for name,s,axis in [('F01_servo_ear_fit',carrier_test,'y'),('F02_horn_slot_fit',
     cq.exporters.export(bed(s,axis),str(OUT/'fit_checks'/f'{name}.stl'),tolerance=.04,angularTolerance=.1)
     cq.exporters.export(s,str(OUT/'fit_checks'/f'{name}.step'))
 
+# A flat four-shaft trial plate and three sets of plain test gears. The test
+# gears omit the arms and horns so only the tooth/print fit is assessed.
+trial_centers=[(sx,sz),tuple(P['gear_alignment']['idler_left_xz']),tuple(P['gear_alignment']['idler_right_xz']),(11.4856,-13.7218)]
+trial_plate=box(-33,26,0,4,-25,10)
+for x,z in trial_centers:
+    trial_plate=trial_plate.cut(cyl(1.6,6,(x,-1,z),(0,1,0)))
+    trial_plate=trial_plate.cut(cyl(3.2,2.5,(x,0,z),(0,1,0)))
+coupons={'F05_four_gear_trial_plate':trial_plate.clean()}
+for pair_gap in gear['trial_pair_backlash_mm']:
+    code=f'{round(pair_gap*100):02d}'
+    for teeth in [20,19]:
+        s=gear_solid(teeth,gear['module_mm'],gear['pressure_angle_deg'],pair_gap/2,(0,0),0,3,root_fillet=gear['root_fillet_mm'])
+        s=s.cut(cyl(1.55,5,(0,-1,0),(0,1,0)))
+        s=s.cut(cyl(.6,5,(4,-1,0),(0,1,0)))
+        coupons[f'F_mesh_{teeth}T_B{code}_PRINT_2']=s.clean()
+for name,s in coupons.items():
+    assert s.isValid() and len(s.Solids())==1,name
+    cq.exporters.export(bed(s,'y'),str(OUT/'fit_checks'/f'{name}.stl'),tolerance=.01,angularTolerance=.06)
+    cq.exporters.export(s,str(OUT/'fit_checks'/f'{name}.step'))
+
 assembled={
  'base':base,'base_wall':basewall,'yaw_coupler':yaw_adapter,'waist':rotor,'bridge':bridge,
  'palm':gripper_frame(palm),'drive_gear':gripper_frame(drive),
@@ -259,10 +285,10 @@ assembled={
  'REF_yaw_metal_horn':yaw_horn,'REF_gripper_metal_horn':gripper_frame(gr_horn)
 }
 from motion import posed
-moving,_=posed(gr,drive,P,0)
+moving,_=posed(gr,drive,P,0,gear_parts={'right':right_gear,'idler':small_gear})
 assembled.update({name:gripper_frame(s) for name,s in moving.items()})
 colors={'base':(.30,.38,.46),'base_wall':(.30,.38,.46),'waist':(.30,.38,.46),'yaw_coupler':(.95,.60,.10),'bridge':(.95,.60,.10),'palm':(.15,.55,.65),'drive_gear':(.95,.60,.10)}
-assembly=cq.Assembly(name='IPX896HV_2DOF_R1_FIT_CHECK')
+assembly=cq.Assembly(name='IPX896HV_2DOF_R2_FIT_CHECK')
 for name,s in assembled.items():
     color=colors.get(name,(.63,.68,.72) if not name.startswith('REF_') else (.16,.18,.20))
     if 'claw' in name:color=(.30,.65,.48)

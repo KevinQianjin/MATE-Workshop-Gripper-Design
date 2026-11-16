@@ -84,11 +84,11 @@
   "step_roundtrip": {
     "M01_palm_IPX896HV.step": {
       "valid_solids": 1,
-      "volume_mm3": 38026.41726102494
+      "volume_mm3": 37988.95033876265
     },
     "M02_drive_gear_horn_adapter.step": {
       "valid_solids": 1,
-      "volume_mm3": 3620.497017892531
+      "volume_mm3": 3605.0556496210475
     },
     "M03_base_IPX896HV.step": {
       "valid_solids": 1,
@@ -97,6 +97,14 @@
     "M04_original_waist_horn_interface.step": {
       "valid_solids": 1,
       "volume_mm3": 88853.69929867556
+    },
+    "M05_right_gear_involute.step": {
+      "valid_solids": 1,
+      "volume_mm3": 905.443480069191
+    },
+    "M06_small_gear_involute_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 537.9107982551579
     },
     "N01_yaw_horn_coupler.step": {
       "valid_solids": 1,
@@ -122,9 +130,37 @@
       "valid_solids": 1,
       "volume_mm3": 1413.7166941154198
     },
+    "F05_four_gear_trial_plate.step": {
+      "valid_solids": 1,
+      "volume_mm3": 7890.046049113259
+    },
+    "F_mesh_19T_B08_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 436.4213441206812
+    },
+    "F_mesh_19T_B12_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 434.52290662067213
+    },
+    "F_mesh_19T_B16_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 432.6244691208247
+    },
+    "F_mesh_20T_B08_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 487.47340161252373
+    },
+    "F_mesh_20T_B12_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 485.47371411288674
+    },
+    "F_mesh_20T_B16_PRINT_2.step": {
+      "valid_solids": 1,
+      "volume_mm3": 483.47402661239454
+    },
     "IPX896HV_2DOF_assembly.step": {
       "valid_solids": 18,
-      "volume_mm3": 464137.71965377213
+      "volume_mm3": 464155.82849000365
     }
   },
   "stl_orientation": {
@@ -134,7 +170,7 @@
     },
     "M02_drive_gear_horn_adapter.stl": {
       "closed_oriented_manifold": true,
-      "minimum_triangle_area_mm2": 0.007430928176333394
+      "minimum_triangle_area_mm2": 2.0475954443099909e-07
     },
     "M03_base_IPX896HV.stl": {
       "closed_oriented_manifold": true,
@@ -143,6 +179,14 @@
     "M04_original_waist_horn_interface.stl": {
       "closed_oriented_manifold": true,
       "minimum_triangle_area_mm2": 0.07254351655970899
+    },
+    "M05_right_gear_involute.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0235256670275703e-07
+    },
+    "M06_small_gear_involute_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0294532987463754e-07
     },
     "N01_yaw_horn_coupler.stl": {
       "closed_oriented_manifold": true,
@@ -164,14 +208,6 @@
       "closed_oriented_manifold": true,
       "minimum_triangle_area_mm2": 0.0005931246289492265
     },
-    "U04_small_gear_PRINT_2.stl": {
-      "closed_oriented_manifold": true,
-      "minimum_triangle_area_mm2": 0.0031015231289188705
-    },
-    "U05_big_gear_right.stl": {
-      "closed_oriented_manifold": true,
-      "minimum_triangle_area_mm2": 2.6395104214316234e-05
-    },
     "U06_base_wall.stl": {
       "closed_oriented_manifold": true,
       "minimum_triangle_area_mm2": 0.0016355931875295937
@@ -191,6 +227,34 @@
     "F04_shaft_fit_pin.stl": {
       "closed_oriented_manifold": true,
       "minimum_triangle_area_mm2": 0.0022305846959511655
+    },
+    "F05_four_gear_trial_plate.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 0.03590188548001779
+    },
+    "F_mesh_19T_B08_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0300046799093252e-07
+    },
+    "F_mesh_19T_B12_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0294532987463754e-07
+    },
+    "F_mesh_19T_B16_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.025433332164539e-07
+    },
+    "F_mesh_20T_B08_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.066818751700339e-07
+    },
+    "F_mesh_20T_B12_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0649792986660032e-07
+    },
+    "F_mesh_20T_B16_PRINT_2.stl": {
+      "closed_oriented_manifold": true,
+      "minimum_triangle_area_mm2": 2.0627635421988089e-07
     }
   },
   "retained_geometry": {
@@ -205,14 +269,6 @@
     "U03_linkage_PRINT_2.stl": {
       "triangles_unchanged": 1752,
       "max_edge_length_difference_mm": 1.4613275758357247e-06
-    },
-    "U04_small_gear_PRINT_2.stl": {
-      "triangles_unchanged": 2108,
-      "max_edge_length_difference_mm": 4.76837158203125e-07
-    },
-    "U05_big_gear_right.stl": {
-      "triangles_unchanged": 2964,
-      "max_edge_length_difference_mm": 1.906209384117119e-06
     },
     "U06_base_wall.stl": {
       "triangles_unchanged": 1456,

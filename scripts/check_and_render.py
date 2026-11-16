@@ -57,7 +57,7 @@ def render(parts,filename,azimuth=45):
         zbuf[mask]=z[mask];pixels[y0:y1+1,x0:x1+1][mask]=color
     ax.imshow(pixels);ax.set_axis_off()
     fig.suptitle('IPX896HV | open / close + yaw',x=.07,y=.95,ha='left',fontsize=23,fontweight='bold',color='#183347')
-    fig.text(.07,.90,'R1 fit-check prototype  |  original gripper linkage retained',fontsize=13,color='#536777')
+    fig.text(.07,.90,'R2 matched-gear fit-check prototype  |  original gripper linkage retained',fontsize=13,color='#536777')
     fig.text(.07,.06,'Blue: adapted original parts    Orange: drive interfaces / bridge    Green: original jaws',fontsize=11,color='#536777')
     fig.text(.07,.035,'Servo and horn envelopes shown. Screws / washers omitted. Dimensions and load require physical verification.',fontsize=10,color='#536777')
     fig.subplots_adjust(left=0,right=1,bottom=.07,top=.88)

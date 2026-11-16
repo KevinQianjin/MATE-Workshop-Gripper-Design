@@ -1,13 +1,33 @@
 {
-  "unchanged_solid_symmetric_difference_mm3": {
-    "M01_palm_IPX896HV.brep": 0.0,
-    "M03_base_IPX896HV.brep": 0.0,
-    "M04_original_waist_horn_interface.brep": 0.0,
-    "N01_yaw_horn_coupler.brep": 0.0,
-    "N02_gripper_to_waist_bridge.brep": 0.0
+  "baseline_commit": "a9ed9fded2ce59b079b9b703d5fd8c7202095e94",
+  "unchanged_R1_parts_difference_mm3": {
+    "M03_base_IPX896HV": 0,
+    "M04_original_waist_horn_interface": 0,
+    "N01_yaw_horn_coupler": 0,
+    "N02_gripper_to_waist_bridge": 0
   },
-  "unchanged_original_stls": 6,
-  "changed_main_part": "M02_drive_gear_horn_adapter",
-  "changed_coupon": "F02_horn_slot_fit",
-  "assembly_only_changes": "Both jaw heights aligned; updated spacer stack"
+  "preserved_gear_interfaces": {
+    "M02_drive_gear_horn_adapter": {
+      "outside_tooth_band_difference_mm3": 0,
+      "central_interface_difference_mm3": 0
+    },
+    "M05_right_gear_involute": {
+      "outside_tooth_band_difference_mm3": 0,
+      "central_interface_difference_mm3": 0
+    },
+    "M06_small_gear_involute_PRINT_2": {
+      "outside_tooth_band_difference_mm3": 0,
+      "central_interface_difference_mm3": 0
+    }
+  },
+  "main_part_types": 12,
+  "main_piece_count": 14,
+  "replacement_types_from_R1": [
+    "M01",
+    "M02",
+    "M05 (replaces U05)",
+    "M06 x2 (replaces U04 x2)"
+  ],
+  "replacement_piece_count": 5,
+  "note": "Comparison excludes the intended tooth band with a 0.01 mm axial comparison margin. Hardware dimensions still need physical confirmation."
 }

@@ -1,5 +1,5 @@
 {
-  "revision": "R1-gear-engagement-fit-check",
+  "revision": "R2-matched-gears-fit-check",
   "units": "mm",
   "servo": {
     "body_length": 40.5,
@@ -68,18 +68,38 @@
   ],
   "gear_alignment": {
     "idler_left_xz": [
-      -10.088371937159756,
-      -0.8884232524184108
+      -10.334260831302222,
+      -0.8138408529732766
     ],
     "idler_right_xz": [
-      3.660489603383671,
-      -1.2723915314787873
+      3.910185227642836,
+      -1.2116554753850706
     ],
     "phase_degrees_2d": {
-      "idler_left": -5.754274179660507,
-      "idler_right": -1.1010684621401579,
+      "idler_left": 0.45010523278370695,
+      "idler_right": -3.649552328901879,
       "right_gear": -4.309265771717676
     },
-    "calibration": "Original tooth geometry retained; two idler pivots relocated and assembly phases aligned. 2D mesh clearance target 0.12 mm; verify in 3D and physically."
-  }
+    "calibration": "R2 common module 0.75, 20 degree involutes; pitch-circle center distances 14.625/14.25/14.625. Gear phases solved for tooth-space alignment; original arm datum retained."
+  },
+  "gear_design": {
+    "module_mm": 0.75,
+    "pressure_angle_deg": 20.0,
+    "big_teeth": 20,
+    "small_teeth": 19,
+    "tooth_thickness_reduction_mm": 0.06,
+    "nominal_pair_tangential_backlash_mm": 0.12,
+    "root_fillet_mm": 0.1,
+    "drive_profile_phase_deg": 0.0,
+    "minimum_axial_overlap_mm": 2.0,
+    "output_backlash_target_deg": 3.0,
+    "trial_pair_backlash_mm": [
+      0.08,
+      0.12,
+      0.16
+    ],
+    "note": "Matched involute working flanks; radial relief below base circle and 0.10 mm root fillets. Retain original hubs, bores and big-gear arm junctions. Nominal backlash is a CAD value, not a printed tolerance guarantee.",
+    "right_profile_phase_deg": 10.109818675599476
+  },
+  "baseline_commit": "a9ed9fded2ce59b079b9b703d5fd8c7202095e94"
 }
