@@ -1,14 +1,14 @@
-# R1 比對基準
+# R1 comparison baselines
 
-[專案首頁](../README.md) · [版本紀錄](../CHANGELOG.md) · [驗證報告](../docs/validation.md)
+[Project home](../README.md) · [Changelog](../CHANGELOG.md) · [Validation reports](../docs/validation.md)
 
-此目錄保留 R1 的比較資料，供 R2 驗證及繪圖使用。基準提交為 [`a9ed9fded2ce59b079b9b703d5fd8c7202095e94`](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/a9ed9fded2ce59b079b9b703d5fd8c7202095e94)。
+This directory preserves R1 data for R2 validation and comparison plots. The baseline commit is [`a9ed9fded2ce59b079b9b703d5fd8c7202095e94`](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/a9ed9fded2ce59b079b9b703d5fd8c7202095e94).
 
-| 檔案 | 用途 |
+| File | Purpose |
 |---|---|
-| [R1_parameters.json](R1_parameters.json) | R1 尺寸及齒輪裝配參數 |
-| [R1_gear_engagement.json](R1_gear_engagement.json) | R1 原齒形回程估算，供 R1／R2 比較 |
-| [R1_parts/](R1_parts/) | M02、M03、M04、N01、N02 的 R1 BRep 快照 |
-| [R1_parts/manifest.json](R1_parts/manifest.json) | 快照來源提交與 SHA-256 |
+| [R1_parameters.json](R1_parameters.json) | R1 dimensions and gear assembly parameters |
+| [R1_gear_engagement.json](R1_gear_engagement.json) | Original-profile backlash estimates for the R1/R2 comparison |
+| [R1_parts/](R1_parts/) | R1 BRep snapshots of M02, M03, M04, N01, and N02 |
+| [R1_parts/manifest.json](R1_parts/manifest.json) | Snapshot source commit and SHA-256 hashes |
 
-`scripts/verify_revision.py` 先核對快照雜湊，再比較 R2 保留件與齒輪接口。修改現行設計時，應保留這些基準資料；目前可供試印的檔案位於 [output/](../output/README.md)。
+`scripts/verify_revision.py` verifies snapshot hashes before comparing the retained parts and gear interfaces with R2. Preserve these baselines when editing the current design. Current trial-print files are in [output/](../output/README.md).

@@ -2,5 +2,4 @@ cadquery==2.7.0
 numpy>=1.26
 matplotlib>=3.8
 PyMuPDF>=1.24
-fonttools>=4.50
 shapely>=2.0

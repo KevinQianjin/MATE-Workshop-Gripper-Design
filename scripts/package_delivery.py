@@ -18,7 +18,7 @@ gears=json.loads((ROOT/'output/validation/gear_engagement.json').read_text())
 assert gears['revision']=='R2-matched-gears-fit-check' and gears['target_passed']
 assert abs(gears['pairs']['17-7']['axial_tooth_overlap_mm']-2)<1e-5
 files=[]
-for name in ['README.md','README_繁體中文.md','CHANGELOG.md','BOM.csv','parameters.json','requirements.txt','LICENSE','NOTICE.txt','source_manifest.json','.gitignore','.gitattributes']:
+for name in ['README.md','CHANGELOG.md','BOM.csv','parameters.json','requirements.txt','LICENSE','NOTICE.txt','source_manifest.json','.gitignore','.gitattributes']:
     files.append(ROOT/name)
 for name in ['docs','upstream','output','scripts','reference']:
     for p in sorted((ROOT/name).rglob('*')):
@@ -33,6 +33,6 @@ with zipfile.ZipFile(target) as z:
     assert z.testzip() is None
     for p in files:
         assert hashlib.sha256(z.read(str(Path('IPX896HV_2DOF_R2')/p.relative_to(ROOT)))).digest()==hashlib.sha256(p.read_bytes()).digest()
-for rel,name in [('output/IPX896HV_2DOF_assembly.step','IPX896HV_2DOF_R2.step'),('output/裝配與試印指南.pdf','IPX896HV_R2_裝配與試印指南.pdf'),('output/preview/assembly_open.png','IPX896HV_2DOF_R2_preview.png'),('output/preview/gear_review_R2.png','IPX896HV_R2_gear_review.png'),('output/preview/gear_review_R2.pdf','IPX896HV_R2_gear_review.pdf')]:
+for rel,name in [('output/IPX896HV_2DOF_assembly.step','IPX896HV_2DOF_R2.step'),('output/assembly_and_print_guide.pdf','IPX896HV_R2_assembly_and_print_guide.pdf'),('output/preview/assembly_open.png','IPX896HV_2DOF_R2_preview.png'),('output/preview/gear_review_R2.png','IPX896HV_R2_gear_review.png'),('output/preview/gear_review_R2.pdf','IPX896HV_R2_gear_review.pdf')]:
     shutil.copy2(ROOT/rel,DEST/name)
 print(json.dumps({'archive':str(target),'files':len(files),'bytes':target.stat().st_size,'sha256':hashlib.sha256(target.read_bytes()).hexdigest()},indent=2))

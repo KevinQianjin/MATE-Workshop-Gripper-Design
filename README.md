@@ -1,58 +1,58 @@
 # MATE Workshop Gripper Design
 
-可 3D 列印的雙自由度夾爪：**開合＋左右轉向**，目前為 **R2 匹配齒輪試裝版**，暫按兩顆 GDW IPX896HV 舵機設計。
+A 3D-printable, two-degree-of-freedom gripper: **open/close + left/right yaw**. The current design is the **R2 matched-gear fit-check prototype**, provisionally using two GDW IPX896HV servos.
 
-[模型與列印清單](output/README.md) · [裝配說明](docs/assembly.md) · [中文 PDF](output/裝配與試印指南.pdf) · [五金 BOM](BOM.csv) · [English](docs/README.en.md)
+[Models and print list](output/README.md) · [Assembly instructions](docs/assembly.md) · [PDF guide](output/assembly_and_print_guide.pdf) · [Hardware BOM](BOM.csv)
 
-![R2 雙自由度夾爪裝配](output/preview/assembly_open.png)
+![R2 two-axis gripper assembly](output/preview/assembly_open.png)
 
-## 從這裡開始
+## Start here
 
-| 你要做什麼 | 開啟檔案 |
+| What you need | File or guide |
 |---|---|
-| 在 Fusion / SolidWorks 查看整機 | [完整裝配 STEP](output/IPX896HV_2DOF_assembly.step) |
-| 先確認舵機、舵盤與齒輪配合 | [試印件](output/fit_checks/)及[試裝步驟](docs/assembly.md#試片流程) |
-| 列印完整機構 | [12 種主要零件、14 件列印清單](output/README.md#主要列印件) |
-| 調整模型 | [8 個修改／新增零件 STEP](output/step/)及[尺寸參數](parameters.json) |
-| 查看齒輪改善與檢查結果 | [齒輪對比圖](output/preview/gear_review_R2.pdf)及[驗證報告索引](docs/validation.md) |
-| 重建或打包檔案 | [重建與交付流程](docs/build.md) |
+| Inspect the complete mechanism in Fusion or SolidWorks | [Assembly STEP](output/IPX896HV_2DOF_assembly.step) |
+| Check servo, horn, and gear fit | [Fit-check parts](output/fit_checks/) and [trial procedure](docs/assembly.md#interface-fit-checks) |
+| Print the mechanism | [12 part types, 14 printed pieces](output/README.md#main-printed-parts) |
+| Modify the design | [8 modified/new part STEP files](output/step/) and [parameters](parameters.json) |
+| Review the gear improvement and checks | [Gear comparison](output/preview/gear_review_R2.pdf) and [validation index](docs/validation.md) |
+| Rebuild or package the project | [Build and delivery guide](docs/build.md) |
 
-1. 下載 repo（GitHub **Code → Download ZIP** 或 `git clone`），先讀[裝配指南](docs/assembly.md)。使用現有 STEP／STL 不需要安裝 Python。
-2. 先印 F01–F04 接口試片，再印 F05 底板及 B12 的 20T、19T 齒輪各兩件，確認配合。
-3. 試裝通過後，再依[列印清單](output/README.md)和 [BOM](BOM.csv)準備整機，空載校準可用端點。
+1. Download the repository using GitHub **Code → Download ZIP** or `git clone`, then read the [assembly instructions](docs/assembly.md). Using the supplied STEP/STL files does not require Python.
+2. Print the F01–F04 interface coupons, followed by the F05 trial plate and two each of the B12 20T and 19T gears. Check their fit before printing the full mechanism.
+3. Use the [print list](output/README.md) and [BOM](BOM.csv) to prepare the complete assembly, then calibrate its usable endpoints without a payload.
 
-## 目前設計
+## Current design
 
-| 項目 | R2 |
+| Item | R2 specification |
 |---|---|
-| 自由度 | 開合＋左右轉向，共 2 軸 |
-| 主要列印件 | 12 種、14 件；`PRINT_2` 檔案印兩件 |
-| 齒輪配置 | 模數 0.75、壓力角 20°、20／19／19／20 齒 |
-| 相對 R1 的更換範圍 | M01、M02、M05、M06 ×2，共 4 種、5 件 |
-| 輸出端幾何回程估算 | 約 2.75°；R1 約 8.2–11.6° |
-| CAD 驗證 | 23 個 STL、20 個 STEP、145 個名義齒面位置及 20 個正反向接觸邊界姿態 |
+| Degrees of freedom | Open/close + left/right yaw, 2 axes |
+| Main printed parts | 12 types, 14 pieces; print `PRINT_2` files twice |
+| Gear configuration | Module 0.75, 20° pressure angle, 20/19/19/20 teeth |
+| Replacement scope from R1 | M01, M02, M05, M06 ×2: 4 types, 5 pieces |
+| Estimated output reversal free play | Approximately 2.75°; R1 approximately 8.2–11.6° |
+| CAD checks | 23 STLs, 20 STEPs, 145 nominal gear-profile positions, and 20 bidirectional contact-limit poses |
 
-**目前是完成 CAD 檢查的試裝原型。**舵機固定耳、金屬舵盤、實際列印配合及承載能力仍需實測。回程數值為剛體模型估算，未計入打印誤差及舵機自身回程。R2 掌板與齒輪需成套使用；細節見[裝配說明](docs/assembly.md)與[驗證範圍](docs/validation.md)。
+**This is a CAD-checked fit-test prototype.** Servo mounting ears, the metal horn, printed fit, and load capacity still need physical verification. Backlash values come from rigid geometry and exclude printing error and servo backlash. Use the R2 palm and gears together. See the [assembly instructions](docs/assembly.md) and [validation scope](docs/validation.md).
 
-## Repo 結構
+## Repository layout
 
 ```text
-docs/                 裝配、重建、驗證說明與英文介紹
-output/               可直接查看的 R2 模型、試片、PDF 與驗證結果
-scripts/              CAD 生成、檢查、繪圖與打包程式
-reference/            R1 比對基準
-upstream/             原 GitHub 專案檔案與授權
-BOM.csv               採購五金清單
-parameters.json       設計尺寸與待確認假設
-CHANGELOG.md          版本紀錄
-source_manifest.json  固定來源版本與檔案雜湊
-DELIVERY_SHA256SUMS.txt 交付檔案校驗值
+docs/                   Assembly, build, and validation documentation
+output/                 R2 models, fit coupons, PDFs, and validation results
+scripts/                CAD generation, checking, rendering, and packaging
+reference/              R1 comparison baselines
+upstream/               Original GitHub project files and license
+BOM.csv                 Hardware procurement list
+parameters.json         Design dimensions and unverified assumptions
+CHANGELOG.md            Revision history
+source_manifest.json    Pinned upstream revision and file hashes
+DELIVERY_SHA256SUMS.txt  Delivery file checksums
 ```
 
-`dist/` 是執行打包後產生的交付目錄；`work/` 是本機工作目錄，兩者均不提交到 Git。進一步導覽見[文件索引](docs/README.md)。
+`dist/` contains generated delivery packages. `work/` contains local working files. Both are excluded from Git. See the [documentation index](docs/README.md) for more detail.
 
-## 來源與授權
+## Source and license
 
-基於 [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm)，固定版本 `258d1893ba1b8b49e87baa79da462680fd53681b`。原夾指、連桿、輪轂及底座配置盡量沿用，R2 更換工作齒圈。
+Based on [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm), pinned to `258d1893ba1b8b49e87baa79da462680fd53681b`. The original jaws, linkage interfaces, gear hubs, and base layout are retained where possible; R2 replaces the working gear rims.
 
-採用 MIT 授權，見 [LICENSE](LICENSE)、[NOTICE.txt](NOTICE.txt)及[原作者授權](upstream/LICENSE)。版本差異見 [CHANGELOG](CHANGELOG.md)。
+MIT licensed. See [LICENSE](LICENSE), [NOTICE.txt](NOTICE.txt), and the [upstream license](upstream/LICENSE). Revision details are in the [changelog](CHANGELOG.md).

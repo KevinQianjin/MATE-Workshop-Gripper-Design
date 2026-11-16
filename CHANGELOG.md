@@ -1,33 +1,35 @@
-# 版本紀錄
+# Changelog
 
-[專案首頁](README.md) · [文件索引](docs/README.md)
+[Project home](README.md) · [Documentation index](docs/README.md)
 
-## Repo 整理 — 2026-11-16
+## Repository organization and English documentation — 2026-11-16
 
-- 首頁改為繁體中文快速入口，英文介紹移至 `docs/README.en.md`。
-- 詳細裝配說明集中至 `docs/assembly.md`，原 `README_繁體中文.md` 保留連結入口。
-- 新增模型／列印清單、重建流程、驗證報告及 R1 基準索引。
-- 交付包預設輸出至忽略提交的 `dist/`，支援 `--output-dir`，並納入新文件。
-- 標示 GitHub 上的生成檔與上游來源，方便檢閱修改。
-- 機構版本維持 R2；既有模型、來源及 CAD 驗證資料內容保留。
+- Organize the homepage around model inspection, trial printing, assembly, and rebuilding.
+- Consolidate detailed assembly instructions in `docs/assembly.md`.
+- Add the print inventory, build guide, validation index, and R1 baseline notes.
+- Standardize repository documentation, the hardware BOM, diagrams, PDF guide, and filenames in English; remove redundant language-specific entry points.
+- Use bundled fonts for English guide and plot generation.
+- Default delivery packages to the ignored `dist/` directory, support `--output-dir`, and include the new documentation.
+- Mark generated files and upstream sources for clearer GitHub review.
+- Retain R2 mechanical geometry and CAD validation data.
 
-## R2 匹配齒輪試裝版 — 2026-11-16
+## R2 matched-gear fit-check prototype — 2026-11-16
 
-設計提交：[4ba3e1d](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/4ba3e1db5ff389de7a7f8f0c2c98523cb6c0e68d)
+Design commit: [4ba3e1d](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/4ba3e1db5ff389de7a7f8f0c2c98523cb6c0e68d)
 
-- 四個工作齒圈改為模數 0.75、壓力角 20° 的匹配漸開線，保留 20／19／19／20 齒配置。
-- 兩個小齒輪支點各移約 0.257 mm，保留 R1 的軸向對齊。
-- 幾何回程估算由 R1 約 8.2–11.6° 降至約 2.75°。
-- 相對 R1 更換 4 種、5 件：M01、M02、M05（原 U05）、M06 ×2（原 U04 ×2）。
-- 增加 F05 四齒輪試裝板、B08／B12／B16 試印齒輪及正反向接觸邊界檢查。
+- Replace the four working rims with matched module 0.75, 20° involute profiles, retaining 20/19/19/20 tooth counts.
+- Move each idler pivot approximately 0.257 mm and retain R1 axial alignment.
+- Reduce estimated geometric reversal free play from approximately 8.2–11.6° to approximately 2.75°.
+- Replace four part types, five pieces: M01, M02, M05 (formerly U05), and M06 ×2 (formerly U04 ×2).
+- Add the F05 four-gear trial plate, B08/B12/B16 trial gears, and bidirectional contact-limit checks.
 
-## R1 軸向嚙合修正版 — 2026-11-15
+## R1 axial engagement correction — 2026-11-15
 
-設計提交：[a9ed9fd](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/a9ed9fded2ce59b079b9b703d5fd8c7202095e94)
+Design commit: [a9ed9fd](https://github.com/KevinQianjin/MATE-Workshop-Gripper-Design/commit/a9ed9fded2ce59b079b9b703d5fd8c7202095e94)
 
-- 在原開源夾爪上適配 IPX896HV，提供開合＋左右轉向兩個自由度。
-- 驅動齒輪軸向提高 1.5 mm，與相鄰小齒輪的工作齒寬重疊由 0.5 mm 增至 2 mm。
-- 對齊夾指與墊片疊高，提供完整裝配、分件模型、接口試片及驗證腳本。
-- 保留原齒形，當時的幾何回程估算為 8.2–11.6°。
+- Adapt the original open-source mechanism for IPX896HV servos with open/close and yaw motion.
+- Raise the driving gear by 1.5 mm, increasing tooth-width overlap with its adjacent idler from 0.5 mm to 2 mm.
+- Align the jaws and spacer stack; provide complete and individual models, interface coupons, and validation scripts.
+- Retain the original tooth profiles, with approximately 8.2–11.6° estimated geometric reversal free play.
 
-所有版本均為需實物試裝的原型；CAD 計算不等同列印配合或承載驗證。
+All revisions are prototypes requiring physical fit checks. CAD calculations do not establish printed fit or load capacity.

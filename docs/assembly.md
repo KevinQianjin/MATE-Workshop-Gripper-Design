@@ -1,134 +1,134 @@
-# IPX896HV 雙自由度夾爪 — R2 匹配齒輪試裝版
+# IPX896HV two-axis gripper — R2 matched-gear prototype
 
-[專案首頁](../README.md) · [模型與列印清單](../output/README.md) · [重建流程](build.md)
+[Project home](../README.md) · [Models and print list](../output/README.md) · [Build instructions](build.md)
 
-本文中以程式碼標示的檔案路徑，均相對 repo 根目錄。
+Paths shown as code are relative to the repository root. All dimensions are in millimetres unless stated otherwise.
 
-功能：夾爪開合＋底座左右轉動。沿用 GitHub 的夾指、連桿、輪轂及底座配置，四個工作齒圈改為匹配漸開線齒形，舵機接口沿用 R1。單位全部為 mm。
+The mechanism provides gripper opening/closing and left/right base yaw. It retains the upstream jaws, links, gear hubs, and base layout. R2 uses matched involute working rims and the R1 servo interfaces.
 
-**先列印 `output/fit_checks/` 的試裝件。這是完成 CAD 檢查的原型檔，不代表已用實物舵機試裝或完成承載測試。**
+**Print the parts in `output/fit_checks/` first. These files have passed CAD checks; physical servo fit and load performance have not been verified.**
 
-## R2 改進與驗證範圍
+## R2 changes and validation scope
 
-四個齒圈使用模數 0.75、壓力角 20°，保留 20／19／19／20 齒配置。工作齒面是漸開線；基圓以下以徑向避讓與 0.10 齒根圓角銜接。大齒輪的連桿接合區保留，驗證範圍限於本夾爪的 0–36° 相對開合行程。
+All four working rims use module 0.75 and a 20° pressure angle, retaining the 20/19/19/20 tooth arrangement. The working flanks are involutes; radial relief and 0.10 root fillets connect the flanks below the base circle. The big gears retain their linkage-arm junctions. Validation is limited to this gripper's 0–36° relative opening stroke.
 
-中心距為 14.625／14.250／14.625，兩個小齒輪支點相對 R1 各移約 0.257。保留 R1 的軸向對齊，大齒輪完整 2.0 齒寬與小齒輪重疊。原輪轂、中心接口、連桿長度及遠端連接孔保留。
+Center distances are 14.625/14.250/14.625. Each idler pivot moves approximately 0.257 from R1. R1 axial alignment is retained, giving the full 2.0 big-gear tooth width in engagement with each idler. Original hubs, central interfaces, link lengths, and distal connection holes are retained.
 
-**匯出 CAD 的剛體齒輪鏈回程估算為 2.751–2.752°，達到本版暫定 ≤3° 的模型目標。**R1 的同類估算為 8.2–11.6°。這不是實物量測，沒有包含打印誤差、軸孔鬆動、彈性變形、摩擦或舵機自身回程。需先用試裝件核對實際效果。
+**Rigid gear-chain reversal free play measured from exported CAD is 2.751–2.752°, meeting the provisional target of at most 3°.** The comparable R1 estimate is 8.2–11.6°. These are geometric estimates, excluding printing error, pivot clearance, elastic deflection, friction, and servo backlash. Confirm actual results with the trial parts.
 
-每對設計切向齒隙為 0.12，由兩個齒輪各減少 0.06 的分度圓齒厚形成。名義中位時最近齒面距離約 0.056，與切向齒隙及輸出回程角是不同量。理論端面重合度約 1.54–1.55；它不是承載或接觸應力驗證。
+Nominal tangential backlash is 0.12 per mesh, created by thinning each gear's pitch-circle tooth thickness by 0.06. The nearest surface gap at the nominal centered pose is approximately 0.056. Surface gap, tangential backlash, and output free angle are different quantities. Theoretical transverse contact ratio is approximately 1.54–1.55; this does not establish load capacity or contact stress.
 
-相對 R1，主要更換 M01、M02、M05（取代 U05）、M06 ×2（取代 U04 ×2），共 4 種、5 件；主要列印件總數仍為 14。不要混用 R1 與 R2 的齒輪或掌板。詳見 [齒輪檢查圖](../output/preview/gear_review_R2.pdf)、[齒輪檢查結果](../output/validation/gear_engagement.json)及[修改範圍比對](../output/validation/revision_scope.json)。
+The R1 upgrade replaces M01, M02, M05 (formerly U05), and M06 ×2 (formerly U04 ×2): four types and five pieces. The complete mechanism still uses 14 printed pieces. Use the R2 palm and gears as a set. See the [gear review](../output/preview/gear_review_R2.pdf), [gear analysis](../output/validation/gear_engagement.json), and [revision comparison](../output/validation/revision_scope.json).
 
-## 先開哪個檔案
+## Which files to open
 
-- `output/IPX896HV_2DOF_assembly.step`：完整裝配，含兩顆舵機／金屬舵盤的參考包絡。匯入 Fusion 或 SolidWorks 後，各零件可分開檢查。`REF_` 零件不是列印件。
-- `output/stl/`：分件列印檔，已移到 Z=0 並安排初始方向。`PRINT_2` 要印兩件。
-- `output/step/`：八個修改／新增零件的實體模型。
-- `output/fit_checks/`：原四個接口試片、四齒輪試裝底板及三組齒隙測試齒輪。
-- `output/preview/`：裝配預覽與裝配定位圖。
-- `output/裝配與試印指南.pdf`：中文入門與試印指南。
-- `output/validation/`：幾何、網格與抽樣運動檢查結果。
-- `parameters.json`、`scripts/build.py`：可重建的尺寸參數和 CadQuery 程式。STEP 不包含 Fusion/SolidWorks 原生特徵歷史。
-- `upstream/`：原專案檔案，未覆寫。
+- `output/IPX896HV_2DOF_assembly.step`: complete assembly, including two servo and two metal-horn reference envelopes. Fusion or SolidWorks can inspect the separate parts. `REF_` objects are not printable parts.
+- `output/stl/`: individual print files, positioned at Z=0 with initial orientations. Print `PRINT_2` files twice.
+- `output/step/`: eight modified/new part solid models.
+- `output/fit_checks/`: four interface coupons, the four-gear trial plate, and three gear-clearance sets.
+- `output/preview/`: assembly previews and positioning drawings.
+- `output/assembly_and_print_guide.pdf`: illustrated assembly and trial-print guide.
+- `output/validation/`: geometry, mesh, and sampled-motion results.
+- `parameters.json` and `scripts/build.py`: dimensions and reproducible CadQuery generation. STEP files do not contain native Fusion/SolidWorks feature history.
+- `upstream/`: preserved original project files.
 
-## 沿用與修改範圍
+## Retained and modified parts
 
-| 編號 | 零件 | 列印數量 | 處理方式 |
+| ID | Part | Print quantity | Treatment |
 |---|---|---:|---|
-| U01 | 左夾指 | 1 | 原 STL，只作剛體旋轉／平移以便列印 |
-| U02 | 右夾指 | 1 | 同上 |
-| U03 | 被動連桿 | 2 | 同上 |
-| U06 | 底座可拆側壁 | 1 | 同上 |
-| M01 | 掌板／舵機座 | 1 | 保留外形、夾爪支點及後端接口；增加 IPX896HV 座與軸孔；校正兩個中間齒輪支點 |
-| M02 | 左側驅動齒輪連桿 | 1 | 匹配齒圈；保留輪轂、連桿及 R1 金屬舵盤接口 |
-| M03 | 固定底座 | 1 | 原外形；局部加寬舵機口，替換固定耳孔位，新增鎖桌面孔 |
-| M04 | 旋轉座 | 1 | 原空心座外形；改底部舵盤連接，原側面四孔保留 |
-| M05 | 右側齒輪連桿 | 1 | 取代 U05；換齒圈，保留輪轂及連桿 |
-| M06 | 小齒輪 | 2 | 取代 U04；換齒圈，保留原中心接口 |
-| N01 | 底座舵盤轉接盤 | 1 | 新增，兩側分別連接金屬舵盤與原旋轉座 |
-| N02 | 夾爪轉接支架 | 1 | 新增，連接旋轉座四孔與原掌板後端十字槽 |
+| U01 | Left jaw | 1 | Original STL; rigid rotation/translation for printing only |
+| U02 | Right jaw | 1 | Same |
+| U03 | Passive link | 2 | Same |
+| U06 | Removable base wall | 1 | Same |
+| M01 | Palm / servo carrier | 1 | Retain outline, jaw pivots, and rear interface; add IPX896HV carrier and shaft hole; correct both idler pivots |
+| M02 | Left driving gear link | 1 | Matched rim; retain hub, linkage arm, and R1 metal-horn interface |
+| M03 | Fixed base | 1 | Retain outline; widen servo opening locally, replace ear holes, and add platform mounting holes |
+| M04 | Rotating waist | 1 | Retain hollow body and four side holes; adapt lower horn interface |
+| M05 | Right gear link | 1 | Replace U05; change rim and retain hub/linkage arm |
+| M06 | Idler gear | 2 | Replace U04; change rim and retain central interface |
+| N01 | Yaw horn coupler | 1 | New adapter between metal horn and original waist |
+| N02 | Gripper-to-waist bridge | 1 | New adapter between four waist holes and the palm's rear cross slots |
 
-共 12 種主要列印件、14 件實體；不含試片。原連桿重新作裝配對齊，未改長度。兩側夾指及連桿已對齊，請依新版裝配及墊片尺寸確認。
+There are 12 main part types and 14 pieces, excluding coupons. Original links are realigned without changing their lengths. Both jaws and linkage stacks are aligned; follow the updated assembly and spacer dimensions.
 
-## 尚需實測的接口
+## Interfaces requiring measurement
 
-本版按兩顆 IPX896HV 設計。外殼使用附件 40.5 × 21 × 38.9；總高暫按另一張圖的 44.6。固定耳上／下緣高度暫用 30.75／27.95，固定孔長向間距暫用 48.5、寬向間距 10，輸出軸距短邊 10.5。這些尺寸可能來自不同版本，**不是全部已確認的實物尺寸**。
+The design provisionally uses two IPX896HV servos. The case is 40.5 × 21 × 38.9 from the supplied sheet; total height provisionally follows the other drawing's 44.6. Ear upper/lower heights are provisionally 30.75/27.95; mounting-hole pitch is 48.5 along the length and 10 across the width. The output axis is 10.5 from the short edge. These dimensions may describe different variants and **have not all been confirmed on the actual hardware**.
 
-外殼口每側留 0.3 間隙，固定耳孔為 5.0 × 3.4 長孔。長孔只提供有限調整，不會自動補償錯誤的外殼高度或輸出軸位置。
+The case opening allows 0.3 per side. Ear holes are 5.0 × 3.4 slots. Slots offer limited adjustment; they cannot compensate for incorrect case height or output-axis position.
 
-金屬舵盤的設計配合條件：
+Required metal-horn fit:
 
-- 與 GDW IPX896HV 實際匹配的 25T 花鍵，不只看齒數。
-- 圓盤外徑不超過 24；本版參考盤厚 2、總高 7。建議使用外徑 24 的圓盤。
-- 至少兩個相對的 M3 螺紋孔，距中心 9，方向落在轉接盤的十字長孔內。最多可用四孔。雖然印件的長孔涵蓋半徑 6–9，開合軸旁的螺絲頭裝入空間要求使用半徑 9；較小孔距不能直接視為相容。
-- 若現有舵盤是其他孔徑、孔位或高度，修改參數／接口後重出檔，不能強行擴孔或硬壓。
-- 中心固定螺絲沿用舵機配套的正確牙型。此版只提供 6.5 工具通道，沒有假定其牙型。
+- A 25T spline that actually fits the GDW IPX896HV; tooth count alone does not establish compatibility.
+- Disc outside diameter no greater than 24. The reference disc is 2 thick and 7 high overall; a 24-diameter disc is recommended.
+- At least two opposed M3 tapped holes at radius 9, aligned with the adapter's cross slots. Up to four holes may be used. Although the printed slots span radii 6–9, screw-head insertion beside the gripper shaft requires radius 9. Smaller hole circles are not automatically compatible.
+- If the horn uses different hole diameters, positions, or height, update the parameters/interfaces and regenerate the files. Do not force the fit or enlarge holes indiscriminately.
+- Use the servo's correct supplied center-screw thread. The design provides a 6.5 tool-access passage and does not specify that screw's thread.
 
-## 試片流程
+## Interface fit checks
 
-1. 印 F01，檢查舵機外殼可通過、固定耳平貼、四個螺絲均可穿入；不得靠螺絲把不合的外殼硬拉入孔。
-2. 印 F02（含延長軸），套用實際金屬舵盤。檢查孔位、M3 圓頭螺絲的沉孔、中心工具通道。使用 DIN 7380 類低頭圓頭螺絲，頭高不超過 1.7、頭徑不超過 5.7；普通高頭內六角不可直接替換。檢查螺絲頭能從延長軸旁通過；名義最小側隙只有 0.15。
-3. 印 F03、F04，檢查 12.0 軸與 12.8 孔的轉動配合，去除象腳及毛邊；應能手動自由轉動。
-4. 實測舵盤連接後，檢查螺絲末端與舵機外殼之間仍有間隙。舵盤厚度和螺絲長度應一起確認。
-5. 通過後，再列印 M01/M02 進行開合模組乾裝，最後列印整套。
+1. Print F01. Confirm the servo case passes through, the ears sit flat, and all four screws enter together. Do not use screws to pull an incompatible case into place.
+2. Print F02, including the extension shaft, and fit the actual metal horn. Check hole positions, M3 head recesses, and center-tool access. Use DIN 7380-type low button-head screws with head height at most 1.7 and diameter at most 5.7. Standard tall socket heads are not direct substitutes. Check insertion past the shaft; nominal minimum side clearance is only 0.15.
+3. Print F03 and F04 to check the 12.0 shaft / 12.8 hole running fit. Remove elephant foot and burrs; the parts should rotate freely by hand.
+4. After checking the horn interface, confirm screw ends clear the servo case. Check horn thickness and screw length together.
+5. After the interface checks pass, print M01/M02 for an opening-module dry fit, then proceed to the complete set.
 
-## 齒輪試裝與選配
+## Gear trial and clearance selection
 
-1. 印 `F05_four_gear_trial_plate`。先選 B12，將 `F_mesh_20T_B12_PRINT_2` 與 `F_mesh_19T_B12_PRINT_2` 各印兩件；20 齒輪裝在相距約 30.09 的兩個外側軸，19 齒輪裝在相距 14.25 的兩個較近軸。
-2. 用四根 M3 螺絲或合適的 3 mm 光滑軸段與平墊支承。逐孔確認配合及端隙，齒輪應能自由轉動，不能靠擰緊螺母把齒輪夾住。試裝板用於手動測試。
-3. 往返轉動輸入輪，檢查全齒周是否有局部卡點。固定輸入輪，用指針或量角器量測輸出輪自由擺角；注意軸孔晃動也會算入實測值。
-4. B08／B12／B16 分別代表每對設計切向齒隙 0.08／0.12／0.16。整組使用相同代號，選擇能雙向順轉且回程較小的一組。先處理象腳、毛邊和軸孔問題，再判斷齒隙；卡住時不要用舵機硬推。
-5. 本版主零件採 B12。若實物選用 B08 或 B16，將 `gear_design.tooth_thickness_reduction_mm` 改成 0.04 或 0.08，並同步修改名義齒隙參數，重建 M02／M05／M06 及重新驗證。選擇較大齒隙可能超過 ≤3° 的模型目標，須記錄新的結果。
-6. 通過齒輪試裝後，再乾裝包含原連桿與夾指的開合模組，最後接舵機空載校準端點。測試板不代替完整機構驗證。
+1. Print `F05_four_gear_trial_plate`. Start with B12: print `F_mesh_20T_B12_PRINT_2` and `F_mesh_19T_B12_PRINT_2` twice each. Fit the 20T gears to the outer axes, approximately 30.09 apart; fit the 19T gears to the closer axes, 14.25 apart.
+2. Use four M3 screws or suitable 3 mm smooth shafts with washers. Check each bore and axial endplay. The gears must rotate freely; tightening the nuts must not clamp them. The plate is for manual testing.
+3. Rotate the input both ways and check the full tooth circumference for tight spots. Hold the input and measure output free angle with a pointer or protractor. Pivot looseness contributes to the measured value.
+4. B08/B12/B16 denote 0.08/0.12/0.16 nominal tangential backlash per mesh. Use one code throughout the set. Choose a set that rotates smoothly both ways with low free play. Correct elephant foot, burrs, and shaft-fit issues before judging tooth clearance. Do not force a jammed train with the servo.
+5. The supplied main parts use B12. To use B08 or B16, set `gear_design.tooth_thickness_reduction_mm` to 0.04 or 0.08, update the nominal backlash parameter accordingly, regenerate M02/M05/M06, and rerun validation. Greater clearance can exceed the 3° CAD target; record the new result.
+6. After the gear trial passes, dry-assemble the opening module with its original links and jaws, then attach the servo and calibrate unloaded endpoints. The trial plate does not replace complete-mechanism testing.
 
-## 五金與材料
+## Hardware and materials
 
-`BOM.csv` 提供採購起點；實際長度依墊片和螺母厚度確認。建議備 M3 12/16/20 長度，活動關節優先用適合的光軸／肩螺絲，或讓光滑桿段而非螺紋承受轉動摩擦。
+`BOM.csv` is a procurement starting point. Confirm lengths against actual washers and nuts. Keep M3 lengths 12/16/20 available. Prefer suitable smooth shafts or shoulder screws at moving joints, or arrange for the smooth shank rather than threads to bear the rotating contact.
 
-舵機固定耳使用 M3 螺絲、平墊與螺母。原轉軸孔有約 2.8–3.05 的孔徑，FDM 列印後可能偏小。活動支點宜使用匹配的光滑軸段，按實際軸徑逐孔鉸配；以自由轉動且沒有明顯側向晃動為準，直徑間隙可先以約 0.05–0.10 作試配起點。不要把全部原孔一律擴大，也不要擴大定位軸外徑。
+Servo ears use M3 screws, washers, and nuts. Original pivot bores are approximately 2.8–3.05 and may print undersize. Ream each moving bore to its actual smooth shaft, seeking free rotation without obvious lateral play. A diametral clearance of approximately 0.05–0.10 is an initial trial value. Do not enlarge every original bore equally or increase locating-shaft diameters.
 
-M02、N01 的舵盤螺絲必須使用低頭圓頭型，沉入槽內；N01 上面還要貼合 M04。M02 的螺絲先從齒輪與轉接盤之間的側面放入，再移到孔位，用短端內六角扳手鎖緊；須先與舵盤組好，才能穿入掌板。N02 的 M5 螺絲頭已預留沉孔，必須在裝掌板前鎖好。
+M02 and N01 horn screws require low button heads fully recessed into their slots; N01 must also sit against M04. Insert M02 screws sideways between the gear and adapter flange, slide them into position, and tighten with the short end of a hex key. Assemble the horn before passing M02 through the palm. N02 has M5 head counterbores; tighten these screws before installing the palm.
 
-## 列印建議
+## Printing recommendations
 
-- 首次配合驗證可用 PLA；承載件可用乾燥 PETG。材料更換後重印試片。
-- 0.4 噴嘴、0.2 層高、4–6 道外壁。支架約 40% 填充，M02 的延長軸、舵盤盤面及齒輪根部局部實心；齒輪可用 0.15 層高。
-- `output/stl` 已置底，但仍需在切片器看每層。M01、M02 的懸空座／盤面及原夾指槽可能需要局部支撐；避免把支撐接觸面放在齒面及配合孔內。
-- 原底座約 160 × 96，旋轉座高 74.5。保留原尺寸以減少修改；不是為耗材最少而重畫的底座。
-- 不附 G-code：打印機、噴嘴與材料設定尚未提供。
+- Use PLA for initial fit checks. Dry PETG is an option for load-bearing parts; repeat the coupons when changing material.
+- Start with a 0.4 nozzle, 0.2 layers, and 4–6 perimeters. Use approximately 40% infill for brackets and locally solid material at M02's extension shaft, horn flange, and gear roots. Gears may use 0.15 layers.
+- `output/stl/` parts are placed on the bed, but inspect every layer in the slicer. M01/M02 overhangs and original jaw slots may require local support. Keep support contact off tooth flanks and fit bores.
+- The original base is approximately 160 × 96 and the waist is 74.5 high. These dimensions are retained to limit changes.
+- No G-code is provided because the printer, nozzle, and material profile have not been specified.
 
-## 裝配順序
+## Assembly order
 
-1. **先測舵機中位。**未接機構時校準中位，再斷電裝舵盤。不要第一次上電就掃全行程。
-2. **底座舵機。**從 M03 側面裝入，固定耳貼住上方安裝面。線材由可拆側壁側引出；確認沒有被 U06 壓住後再關側壁。
-3. **底座傳動。**將 N01 用低頭 M3 螺絲鎖在金屬舵盤上，從中心孔裝好舵盤固定螺絲。再用四個 M3 × 12 螺絲、薄平墊及普通螺母，把 M04 接到 N01；長螺絲不得伸到固定底座上。
-4. **轉接支架。**用四個 M5 螺絲從 N02 沉孔穿過原旋轉座側面四孔，內側加螺母。內六角工具要在裝掌板前使用。
-5. **開合舵機。**裝入 M01 外置舵機座，固定四耳；舵盤先與 M02 的後端轉接盤連接。M02 的延長軸穿過掌板軸孔，中心孔可供工具鎖舵盤固定螺絲。
-6. **齒輪、連桿、夾指。**依裝配定位圖放置 M06 × 2、M05、U03 × 2、U01/U02。齒相與孔位按 R2 STEP。活動轉軸用墊片及防鬆螺母保留端隙，不能把活動零件夾死。
-7. **連桿高度。**兩側夾指已對齊。固定支點與被動連桿之間約留 0.3；兩側被動連桿與夾指之間均約需 1.9 的墊片疊高；齒輪連桿與夾指之間均約留 0.3。這是 CAD 裝配值，按實物確認端隙與平行性，不能把活動件夾死。
-8. **安裝掌板。**使用原後端十字槽，以四個 M2.5 螺絲及足夠覆蓋槽寬的平墊鎖到 N02。下方螺絲尾端不得頂到旋轉座壁。
-9. **手動檢查。**逐一確認連桿、齒輪、舵盤、螺絲尾端與線材。齒輪相位依定位圖和 STEP 裝配；若卡住，先找干涉，不能用高扭矩舵機硬推。
-10. **再通電。**先小角度、無物品測試，分別找出開合與左右轉動的可用端點，再將軟限位交給軟體組。用底座孔把整機固定在平台上。
+1. **Calibrate servo centers.** Set the centers before attaching the mechanism, then remove power before fitting horns. Do not begin with a full-range sweep.
+2. **Base servo.** Insert it through M03's side, seat the ears against the upper mounting face, and fasten them. Route wires through the removable-wall side and confirm U06 does not pinch them.
+3. **Base drive.** Fasten N01 to the metal horn with low-head M3 screws and install the center retaining screw through the tool passage. Attach M04 to N01 with four M3 ×12 screws, thin washers, and standard nuts. Screw ends must clear the fixed base.
+4. **Bridge.** Pass four M5 screws through N02's counterbores and the original waist side holes, with nuts inside. Use the hex key before installing the palm.
+5. **Opening servo.** Fit it to M01's external carrier and secure all four ears. Attach the metal horn to M02's rear flange before passing the extension shaft through the palm. The central passage provides access to the horn retaining screw.
+6. **Gears, links, and jaws.** Position M06 ×2, M05, U03 ×2, and U01/U02 according to the R2 assembly STEP and drawings. Preserve axial endplay with washers and locking nuts; do not clamp moving joints.
+7. **Linkage stack.** Both jaws are aligned. Allow approximately 0.3 between fixed pivots and passive links; approximately 1.9 of spacer height between each passive link and jaw; and approximately 0.3 between each gear link and jaw. These are CAD stack values: confirm real endplay and parallelism.
+8. **Palm mounting.** Use four M2.5 screws and washers wide enough to span the original rear cross slots. Lower screw ends must clear the waist wall.
+9. **Manual check.** Check links, gears, horns, screw ends, and wires individually. Set gear phase from the drawings and STEP. Locate any interference before applying servo torque.
+10. **Powered test.** Begin with small unloaded movements. Establish usable opening and yaw endpoints, then pass the software limits to the controls team. Secure the assembly to the platform through the base mounting holes.
 
-## 電控與測試範圍
+## Controls and test limits
 
-兩路 PWM 分別控制開合及左右轉向。附件給出的舵機電壓為 4.8–8.4 V、脈寬 500–2500 μs、中位 1500 μs、工作頻率 333 Hz；請由軟體組確認實際驅動器設定。完整脈寬範圍不是組裝後機構可掃動的範圍。
+Two PWM channels control opening and yaw. The supplied servo sheet specifies 4.8–8.4 V, 500–2500 microsecond pulses, a 1500 microsecond center, and 333 Hz operation. The controls team must confirm driver settings. The full electrical pulse range is not the mechanism's permitted travel.
 
-原專案的 12.6 V 電池不能直接接 IPX896HV。若以 7.4 V 工作，附件單顆堵轉電流為 5.4 A，兩顆可能出現合計約 10.8 A 的峰值；供電和線路需相應選擇，控制器與舵機供電共地。
+Do not connect the upstream project's 12.6 V battery directly to IPX896HV servos. At 7.4 V the specified stall current is 5.4 A per servo, so two servos may demand approximately 10.8 A peak. Select the supply and wiring accordingly and share ground with the controller.
 
-這套仍沿用原模型的底座承載方式，沒有額外轉台軸承。**沒有給出已驗證的載重額定值。**測試從空載與輕物品開始；原齒輪和薄連桿不應按新舵機的堵轉扭矩使用。電腦干涉檢查不等同強度、疲勞、熱變形或真實嚙合測試。
+The design retains the original base load path without an added turntable bearing. **No verified payload rating is provided.** Start unloaded and with light objects; do not size the gear train or thin links around the new servo's stall torque. CAD interference checks do not establish strength, fatigue life, thermal stability, or physical meshing performance.
 
-交付檔的檢查包括：8 個修改／新增實體；完整 STEP 的 18 個實體（含 4 個採購件參考包絡）；23 個列印／試裝 STL 的封閉性與方向；4 個沿用 STL 的原幾何保留。結果見 `output/validation/`。
+Delivery checks cover eight modified/new solids; 18 solids in the complete STEP, including four purchased-part reference envelopes; closure and orientation of 23 print/trial STLs; and preserved geometry for four retained STL types. Results are in `output/validation/`.
 
-齒面截面每 0.25° 抽樣，齒輪鏈接觸邊界每 0.5° 抽樣。整體運動除了理想傳動比的 13 個位置，也檢查 20 個正反向接觸邊界姿態；轉向抽樣 −45°／0°／+45°。名義裝配穿透報告門檻 0.01 mm³，運動檢查門檻 0.02 mm³。開合名義抽樣的兩夾指最小幾何距離約 3.4–47.2，未含膠墊；這不是任意物品的可夾尺寸範圍。抽樣不能保證完整連續行程，並未模擬線材掃掠及負載變形。
+Tooth sections are sampled every 0.25° and gear-chain contact limits every 0.5°. Motion checks include 13 ideal-ratio opening positions, 20 bidirectional contact-limit poses, and yaw at −45°/0°/+45°. Intersection report thresholds are 0.01 mm³ for static assembly and 0.02 mm³ for motion. Minimum jaw-to-jaw distance over the nominal opening samples is approximately 3.4–47.2 without pads; this is not a general object-size gripping range. Sampling does not establish clearance over every continuous position, and cable sweep or load deformation is not simulated.
 
-## 重建與來源
+## Rebuilding and attribution
 
-安裝環境、腳本執行順序、PDF 字型與交付打包命令，集中於[重建與交付](build.md)。各檢查檔案見[驗證報告索引](validation.md)。
+Environment setup, script order, PDF generation, and packaging commands are in [Build and delivery](build.md). See the [validation index](validation.md) for report details.
 
-來源：<https://github.com/vshreyas121-code/6-dof-robotic-arm>
+Source: <https://github.com/vshreyas121-code/6-dof-robotic-arm>
 
-固定版本：`258d1893ba1b8b49e87baa79da462680fd53681b`。
+Pinned revision: `258d1893ba1b8b49e87baa79da462680fd53681b`.
 
-原授權 MIT，見 `upstream/LICENSE`。原檔逐一核對 Git blob SHA；`source_manifest.json` 保存來源路徑與 SHA。修改及新增檔同樣以 MIT 提供，見 `LICENSE` 和 `NOTICE.txt`。
+The upstream MIT license is retained in `upstream/LICENSE`. Original files are checked against Git blob hashes recorded in `source_manifest.json`. Modified and new files are also MIT licensed; see `LICENSE` and `NOTICE.txt`.

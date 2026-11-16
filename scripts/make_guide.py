@@ -1,10 +1,8 @@
-"""Create a concise Traditional Chinese PDF guide and derived assembly views."""
+"""Create an English PDF guide and derived assembly views."""
 import json, math
 from pathlib import Path
 import cadquery as cq
 import fitz
-from fontTools.ttLib import TTFont
-from fontTools import subset
 from motion import posed
 from check_and_render import render
 
@@ -52,111 +50,115 @@ assert all(not x['intersections'] for x in motion['yaw_samples'])
 assert len(motion['contact_limit_samples'])==20 and all(not x['intersections'] for x in motion['contact_limit_samples'])
 assert all(v['boundary_edges']==0 and v['nonmanifold_edges']==0 and v['signed_volume_mm3']>0 for v in report['stl'].values())
 
-# Extract the Traditional Chinese face from the collection before embedding.
-# Passing a TTC directly can prevent PDF font subsetting in MuPDF.
-fontdir=ROOT/'work/fonts';fontdir.mkdir(parents=True,exist_ok=True)
-for weight in ['Regular','Bold']:
-    dst=fontdir/f'NotoSansCJKtc-{weight}.otf'
-    font=TTFont(f'/usr/share/fonts/opentype/noto/NotoSansCJK-{weight}.ttc',fontNumber=3)
-    opts=subset.Options();opts.desubroutinize=True;opts.retain_gids=True
-    sub=subset.Subsetter(options=opts)
-    sub.populate(text=Path(__file__).read_text()+'0123456789.−°³')
-    sub.subset(font);font.save(dst)
-FONT=str(fontdir/'NotoSansCJKtc-Regular.otf')
-BOLD=str(fontdir/'NotoSansCJKtc-Bold.otf')
-f=fitz.Font(fontfile=FONT);fb=fitz.Font(fontfile=BOLD)
-doc=fitz.open();blue=(.09,.21,.29);gray=(.30,.37,.42);orange=(.92,.52,.08)
-def page(title,subtitle='R2 匹配齒輪試裝版  ·  2026-11-16'):
-    p=doc.new_page(width=595,height=842)
-    p.insert_font(fontname='F',fontfile=FONT);p.insert_font(fontname='B',fontfile=BOLD)
-    p.draw_rect(fitz.Rect(0,0,595,8),color=blue,fill=blue)
-    p.insert_text((36,52),title,fontname='B',fontsize=22,color=blue)
-    p.insert_text((36,76),subtitle,fontname='F',fontsize=10,color=gray)
-    p.draw_line((36,795),(559,795),color=(.8,.83,.85),width=.5)
-    p.insert_text((36,815),'IPX896HV / 原 GitHub 機構局部改裝 / 請先印試片',fontname='F',fontsize=9,color=gray)
-    p.insert_text((536,815),str(len(doc)),fontname='F',fontsize=9,color=gray)
-    return p
-def text(p,txt,x,y,w=523,size=11,bold=False,color=blue,leading=1.6):
-    font=fb if bold else f;name='B' if bold else 'F'
+# Built-in PDF fonts keep the English guide independent of system fonts.
+f=fitz.Font(fontname='helv');fb=fitz.Font(fontname='hebo')
+doc=fitz.open();blue=(.09,.21,.29);gray=(.30,.37,.42);orange=(.80,.38,.04)
+
+def wrapped(txt,width,size,bold=False):
+    font=fb if bold else f;lines=[]
     for paragraph in txt.split('\n'):
         line=''
-        for c in paragraph:
-            if font.text_length(line+c,fontsize=size)>w and line:
-                p.insert_text((x,y),line,fontname=name,fontsize=size,color=color);y+=size*leading;line=c
-            else:line+=c
-        p.insert_text((x,y),line,fontname=name,fontsize=size,color=color);y+=size*leading
+        for word in paragraph.split():
+            candidate=(line+' '+word).strip()
+            if line and font.text_length(candidate,fontsize=size)>width:
+                lines.append(line);line=''
+            while font.text_length(word,fontsize=size)>width:
+                cut=len(word)-1
+                while font.text_length(word[:cut],fontsize=size)>width:cut-=1
+                lines.append(word[:cut]);word=word[cut:]
+            line=(line+' '+word).strip()
+        lines.append(line)
+    return lines
+
+def text(p,txt,x,y,w=523,size=11,bold=False,color=blue,leading=1.45):
+    for line in wrapped(txt,w,size,bold):
+        assert y<785,('Body text exceeds page',len(doc),line)
+        p.insert_text((x,y),line,fontname='hebo' if bold else 'helv',fontsize=size,color=color)
+        y+=size*leading
     return y
-def table(p,rows,widths,y,header=True,rowheight=31):
-    x0=36
+
+def page(title,subtitle='R2 matched-gear fit-check prototype | 2026-11-16'):
+    p=doc.new_page(width=595,height=842)
+    p.draw_rect(fitz.Rect(0,0,595,8),color=blue,fill=blue)
+    p.insert_text((36,52),title,fontname='hebo',fontsize=22,color=blue)
+    p.insert_text((36,76),subtitle,fontname='helv',fontsize=10,color=gray)
+    p.draw_line((36,795),(559,795),color=(.8,.83,.85),width=.5)
+    p.insert_text((36,815),'IPX896HV | Adapted open-source mechanism | Print fit coupons first',fontname='helv',fontsize=9,color=gray)
+    p.insert_text((536,815),str(len(doc)),fontname='helv',fontsize=9,color=gray)
+    return p
+
+def table(p,rows,widths,y,rowheight=30):
     for k,row in enumerate(rows):
-        h=rowheight
-        if k==0 and header:p.draw_rect(fitz.Rect(x0,y,x0+sum(widths),y+h),color=blue,fill=blue)
-        elif k%2==0:p.draw_rect(fitz.Rect(x0,y,x0+sum(widths),y+h),color=None,fill=(.95,.97,.98))
-        x=x0
-        for col,w in zip(row,widths):
-            text(p,str(col),x+7,y+20,w-14,size=10,bold=k==0,color=(1,1,1) if k==0 else blue,leading=1.3);x+=w
-        p.draw_line((x0,y+h),(x0+sum(widths),y+h),color=(.84,.88,.9),width=.4);y+=h
+        lines=[wrapped(str(value),width-14,9,k==0) for value,width in zip(row,widths)]
+        h=max(rowheight,12+max(map(len,lines))*12)
+        assert y+h<785,('Table exceeds page',len(doc),row)
+        if k==0:p.draw_rect(fitz.Rect(36,y,559,y+h),color=blue,fill=blue)
+        elif k%2==0:p.draw_rect(fitz.Rect(36,y,559,y+h),color=None,fill=(.95,.97,.98))
+        x=36
+        for value,width in zip(row,widths):
+            text(p,str(value),x+7,y+16,width-14,size=9,bold=k==0,color=(1,1,1) if k==0 else blue,leading=1.33)
+            x+=width
+        p.draw_line((36,y+h),(559,y+h),color=(.84,.88,.9),width=.4);y+=h
     return y
 
-p=page('IPX896HV 雙自由度夾爪','開合＋左右轉向  /  完整 STEP、分件 STL、試片及五金表')
-p.insert_image(fitz.Rect(25,96,570,583),filename=str(OUT/'preview/assembly_open.png'),keep_proportion=True)
-y=text(p,'保留原機構，改善齒輪傳動',36,608,size=16,bold=True)
-y=text(p,'4 種原件保留幾何；6 種原件局部修改；2 種轉接件。主要列印件共 14 件。R2 齒圈改為匹配漸開線，原輪轂與連桿接口保留。',36,y+10)
-y=text(p,'重要：這是可供列印試裝的 CAD 原型，沒有完成實物配合或承載驗證。兩顆舵機均暫按 IPX896HV，舵盤及固定耳尺寸仍需核對。',36,y+10,bold=True,color=orange)
-text(p,'先開 output/IPX896HV_2DOF_assembly.step；先印 output/fit_checks。完整步驟見 README_繁體中文.md。',36,y+10,size=10)
+p=page('IPX896HV two-axis gripper','Open/close + yaw | Assembly STEP, individual STLs, fit coupons, and hardware BOM')
+p.insert_image(fitz.Rect(25,96,570,550),filename=str(OUT/'preview/assembly_open.png'),keep_proportion=True)
+y=text(p,'Original mechanism, improved gear engagement',36,578,size=16,bold=True)
+y=text(p,'Four retained part types, six locally modified types, and two adapters: 14 main printed pieces. R2 matches the involute gear rims while retaining the original hubs and linkage interfaces.',36,y+10)
+y=text(p,'Fit-test prototype: physical fit and load capacity are unverified. Both servos are provisionally IPX896HV; mounting-ear and metal-horn dimensions still need measurement.',36,y+10,bold=True,color=orange)
+text(p,'Start with output/IPX896HV_2DOF_assembly.step and output/fit_checks/. Full instructions: docs/assembly.md.',36,y+10,size=10)
 
-p=page('列印清單與設定')
-rows=[('編號','零件','數量','處理'),('U01 / U02','左右夾指','各 1','原幾何'),('U03','被動連桿','2','原幾何'),('U06','底座側壁','1','原幾何'),('M01','掌板／舵機座','1','R2 支點／避讓'),('M02','驅動齒輪連桿','1','R2 齒圈＋原接口'),('M03','固定底座','1','沿用 R1'),('M04','原旋轉座','1','沿用 R1'),('M05','右齒輪連桿','1','R2 齒圈；取代 U05'),('M06','小齒輪','2','R2 齒圈；取代 U04'),('N01','舵盤轉接盤','1','沿用 R1'),('N02','夾爪轉接支架','1','沿用 R1')]
-y=table(p,rows,[92,185,55,191],103,rowheight=32)
-y=text(p,'建議：0.4 噴嘴、0.2 層高、4–6 道外壁。支架約 40% 填充；延長軸、舵盤盤面和齒輪根部局部實心。',36,y+31)
-y=text(p,'先用 PLA 試配合；改 PETG 後再確認孔徑。檔案已置底，但 M01/M02 的懸空部位及原夾指槽仍可能需要支撐，請檢查切片每層。',36,y+12)
-text(p,'底座保留原尺寸約 160 × 96。不要列印完整裝配中的 REF 舵機／舵盤。未提供打印機設定，因此不附 G-code。',36,y+12)
+p=page('Print list and settings')
+rows=[('ID','Part','Qty','Treatment'),('U01 / U02','Left / right jaw','1 each','Original geometry'),('U03','Passive link','2','Original geometry'),('U06','Base side wall','1','Original geometry'),('M01','Palm / servo carrier','1','R2 pivots and relief'),('M02','Driving gear link','1','R2 rim; retained interface'),('M03','Fixed base','1','Retained from R1'),('M04','Rotating waist','1','Retained from R1'),('M05','Right gear link','1','R2 rim; replaces U05'),('M06','Idler gear','2','R2 rim; replaces U04'),('N01','Yaw horn coupler','1','Retained from R1'),('N02','Gripper-to-waist bridge','1','Retained from R1')]
+y=table(p,rows,[76,176,48,223],105)
+y=text(p,'Start with a 0.4 mm nozzle, 0.2 mm layers, and 4-6 perimeters. Use about 40% infill for brackets; make shaft extensions, horn flanges, and gear roots locally solid.',36,y+28)
+y=text(p,'Use PLA for initial fit checks. Repeat the coupons after changing to dry PETG. Files have an initial bed orientation; inspect M01/M02 overhangs and original jaw slots for support needs.',36,y+10)
+text(p,'The base remains approximately 160 x 96 mm. REF servo/horn envelopes are not print parts. No printer profile or G-code is supplied.',36,y+10)
 
-p=page('先核對舵機與金屬舵盤')
-text(p,'附件尺寸作起點；未提供的實測值不得視為已確認。',36,108,bold=True,color=orange)
-p.insert_image(fitz.Rect(36,133,339,310),filename=str(OUT/'preview/servo_fit.png'))
-p.insert_image(fitz.Rect(359,133,559,310),filename=str(OUT/'preview/horn_fit.png'))
-rows=[('配合項目','本版採用','驗證方法'),('舵機外殼','40.5 × 21 × 38.9','F01 外殼自由通過'),('外殼口','41.1 × 21.6','每側暫留 0.3'),('固定耳孔距','暫按 48.5 × 10','孔距／高度實測'),('固定耳長孔','5.0 × 3.4','四螺絲可同時穿入'),('金屬舵盤','匹配 25T，外徑 ≤24','F02 試孔位及高度'),('舵盤固定孔','相對 M3 孔，半徑 9','至少兩個相對孔'),('轉接軸／孔','12.0 / 12.8','F03＋F04 自由轉動')]
-y=table(p,rows,[125,174,224],323,rowheight=32)
-y=text(p,'舵盤螺絲用低頭圓頭型：頭徑 ≤5.7、頭高 ≤1.7，必須沉入槽內。半徑 9 的孔位讓螺絲頭能從延長軸旁通過；較小孔距不可直接套用。中心螺絲使用舵機配套牙型。',36,y+29)
-text(p,'若舵盤不符合此接口，先改參數／轉接件。不要靠高扭矩舵機或螺絲把尺寸不合的零件硬壓入位。',36,y+10)
+p=page('Check the servo and metal horn first')
+text(p,'Drawing dimensions are starting assumptions; confirm them on the actual hardware.',36,108,bold=True,color=orange)
+p.insert_image(fitz.Rect(36,133,339,305),filename=str(OUT/'preview/servo_fit.png'))
+p.insert_image(fitz.Rect(359,133,559,305),filename=str(OUT/'preview/horn_fit.png'))
+rows=[('Interface','Nominal design (mm)','Check'),('Servo case','40.5 x 21 x 38.9','F01: case passes freely'),('Case opening','41.1 x 21.6','0.3 clearance per side'),('Ear-hole pitch','48.5 x 10, provisional','Measure pitch and height'),('Ear mounting slots','5.0 x 3.4','All four screws enter together'),('Metal horn','Matching 25T; OD <=24','F02: verify holes and height'),('Horn screw pattern','Opposed M3 holes; radius 9','Use at least two opposed holes'),('Adapter shaft / bore','12.0 / 12.8','F03 + F04 rotate freely')]
+y=table(p,rows,[125,174,224],318)
+y=text(p,'Use recessed low button-head screws: head diameter <=5.7 mm and height <=1.7 mm. Radius-9 holes provide insertion space beside the shaft. Smaller hole circles are not direct substitutes. Use the correct supplied center-screw thread.',36,y+26,size=10.5)
+text(p,'If the horn does not fit, update the parameters and adapter before printing. Do not force incompatible parts together with screws or servo torque.',36,y+10,size=10.5)
 
-p=page('裝配順序')
+p=page('Assembly sequence')
 steps=[
-('1  底座','裝入舵機，鎖固定耳並安排出線；確認線材沒有被 U06 側壁夾住。利用新增底座孔將整機固定在平台上。'),
-('2  底座傳動','先把 N01 鎖到金屬舵盤，確認螺絲頭沉入；再以四個 M3×12 螺絲及普通螺母將 M04 接到 N01。'),
-('3  轉接支架','先鎖 N02 的四個 M5 螺絲。沉孔避免上排螺絲頭頂住掌板；裝掌板後工具較難進入。'),
-('4  開合舵機','將舵機裝到 M01 外置座；M02 連接金屬舵盤，延長軸穿過掌板。中心孔可供鎖舵盤固定螺絲的工具通過。'),
-('5  齒輪與連桿','依 R2 STEP 的位置與齒相裝 M06×2、M05、U03×2 和兩個夾指。R2 掌板與齒輪應成套使用；活動螺絲不可夾死。'),
-('6  墊片與掌板','兩側夾指已對齊。固定支點留約 0.3；被動連桿到夾指均暫需約 1.9 墊高；齒輪連桿到夾指均約留 0.3。再將掌板鎖到 N02。'),
-('7  乾裝後再通電','檢查螺絲尾端、舵盤和線材，手動確認自由運動。先小角度空載測試，實測可用端點後再設定軟限位。')]
+('1  Base','Install the servo, fasten its ears, and route wires clear of U06. Secure the complete mechanism to the platform through the base mounting holes.'),
+('2  Base drive','Attach N01 to the metal horn with fully recessed screw heads. Attach M04 to N01 using four M3 x 12 screws, washers, and standard nuts.'),
+('3  Bridge','Tighten the four N02 M5 screws before installing the palm. Their heads must sit in the counterbores; tool access is limited after palm installation.'),
+('4  Opening servo','Fit the servo to M01. Connect M02 to the metal horn before passing its shaft through the palm. Use the center passage to reach the horn retaining screw.'),
+('5  Gears and links','Position M06 x2, M05, U03 x2, and both jaws using the R2 STEP phase and hole positions. Use the R2 palm and gears together. Keep moving joints free.'),
+('6  Spacers and palm','Allow about 0.3 mm at fixed pivots, 1.9 mm between passive links and jaws, and 0.3 mm between gear links and jaws. Verify actual endplay, then attach the palm to N02.'),
+('7  Dry fit, then power','Check screw ends, horns, and cables by hand. Center the servos before attaching the mechanism. Begin with small unloaded movements and set software limits from measured endpoints.')]
 y=111
 for title,body in steps:
     y=text(p,title,36,y,size=12,bold=True)
-    y=text(p,body,36,y+3,size=10.5);y+=17
-text(p,'詳細螺絲尺寸及順序見 BOM.csv 和 README。活動孔按實際光滑軸段逐孔鉸配，以自由轉動且無明顯晃動為準；直徑間隙可先以約 0.05–0.10 試配。',36,y+4,size=10,color=gray)
+    y=text(p,body,36,y+3,size=10.5);y+=13
+text(p,'See BOM.csv and docs/assembly.md for hardware and detailed order. Fit each moving bore to its actual smooth shaft; about 0.05-0.10 mm diametral clearance is an initial trial value.',36,y+2,size=10,color=gray)
 
-p=page('已檢查與仍需實測')
-last=motion['opening_samples'][-1]
-first=motion['opening_samples'][0]
-rows=[('檢查','結果'),('修改／新增 CAD 零件','八個均為有效單一實體'),('STL 網格',f'{len(report["stl"])} 個列印／試片檔均封閉、正體積'),('名義裝配','未檢出 >0.01 mm³ 的實體穿透'),('開合抽樣','0–36°，每 3° 檢查一次'),('正反向接觸邊界','20 個整體姿態；未檢出 >0.02 mm³ 穿透'),('轉向抽樣','−45° / 0° / +45°'),('連桿閉合','重新對齊，數值誤差近零')]
-y=table(p,rows,[164,359],108,rowheight=34)
-y=text(p,f'R2 剛體齒輪鏈回程約 {max(gears["chain_free_angle_range_deg"]):.2f}°，達到暫定 ≤3° 模型目標；R1 約 8.2–11.6°。未計入打印誤差、軸孔鬆動及舵機回程，實際結果須試裝確認。',36,y+28,bold=True)
-y=text(p,f'上述開合範圍內，兩夾指最小幾何距離約 {first["minimum_jaw_to_jaw_distance_mm"]:.1f}–{last["minimum_jaw_to_jaw_distance_mm"]:.1f}，未含膠墊；不代表任意形狀物品的可夾尺寸。沒有給出已驗證的載重額定值。',36,y+12)
-y=text(p,'供電與軟體接口',36,y+22,size=14,bold=True)
-y=text(p,'附件電壓 4.8–8.4 V；不得直接接原專案的 12.6 V 電池。7.4 V 下單顆堵轉電流 5.4 A，兩顆可能約 10.8 A 峰值，供電與線路需相應選擇並共地。',36,y+7)
-y=text(p,'兩路 PWM。附件脈寬 500–2500 μs、中位 1500 μs、工作頻率 333 Hz；由軟體組確認驅動器設定。完整脈寬範圍不可直接當作機構允許行程。',36,y+10)
-text(p,'GitHub 來源：vshreyas121-code/6-dof-robotic-arm\n固定版本：258d1893ba1b8b49e87baa79da462680fd53681b\n原 MIT 授權、來源雜湊與修改說明均已保留。',36,y+19,size=9,color=gray)
+p=page('CAD checks and physical verification')
+last=motion['opening_samples'][-1];first=motion['opening_samples'][0]
+rows=[('Check','Recorded result'),('Modified / new CAD parts','Eight valid single solids'),('STL meshes',f'{len(report["stl"])} closed print/trial files with positive volume'),('Nominal assembly','No reported penetration above 0.01 mm^3'),('Opening samples','0-36 degrees, every 3 degrees'),('Bidirectional contact limits','20 gripper linkage poses; no overlap above 0.02 mm^3'),('Yaw samples','-45 / 0 / +45 degrees'),('Linkage closure','Realigned; numerical closure error near zero')]
+y=table(p,rows,[164,359],108,rowheight=32)
+y=text(p,f'Rigid R2 gear-chain free play is about {max(gears["chain_free_angle_range_deg"]):.2f} degrees, meeting the provisional 3-degree CAD target. R1 was about 8.2-11.6 degrees. Printing error, pivot looseness, and servo backlash are excluded.',36,y+27,bold=True)
+y=text(p,f'Minimum nominal jaw-to-jaw distance across the sampled stroke is about {first["minimum_jaw_to_jaw_distance_mm"]:.1f}-{last["minimum_jaw_to_jaw_distance_mm"]:.1f} mm without pads. This is not a general object-size gripping range. No verified payload rating is provided.',36,y+10)
+y=text(p,'Power and control interface',36,y+17,size=14,bold=True)
+y=text(p,'Supply range: 4.8-8.4 V. Do not connect the upstream 12.6 V battery directly. At 7.4 V, stall current is 5.4 A per servo; allow for about 10.8 A combined peak. Size supply and wiring accordingly and share controller ground.',36,y+5,size=10.5)
+y=text(p,'Two PWM channels: the supplied sheet specifies 500-2500 microsecond pulses, 1500 at center, and 333 Hz. Confirm driver settings. The electrical pulse range is not the permitted mechanical travel.',36,y+8,size=10.5)
+text(p,'Source: vshreyas121-code/6-dof-robotic-arm\nPinned revision: 258d1893ba1b8b49e87baa79da462680fd53681b\nMIT attribution, source hashes, and modification notes are retained.',36,y+13,size=9,color=gray)
 
-p=page('先用齒輪試裝板選配')
-p.insert_image(fitz.Rect(36,107,559,365),filename=str(OUT/'preview/gear_trial_plate.png'),keep_proportion=True)
-y=text(p,'F05 底板＋20T 齒輪兩件＋19T 齒輪兩件',36,391,size=14,bold=True)
-y=text(p,'20T 裝在相距約 30.09 的兩個外側軸；19T 裝在相距 14.25 的兩個較近軸。螺絲及墊片在圖中省略，組裝時需保留端隙。此底板用於手動試裝。',36,y+10)
-rows=[('檔名代號','每對設計切向齒隙','使用方式'),('B08','0.08','較緊，先確認不卡點'),('B12','0.12','本版主零件採用'),('B16','0.16','較鬆，回程量可能增加')]
-y=table(p,rows,[105,185,233],y+12,rowheight=30)
-y=text(p,'同一組測試請使用相同代號，各齒數均印兩件。先檢查象腳、毛邊、孔徑和軸段，再手動往返轉動；固定輸入後量測輸出自由擺角。',36,y+27)
-y=text(p,'選擇其他齒隙時，需同步改參數、重出 M02／M05／M06 並重新驗證。試裝板通過後，再乾裝包含夾指與連桿的開合模組。',36,y+9)
-text(p,'B08/B12/B16 是 CAD 設計值，不是實測間隙。較大齒隙可能超過本版 ≤3° 的模型目標。',36,y+9,size=10,color=gray)
+p=page('Choose clearance with the gear trial plate')
+p.insert_image(fitz.Rect(36,107,559,345),filename=str(OUT/'preview/gear_trial_plate.png'),keep_proportion=True)
+y=text(p,'F05 plate + two 20T gears + two 19T gears',36,372,size=14,bold=True)
+y=text(p,'Fit 20T gears to the outer axes, about 30.09 mm apart, and 19T gears to the closer axes, 14.25 mm apart. Screws and washers are omitted from the drawing. Preserve axial endplay; this plate is for manual tests.',36,y+10)
+rows=[('File code','Nominal backlash / mesh','Use'),('B08','0.08 mm','Tighter; check for binding'),('B12','0.12 mm','Used by the main R2 parts'),('B16','0.16 mm','Looser; more free play possible')]
+y=table(p,rows,[91,181,251],y+10)
+y=text(p,'Use one code per set and print two of each tooth count. Check elephant foot, burrs, bores, and shafts, then rotate both ways. Hold the input and measure output free angle.',36,y+26,size=10.5)
+y=text(p,'Selecting another clearance requires updating the parameters, regenerating M02/M05/M06, and repeating validation. After the plate test, dry-assemble the complete opening linkage and jaws.',36,y+9,size=10.5)
+text(p,'B08/B12/B16 are CAD design values, not measured clearances. Larger backlash may exceed the current 3-degree CAD target.',36,y+9,size=10,color=gray)
 
-doc.save(OUT/'裝配與試印指南.pdf',garbage=4,deflate=True)
+doc.save(OUT/'assembly_and_print_guide.pdf',garbage=4,deflate=True)
 print('GUIDE_WRITTEN',len(doc),flush=True)
