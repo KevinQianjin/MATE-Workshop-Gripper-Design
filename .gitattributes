@@ -6,3 +6,7 @@
 *.png binary
 *.zip binary
 upstream/** -text
+upstream/** linguist-vendored=true
+output/** linguist-generated=true
+output/README.md linguist-generated=false
+reference/R1_parts/** linguist-generated=true

@@ -1,56 +1,58 @@
 # MATE Workshop Gripper Design
 
-R2 fit-check CAD for a two-degree-of-freedom mini-gripper: **open/close + left/right yaw**, provisionally using two GDW IPX896HV servos. The design adapts [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm), retaining the original jaws, linkage interfaces, gear hubs, and base layout while replacing the working gear teeth with matched involute profiles.
+可 3D 列印的雙自由度夾爪：**開合＋左右轉向**，目前為 **R2 匹配齒輪試裝版**，暫按兩顆 GDW IPX896HV 舵機設計。
 
-This is a prototype for printing and trial assembly. Servo mounting dimensions, metal horn compatibility, physical operation, and load capacity still require verification.
+[模型與列印清單](output/README.md) · [裝配說明](docs/assembly.md) · [中文 PDF](output/裝配與試印指南.pdf) · [五金 BOM](BOM.csv) · [English](docs/README.en.md)
 
-## Design files
+![R2 雙自由度夾爪裝配](output/preview/assembly_open.png)
 
-- [Complete assembly STEP](output/IPX896HV_2DOF_assembly.step)
-- [Printable parts](output/stl/) — 12 part types, 14 printed pieces; print `PRINT_2` files twice
-- [Fit-check coupons](output/fit_checks/) — servo/horn checks plus a four-gear trial plate and three clearance options
-- [Modified and new part STEP files](output/step/)
-- [Traditional Chinese assembly instructions](README_繁體中文.md)
-- [Assembly and trial-print guide (PDF)](output/裝配與試印指南.pdf)
-- [Hardware bill of materials](BOM.csv)
-- [Gear engagement review](output/preview/gear_review_R2.pdf)
-- [Validation reports](output/validation/)
+## 從這裡開始
 
-![R2 gripper assembly](output/preview/assembly_open.png)
+| 你要做什麼 | 開啟檔案 |
+|---|---|
+| 在 Fusion / SolidWorks 查看整機 | [完整裝配 STEP](output/IPX896HV_2DOF_assembly.step) |
+| 先確認舵機、舵盤與齒輪配合 | [試印件](output/fit_checks/)及[試裝步驟](docs/assembly.md#試片流程) |
+| 列印完整機構 | [12 種主要零件、14 件列印清單](output/README.md#主要列印件) |
+| 調整模型 | [8 個修改／新增零件 STEP](output/step/)及[尺寸參數](parameters.json) |
+| 查看齒輪改善與檢查結果 | [齒輪對比圖](output/preview/gear_review_R2.pdf)及[驗證報告索引](docs/validation.md) |
+| 重建或打包檔案 | [重建與交付流程](docs/build.md) |
 
-## R2 gear improvement
+1. 下載 repo（GitHub **Code → Download ZIP** 或 `git clone`），先讀[裝配指南](docs/assembly.md)。使用現有 STEP／STL 不需要安裝 Python。
+2. 先印 F01–F04 接口試片，再印 F05 底板及 B12 的 20T、19T 齒輪各兩件，確認配合。
+3. 試裝通過後，再依[列印清單](output/README.md)和 [BOM](BOM.csv)準備整機，空載校準可用端點。
 
-The four working gear rims now use module 0.75, a 20-degree pressure angle, and the original 20/19/19/20 tooth counts. Each idler pivot moves approximately 0.257 mm to give matching center distances. R1's full 2.0 mm axial tooth engagement is retained, as are the hubs, mounting interfaces, link lengths, jaws, and base parts.
+## 目前設計
 
-The exported CAD profiles give approximately **2.75 degrees of output reversal free play** over the assessed 0–36-degree input range, compared with R1's approximately 8.2–11.6 degrees. This meets the provisional CAD target of at most 3 degrees. It excludes printing error, bearing clearance, elastic deflection, friction, and servo backlash; physical performance remains unverified.
+| 項目 | R2 |
+|---|---|
+| 自由度 | 開合＋左右轉向，共 2 軸 |
+| 主要列印件 | 12 種、14 件；`PRINT_2` 檔案印兩件 |
+| 齒輪配置 | 模數 0.75、壓力角 20°、20／19／19／20 齒 |
+| 相對 R1 的更換範圍 | M01、M02、M05、M06 ×2，共 4 種、5 件 |
+| 輸出端幾何回程估算 | 約 2.75°；R1 約 8.2–11.6° |
+| CAD 驗證 | 23 個 STL、20 個 STEP、145 個名義齒面位置及 20 個正反向接觸邊界姿態 |
 
-Upgrading from R1 replaces **four part types, five printed pieces**: M01, M02, M05 (replacing U05), and M06 ×2 (replacing U04 ×2). Use the R2 palm and gears together. The main assembly still contains 14 printed pieces. The remaining part geometry is retained and checked against the R1 baseline.
+**目前是完成 CAD 檢查的試裝原型。**舵機固定耳、金屬舵盤、實際列印配合及承載能力仍需實測。回程數值為剛體模型估算，未計入打印誤差及舵機自身回程。R2 掌板與齒輪需成套使用；細節見[裝配說明](docs/assembly.md)與[驗證範圍](docs/validation.md)。
 
-Print F05 and two each of the B12 20T/19T trial gears first. B08, B12, and B16 denote nominal per-mesh tangential backlash of 0.08, 0.12, and 0.16 mm. The main parts use B12. A different choice requires regenerating and validating the main gears; B16 can exceed the current 3-degree CAD target.
+## Repo 結構
 
-Recorded checks cover 20 STEP re-imports, 23 closed and consistently oriented STL meshes, 145 nominal gear-profile positions, 20 gripper linkage poses at the opening/closing tooth-contact limits, nominal opening and yaw samples, linkage closure, screw access, and preservation of existing interfaces. These checks do not establish physical fit, load capacity, or continuous operation under load.
-
-## Rebuild and inspect
-
-Install Python dependencies from `requirements.txt`, then run:
-
-```sh
-python scripts/build.py
-python scripts/check_and_render.py
-python scripts/check_gears.py
-python scripts/validate_motion.py
-python scripts/verify_delivery.py
-python scripts/verify_screw_access.py
-python scripts/verify_revision.py
-python scripts/plot_gear_review.py
-python scripts/make_guide.py
-python scripts/package_delivery.py
+```text
+docs/                 裝配、重建、驗證說明與英文介紹
+output/               可直接查看的 R2 模型、試片、PDF 與驗證結果
+scripts/              CAD 生成、檢查、繪圖與打包程式
+reference/            R1 比對基準
+upstream/             原 GitHub 專案檔案與授權
+BOM.csv               採購五金清單
+parameters.json       設計尺寸與待確認假設
+CHANGELOG.md          版本紀錄
+source_manifest.json  固定來源版本與檔案雜湊
+DELIVERY_SHA256SUMS.txt 交付檔案校驗值
 ```
 
-The PDF and annotated gear-review scripts additionally use Noto Sans CJK fonts at the Linux paths documented in the Chinese instructions. Generated `work/` files, local logs, and Python caches are excluded from version control.
+`dist/` 是執行打包後產生的交付目錄；`work/` 是本機工作目錄，兩者均不提交到 Git。進一步導覽見[文件索引](docs/README.md)。
 
-`parameters.json` records nominal dimensions and unverified inputs. `source_manifest.json` pins the upstream source to commit `258d1893ba1b8b49e87baa79da462680fd53681b`. `reference/` retains the R1 comparison data. `DELIVERY_SHA256SUMS.txt` records the R2 packaged source and deliverables; Git metadata is excluded.
+## 來源與授權
 
-## License and attribution
+基於 [vshreyas121-code/6-dof-robotic-arm](https://github.com/vshreyas121-code/6-dof-robotic-arm)，固定版本 `258d1893ba1b8b49e87baa79da462680fd53681b`。原夾指、連桿、輪轂及底座配置盡量沿用，R2 更換工作齒圈。
 
-MIT. See [LICENSE](LICENSE), [NOTICE.txt](NOTICE.txt), and the retained [upstream license](upstream/LICENSE).
+採用 MIT 授權，見 [LICENSE](LICENSE)、[NOTICE.txt](NOTICE.txt)及[原作者授權](upstream/LICENSE)。版本差異見 [CHANGELOG](CHANGELOG.md)。
