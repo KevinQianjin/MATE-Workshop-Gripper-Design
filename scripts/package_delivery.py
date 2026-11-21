@@ -20,7 +20,7 @@ assert abs(gears['pairs']['17-7']['axial_tooth_overlap_mm']-2)<1e-5
 files=[]
 for name in ['README.md','CHANGELOG.md','BOM.csv','parameters.json','requirements.txt','LICENSE','NOTICE.txt','source_manifest.json','.gitignore','.gitattributes']:
     files.append(ROOT/name)
-for name in ['docs','upstream','output','scripts','reference']:
+for name in ['docs','firmware','upstream','output','scripts','reference']:
     for p in sorted((ROOT/name).rglob('*')):
         if not p.is_file() or '__pycache__' in p.parts or p.name.startswith('DEBUG_') or p.name=='inspect_source.py':continue
         files.append(p)
