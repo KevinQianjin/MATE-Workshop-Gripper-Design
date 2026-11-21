@@ -4,6 +4,8 @@
 
 Run the following commands from the repository root. To use the supplied STEP/STL files, download [output/](../output/) directly.
 
+Arduino upload, calibration, and firmware checks are documented separately in the [controller guide](../firmware/README.md).
+
 ## Install dependencies
 
 Create a Python virtual environment and install [requirements.txt](../requirements.txt). The CAD engine is pinned to CadQuery 2.7.0; use a Python version supported by that package.
@@ -55,7 +57,7 @@ Generated delivery files are placed in the ignored `dist/` directory:
 
 | File | Contents |
 |---|---|
-| `IPX896HV_2DOF_R2.zip` | Models, fit checks, documentation, scripts, source files, and baselines |
+| `IPX896HV_2DOF_R2.zip` | Models, fit checks, Arduino firmware, documentation, scripts, source files, and baselines |
 | `IPX896HV_2DOF_R2.step` | Complete assembly |
 | `IPX896HV_R2_assembly_and_print_guide.pdf` | Illustrated English guide |
 | `IPX896HV_2DOF_R2_preview.png` | Assembly preview |

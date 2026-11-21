@@ -6,6 +6,7 @@
 |---|---|
 | [Assembly and trial printing](assembly.md) | Servo and horn interfaces, fit checks, print settings, hardware, and assembly order |
 | [Models and print list](../output/README.md) | STL quantities, modified-part STEP files, trial parts, and naming conventions |
+| [Arduino control](../firmware/README.md) | Uno R4 WiFi sketch, D9/D10 wiring, Serial Monitor commands, and endpoint calibration |
 | [Build and delivery](build.md) | Dependencies, script order, ZIP generation, and checksums |
 | [Validation reports](validation.md) | What each JSON report checks and what still requires physical testing |
 | [PDF assembly guide](../output/assembly_and_print_guide.pdf) | Six-page illustrated assembly and trial-print guide |
@@ -16,6 +17,7 @@
 ## Directory responsibilities
 
 - `output/` contains the current R2 delivery models and matching check results. Use STL for slicing and STEP for CAD inspection.
+- `firmware/` contains the Uno R4 controller and host behavior tests; calibrate pulse endpoints on the actual mechanism.
 - `scripts/` and `parameters.json` support rebuilding. After changing the design, rerun the relevant checks.
 - `upstream/` preserves the original project files pinned by `source_manifest.json`.
 - `reference/` stores the R1 data used by `verify_revision.py` and the gear comparison plot.

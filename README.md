@@ -2,7 +2,7 @@
 
 A 3D-printable, two-degree-of-freedom gripper: **open/close + left/right yaw**. The current design is the **R2 matched-gear fit-check prototype**, provisionally using two GDW IPX896HV servos.
 
-[Models and print list](output/README.md) · [Assembly instructions](docs/assembly.md) · [PDF guide](output/assembly_and_print_guide.pdf) · [Hardware BOM](BOM.csv)
+[Models and print list](output/README.md) · [Assembly instructions](docs/assembly.md) · [Arduino control](firmware/README.md) · [PDF guide](output/assembly_and_print_guide.pdf) · [Hardware BOM](BOM.csv)
 
 ![R2 two-axis gripper assembly](output/preview/assembly_open.png)
 
@@ -13,6 +13,7 @@ A 3D-printable, two-degree-of-freedom gripper: **open/close + left/right yaw**. 
 | Inspect the complete mechanism in Fusion or SolidWorks | [Assembly STEP](output/IPX896HV_2DOF_assembly.step) |
 | Check servo, horn, and gear fit | [Fit-check parts](output/fit_checks/) and [trial procedure](docs/assembly.md#interface-fit-checks) |
 | Print the mechanism | [12 part types, 14 printed pieces](output/README.md#main-printed-parts) |
+| Control it with an Arduino Uno R4 WiFi | [Sketch, wiring, and calibration](firmware/README.md): D9 yaw, D10 open/close |
 | Modify the design | [8 modified/new part STEP files](output/step/) and [parameters](parameters.json) |
 | Review the gear improvement and checks | [Gear comparison](output/preview/gear_review_R2.pdf) and [validation index](docs/validation.md) |
 | Rebuild or package the project | [Build and delivery guide](docs/build.md) |
@@ -38,6 +39,7 @@ A 3D-printable, two-degree-of-freedom gripper: **open/close + left/right yaw**. 
 
 ```text
 docs/                   Assembly, build, and validation documentation
+firmware/               Uno R4 WiFi sketch, wiring guide, and controller tests
 output/                 R2 models, fit coupons, PDFs, and validation results
 scripts/                CAD generation, checking, rendering, and packaging
 reference/              R1 comparison baselines

@@ -113,7 +113,7 @@ M02 and N01 horn screws require low button heads fully recessed into their slots
 
 ## Controls and test limits
 
-Two PWM channels control opening and yaw. The supplied servo sheet specifies 4.8–8.4 V, 500–2500 microsecond pulses, a 1500 microsecond center, and 333 Hz operation. The controls team must confirm driver settings. The full electrical pulse range is not the mechanism's permitted travel.
+Two PWM channels control opening and yaw. The supplied servo sheet specifies 4.8–8.4 V, 500–2500 microsecond pulses, a 1500 microsecond center, and 333 Hz operation. The [Uno R4 WiFi sketch and wiring guide](../firmware/README.md) use D9 for yaw and D10 for opening/closing at approximately 333 Hz. Calibrate the sketch's trial endpoints on the actual assembly; the full electrical pulse range is not the mechanism's permitted travel.
 
 Do not connect the upstream project's 12.6 V battery directly to IPX896HV servos. At 7.4 V the specified stall current is 5.4 A per servo, so two servos may demand approximately 10.8 A peak. Select the supply and wiring accordingly and share ground with the controller.
 

@@ -2,6 +2,14 @@
 
 [Project home](README.md) · [Documentation index](docs/README.md)
 
+## Arduino Uno R4 WiFi controller — 2026-11-20
+
+- Add D9 horizontal yaw and D10 gripper control using approximately 333 Hz hardware PWM.
+- Add Serial Monitor commands, gradual movement, explicit arming, stop/off controls, and endpoint calibration within configured limits.
+- Document external servo power, shared ground, upload steps, and the provisional trial endpoints.
+- Add controller behavior tests and include the firmware in delivery packages.
+- Retain the R2 mechanical geometry and CAD validation data.
+
 ## Repository organization and English documentation — 2026-11-16
 
 - Organize the homepage around model inspection, trial printing, assembly, and rebuilding.
